@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pod_v1", "pod-v1\pod-v1.csproj", "{C6AFC5C1-9E58-445C-84F4-9DC6A5313AB8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C6AFC5C1-9E58-445C-84F4-9DC6A5313AB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6AFC5C1-9E58-445C-84F4-9DC6A5313AB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6AFC5C1-9E58-445C-84F4-9DC6A5313AB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6AFC5C1-9E58-445C-84F4-9DC6A5313AB8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7FD765A2-8BF3-46CF-A3F8-55E25D14F38D}
+	EndGlobalSection
+EndGlobal
