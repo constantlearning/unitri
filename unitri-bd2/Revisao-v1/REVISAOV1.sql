@@ -126,13 +126,25 @@ SELECT * FROM detalhes_funcionario
 WHERE nome_do_projeto = 'Bank';
 
 -- 06) Altere o nome do "PROJETO X" para "PROJETO Y" na VIEW criada em (04).
-
+	
 
 -- 07) Exclua a VIEW (04).
 DROP VIEW detalhes_funcionario;
 
 -- 08) Crie uma asserção onde o salário do funcionário não pode ser maior que o salário de seu gerente.
+DELIMITER $
+CREATE TRIGGER valida_salario
+BEFORE INSERT ON funcionario
+FOR EACH ROW
+BEGIN
+	IF ((SELECT salario FROM funcionario WHERE cpf = NEW.cpf_supervisor) < NEW.salario ) THEN
+		SIGNAL SQLSTATE '45000'
+		SET MESSAGE_TEXT = 'TENTANDO INSERIR FUNCIONARIO COM SALARIO MAIOR QUE O GERENTE.';
+    END IF;
+END$
+DELIMITER ;
 
+INSERT INTO funcionario(id_departamento, nome, cpf, sexo, cpf_supervisor, endereco, salario) VALUES(1, "Teste insert", 91919191, 'M', 222222222, 'Rua teste 1', 9000);
 
 -- 09) Para cada departamento, recupere o seu número, o número de funcionários que nele trabalham, a média total de seus salários.
 SELECT depto.id AS numero, count(func.id_departamento) AS quantidade_funcionarios, AVG(func.salario) AS media_salarios
