@@ -126,10 +126,11 @@ SELECT * FROM detalhes_funcionario
 WHERE nome_do_projeto = 'Bank';
 
 -- 06) Altere o nome do "PROJETO X" para "PROJETO Y" na VIEW criada em (04).
-	
+UPDATE detalhes_funcionario SET nome_do_projeto = 'PROJETO Y'
+WHERE nome_do_projeto = 'Não sei';
 
 -- 07) Exclua a VIEW (04).
-DROP VIEW detalhes_funcionario;
+DROP VIEW detalhes_departamento;
 
 -- 08) Crie uma asserção onde o salário do funcionário não pode ser maior que o salário de seu gerente.
 DELIMITER $
