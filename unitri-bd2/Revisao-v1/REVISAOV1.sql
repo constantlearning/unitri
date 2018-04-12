@@ -154,9 +154,7 @@ GROUP BY depto.id;
 
 -- 10) Inclua um novo atributo na tabela DPTO chamado SAL_TOTAL. Crie uma TRIGGER para atualizar o valor total dos salários do departamento em que um novo funcionário é incluído.
 ALTER TABLE departamento
-ADD COLUMN sal_total FLOAT;
-
-UPDATE departamento SET sal_total = 0;
+ADD COLUMN sal_total FLOAT NOT NULL;
 
 DELIMITER $
 CREATE TRIGGER atualiza_salario_total AFTER INSERT
