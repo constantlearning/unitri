@@ -12,7 +12,7 @@ namespace AdalineV1.Adaline.Network
         private double biasPeso;
         private double deltaBias;
         public List<double[]> entradas;
-        public List<Double> saidas;
+        public Double[] saidas;
         public double[] pesos;
         private double taxaAprendizagem = 0.01;
         private double precisao = 0.1;
@@ -22,7 +22,7 @@ namespace AdalineV1.Adaline.Network
         public double Precisao { get => precisao; set => precisao = value; }
         public string Nome { get; set; }
 
-        public Neuron(String nome, List<double[]> dadosTreinamento, List<Double> saidasTreinamento)
+        public Neuron(String nome, List<double[]> dadosTreinamento, Double[] saidasTreinamento)
         {
             Nome = nome;
             entradas = dadosTreinamento;
@@ -121,7 +121,6 @@ namespace AdalineV1.Adaline.Network
                     Console.WriteLine("Pesos: " + string.Join(",", pesos));
                 }
             } while (maiorErroQuadratico > Precisao);
-            int x = 0;
         }
     }
 }

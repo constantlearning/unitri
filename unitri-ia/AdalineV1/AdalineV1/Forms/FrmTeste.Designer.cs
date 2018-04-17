@@ -34,16 +34,6 @@
             this.rbFonte2 = new System.Windows.Forms.RadioButton();
             this.rbFonte1 = new System.Windows.Forms.RadioButton();
             this.dtgLetra = new System.Windows.Forms.DataGridView();
-            this.letraBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lbLetra = new System.Windows.Forms.ListBox();
-            this.btnCarregarLetra = new System.Windows.Forms.Button();
-            this.btnTestar = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblRuido = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.letraBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.fontesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,10 +41,19 @@
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.letraBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.letraBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lbLetra = new System.Windows.Forms.ListBox();
+            this.btnTestar = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblRuido = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.fontesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgLetra)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.letraBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.letraBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.letraBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fontesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -123,84 +122,6 @@
             this.dtgLetra.Size = new System.Drawing.Size(289, 222);
             this.dtgLetra.TabIndex = 1;
             // 
-            // lbLetra
-            // 
-            this.lbLetra.FormattingEnabled = true;
-            this.lbLetra.Items.AddRange(new object[] {
-            "A",
-            "B",
-            "C",
-            "D",
-            "E",
-            "J",
-            "K"});
-            this.lbLetra.Location = new System.Drawing.Point(319, 119);
-            this.lbLetra.Name = "lbLetra";
-            this.lbLetra.Size = new System.Drawing.Size(102, 95);
-            this.lbLetra.TabIndex = 2;
-            // 
-            // btnCarregarLetra
-            // 
-            this.btnCarregarLetra.Location = new System.Drawing.Point(333, 220);
-            this.btnCarregarLetra.Name = "btnCarregarLetra";
-            this.btnCarregarLetra.Size = new System.Drawing.Size(75, 23);
-            this.btnCarregarLetra.TabIndex = 3;
-            this.btnCarregarLetra.Text = "Exibir";
-            this.btnCarregarLetra.UseVisualStyleBackColor = true;
-            this.btnCarregarLetra.Click += new System.EventHandler(this.btnCarregarLetra_Click);
-            // 
-            // btnTestar
-            // 
-            this.btnTestar.Location = new System.Drawing.Point(333, 253);
-            this.btnTestar.Name = "btnTestar";
-            this.btnTestar.Size = new System.Drawing.Size(75, 23);
-            this.btnTestar.TabIndex = 4;
-            this.btnTestar.Text = "Testar";
-            this.btnTestar.UseVisualStyleBackColor = true;
-            this.btnTestar.Click += new System.EventHandler(this.btnTestar_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(12, 253);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(299, 20);
-            this.textBox1.TabIndex = 5;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 237);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(165, 13);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Caractere Reconhecido:  (Ruído ";
-            // 
-            // lblRuido
-            // 
-            this.lblRuido.AutoSize = true;
-            this.lblRuido.Location = new System.Drawing.Point(178, 237);
-            this.lblRuido.Name = "lblRuido";
-            this.lblRuido.Size = new System.Drawing.Size(28, 13);
-            this.lblRuido.TabIndex = 7;
-            this.lblRuido.Text = "0,00";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(212, 237);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(18, 13);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "%)";
-            // 
-            // letraBindingSource1
-            // 
-            this.letraBindingSource1.DataSource = typeof(AdalineV1.Network.data.Letra);
-            // 
-            // fontesBindingSource
-            // 
-            this.fontesBindingSource.DataSource = typeof(AdalineV1.Network.Fontes);
-            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "C1";
@@ -250,6 +171,75 @@
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.Width = 35;
             // 
+            // letraBindingSource1
+            // 
+            this.letraBindingSource1.DataSource = typeof(AdalineV1.Network.data.Letra);
+            // 
+            // lbLetra
+            // 
+            this.lbLetra.FormattingEnabled = true;
+            this.lbLetra.Items.AddRange(new object[] {
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "J",
+            "K"});
+            this.lbLetra.Location = new System.Drawing.Point(319, 119);
+            this.lbLetra.Name = "lbLetra";
+            this.lbLetra.Size = new System.Drawing.Size(102, 95);
+            this.lbLetra.TabIndex = 2;
+            this.lbLetra.SelectedIndexChanged += new System.EventHandler(this.lbLetra_SelectedIndexChanged);
+            // 
+            // btnTestar
+            // 
+            this.btnTestar.Location = new System.Drawing.Point(333, 253);
+            this.btnTestar.Name = "btnTestar";
+            this.btnTestar.Size = new System.Drawing.Size(75, 23);
+            this.btnTestar.TabIndex = 4;
+            this.btnTestar.Text = "Testar";
+            this.btnTestar.UseVisualStyleBackColor = true;
+            this.btnTestar.Click += new System.EventHandler(this.btnTestar_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(12, 253);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(299, 20);
+            this.textBox1.TabIndex = 5;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 237);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(165, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Caractere Reconhecido:  (Ruído ";
+            // 
+            // lblRuido
+            // 
+            this.lblRuido.AutoSize = true;
+            this.lblRuido.Location = new System.Drawing.Point(178, 237);
+            this.lblRuido.Name = "lblRuido";
+            this.lblRuido.Size = new System.Drawing.Size(28, 13);
+            this.lblRuido.TabIndex = 7;
+            this.lblRuido.Text = "0,00";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(212, 237);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(18, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "%)";
+            // 
+            // fontesBindingSource
+            // 
+            this.fontesBindingSource.DataSource = typeof(AdalineV1.Network.Fontes);
+            // 
             // FrmTeste
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -260,18 +250,20 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnTestar);
-            this.Controls.Add(this.btnCarregarLetra);
             this.Controls.Add(this.lbLetra);
             this.Controls.Add(this.dtgLetra);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmTeste";
-            this.Text = "FrmTeste";
+            this.Text = "Teste da Rede";
             this.Load += new System.EventHandler(this.FrmTeste_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgLetra)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.letraBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.letraBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.letraBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fontesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -286,7 +278,6 @@
         private System.Windows.Forms.RadioButton rbFonte1;
         private System.Windows.Forms.DataGridView dtgLetra;
         private System.Windows.Forms.ListBox lbLetra;
-        private System.Windows.Forms.Button btnCarregarLetra;
         private System.Windows.Forms.Button btnTestar;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;

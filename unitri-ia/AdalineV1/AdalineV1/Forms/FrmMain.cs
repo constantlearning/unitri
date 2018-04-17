@@ -17,6 +17,7 @@ namespace AdalineV1
         public Main()
         {
             InitializeComponent();
+            this.CenterToScreen();
         }
 
         List<Neuron> neuronios;
@@ -31,7 +32,7 @@ namespace AdalineV1
             FrmTreinamento frmTreinamento = new FrmTreinamento();
             frmTreinamento.ShowDialog();
 
-            neuronios = frmTreinamento.neuronios;
+            neuronios = frmTreinamento.redeNeural;
         }
 
         private void testeDaRedeToolStripMenuItem_Click(object sender, EventArgs e)

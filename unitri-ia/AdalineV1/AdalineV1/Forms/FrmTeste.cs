@@ -20,26 +20,20 @@ namespace AdalineV1.Forms
         public FrmTeste()
         {
             InitializeComponent();
+            this.CenterToScreen();
         }
 
         internal List<Neuron> neuronios;
         List<Letra> letra;
-
-        private void btnCarregarLetra_Click(object sender, EventArgs e)
-        {
-            letraBindingSource.DataSource = null;
-            Double[] result = combinacoes();
-
-            letra = criarLetra(result);
-            letraBindingSource1.DataSource = letra;
-        }
+        int quantidadeRuidos;
 
         private void btnTestar_Click(object sender, EventArgs e)
         {
             if (this.neuronios == null)
             {
-                MessageBox.Show("A rede não foi treinada !");
-                this.Close();
+                MessageBox.Show("A rede não foi treinada !", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Close();
+                return;
             }
 
             String resultado = "";
@@ -53,17 +47,21 @@ namespace AdalineV1.Forms
                 }
             });
 
-            int x = 0;
-            textBox1.Text = resultado;
+            // Define porcentagem de ruído.
+            double porcentagemRuidos = (quantidadeRuidos / 63.00) * 100.00;
+            lblRuido.Text = porcentagemRuidos > 0 ? porcentagemRuidos.ToString("#.##") : "0,00";
+
+            // Exibe resultado da rede.
+            textBox1.Text = resultado;            
         }
 
         private void FrmTeste_Load(object sender, EventArgs e)
         {
-            lbLetra.SelectedIndex = 0;
             letra = criarLetra(Fontes.A1);
             letraBindingSource1.DataSource = letra;
         }
 
+        // Transforma o input do datagridview em input novamente.
         private Double[] criarInput()
         {
             String temp = "";
@@ -78,6 +76,8 @@ namespace AdalineV1.Forms
                 temp += linha.C7 + ",";
             });
 
+             quantidadeRuidos = temp.Count(x => x == '0');
+
             temp = Regex.Replace(temp, @"(?s)[^-#,](.*?)", "0");
             temp = temp.Replace("-", "-1");
             temp = temp.Replace("#", "1");
@@ -88,6 +88,7 @@ namespace AdalineV1.Forms
             return resultado;
         }
 
+        // Cria uma a abstração de uma letra para o datagridview.
         private List<Letra> criarLetra(Double[] entrada)
         {
             List<Letra> letra = new List<Letra>();
@@ -100,10 +101,18 @@ namespace AdalineV1.Forms
 
                 letra.Add(new Letra(temp));
             }
-
             return letra;
         }
 
+        private void lbLetra_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            letraBindingSource.DataSource = null;
+            Double[] result = combinacoes();
+            letra = criarLetra(result);
+            letraBindingSource1.DataSource = letra;
+        }
+
+        // Combinações de letras e radio buttons.
         private Double[] combinacoes()
         {
             if (rbFonte1.Checked && lbLetra.SelectedIndex == 0) { return Fontes.A1; }
@@ -132,6 +141,5 @@ namespace AdalineV1.Forms
 
             return null;
         }
-
     }
 }

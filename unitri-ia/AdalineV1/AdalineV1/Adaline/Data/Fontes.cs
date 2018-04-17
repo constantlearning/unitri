@@ -33,49 +33,49 @@ namespace AdalineV1.Network
         static Double[] j3 = { -1, -1, -1, -1, 1, 1, 1, -1, -1, -1, -1, -1, 1, -1, -1, -1, -1, -1, -1, 1, -1, -1, -1, -1, -1, -1, 1, -1, -1, -1, -1, -1, -1, 1, -1, -1, -1, -1, -1, -1, 1, -1, -1, -1, -1, -1, -1, 1, -1, -1, 1, -1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, -1 };
         static Double[] k3 = { 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, -1, 1, -1, -1, 1, -1, -1, -1, 1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, -1, -1, -1, 1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, -1, -1, -1, 1, -1, -1, -1, 1, -1, 1, 1, 1, -1, -1, 1, 1 };
 
-        static List<Double> saidasA = new List<Double>
+        static Double[] saidasA =
         {
             1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0,
             1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0,
             1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0
         };
 
-        static List<Double> saidasB = new List<Double>
+        static Double[] saidasB =
         {
                -1.0, 1.0, -1.0, -1.0, -1.0, -1.0, -1.0,
                -1.0, 1.0, -1.0, -1.0, -1.0, -1.0, -1.0,
                -1.0, 1.0, -1.0, -1.0, -1.0, -1.0, -1.0
         };
 
-        static List<Double> saidasC = new List<Double>
+        static Double[] saidasC =
         {
                 -1.0, -1.0, 1.0, -1.0, -1.0, -1.0, -1.0,
                 -1.0, -1.0, 1.0, -1.0, -1.0, -1.0, -1.0,
                 -1.0, -1.0, 1.0, -1.0, -1.0, -1.0, -1.0
         };
 
-        static List<Double> saidasD = new List<Double>
+        static Double[] saidasD =
         {
                 -1.0, -1.0, -1.0, 1.0, -1.0, -1.0, -1.0,
                 -1.0, -1.0, -1.0, 1.0, -1.0, -1.0, -1.0,
                 -1.0, -1.0, -1.0, 1.0, -1.0, -1.0, -1.0
         };
 
-        static List<Double> saidasE = new List<Double>
+        static Double[] saidasE =
         {
             -1.0, -1.0, -1.0, -1.0, 1.0, -1.0, -1.0,
             -1.0, -1.0, -1.0, -1.0, 1.0, -1.0, -1.0,
             -1.0, -1.0, -1.0, -1.0, 1.0, -1.0, -1.0
         };
 
-        static List<Double> saidasJ = new List<double>
+        static Double[] saidasJ =
         {
                 -1.0, -1.0, -1.0, -1.0, -1.0, 1.0, -1.0,
                 -1.0, -1.0, -1.0, -1.0, -1.0, 1.0, -1.0,
                 -1.0, -1.0, -1.0, -1.0, -1.0, 1.0, -1.0
         };
 
-        static List<Double> saidasK = new List<Double>
+        static Double[] saidasK =
         {
                 -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, 1.0,
                 -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, 1.0,
@@ -106,17 +106,22 @@ namespace AdalineV1.Network
         public static double[] J3 { get => j3; }
         public static double[] K3 { get => k3; }
 
-        public static List<double> SaidasA { get => saidasA; }
-        public static List<double> SaidasB { get => saidasB; }
-        public static List<double> SaidasC { get => saidasC; }
-        public static List<double> SaidasD { get => saidasD; }
-        public static List<double> SaidasE { get => saidasE; }
-        public static List<double> SaidasJ { get => saidasJ; }
-        public static List<double> SaidasK { get => saidasK; }
+        public static double[] SaidasA { get => saidasA; }
+        public static double[] SaidasB { get => saidasB; }
+        public static double[] SaidasC { get => saidasC; }
+        public static double[] SaidasD { get => saidasD; }
+        public static double[] SaidasE { get => saidasE; }
+        public static double[] SaidasJ { get => saidasJ; }
+        public static double[] SaidasK { get => saidasK; }
 
         public static List<Double[]> obterVetoresTreinamento()
         {
             return new List<Double[]> { A1, B1, C1, D1, E1, J1, K1, A2, B2, C2, D2, E2, J2, K2, A3, B3, C3, D3, E3, J3, K3 };
+        }
+
+        public static List<Double[]> obterSaidas()
+        {
+            return new List<double[]> { SaidasA, SaidasB, SaidasC, SaidasD, saidasE, SaidasJ, SaidasK };
         }
 
     }

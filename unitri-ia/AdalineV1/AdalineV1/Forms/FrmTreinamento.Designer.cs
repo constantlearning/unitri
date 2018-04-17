@@ -147,6 +147,9 @@
             this.ClientSize = new System.Drawing.Size(435, 194);
             this.Controls.Add(this.btnTreinar);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmTreinamento";
             this.Text = "Treinamento";
             this.groupBox1.ResumeLayout(false);
