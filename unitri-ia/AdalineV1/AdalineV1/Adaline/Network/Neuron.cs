@@ -37,10 +37,10 @@ namespace AdalineV1.Adaline.Network
             Random random = new Random();
             for (int i = 0; i < pesos.Length; i++)
             {
-                pesos[i] = random.NextDouble();
+                pesos[i] = 0;
             }
 
-            biasPeso = random.NextDouble();
+            biasPeso = 0;
         }
 
         public double calcular(double[] entrada)
@@ -96,6 +96,7 @@ namespace AdalineV1.Adaline.Network
 
                 for(int i = 0; i < entradas.Count; i ++)
                 {
+                    
                     double erro = saidas[i] - sinapse(entradas[i]);
 
                     for (int j = 0; j < entradas[i].Length; j++)
@@ -120,6 +121,8 @@ namespace AdalineV1.Adaline.Network
                     Console.WriteLine("Pesos: " + string.Join(",", pesos));
                 }
             } while (maiorErroQuadratico > Precisao);
+            int x = 0;
         }
     }
 }
+    
