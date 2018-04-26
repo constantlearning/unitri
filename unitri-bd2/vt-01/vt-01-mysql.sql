@@ -1,3 +1,5 @@
+# Docker: docker run --name unitri-mysql -p 3306:3306  -e MYSQL_ROOT_PASSWORD=123@mudar -d mysql
+
 # CREATE DATABASE vt01;
 
 # drop table chamado_boleto CASCADE ;
