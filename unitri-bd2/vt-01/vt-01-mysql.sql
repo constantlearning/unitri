@@ -334,14 +334,10 @@ LIMIT 5;
 
 
 -- 07) Listar os motoristas com carteira de habilitação a vencer em 30 dias.
-select * from motorista;
-select * from habilitacao;
-
-SELECT *, (h.data_validade - h.data_emissao) FROM motorista as m
+SELECT m.nome, datediff(h.data_validade, curdate()) as expira_em_dias
+FROM motorista as m
 INNER JOIN habilitacao h on m.id = h.id_motorista
-WHERE h.data_validade - h.data_emissao;
-
-
+WHERE datediff(h.data_validade, curdate()) < 30;
 
 -- 08) Crie uma view para listar:
 -- 	1- Nome do motorista
@@ -364,4 +360,3 @@ CREATE VIEW v_motorista_veiculo AS
     INNER JOIN habilitacao h on m.id = h.id_motorista;
 
 SELECT * FROM v_motorista_veiculo;
-
