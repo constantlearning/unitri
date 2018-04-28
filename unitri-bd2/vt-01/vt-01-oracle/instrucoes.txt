@@ -1,0 +1,4 @@
+Utilizando docker: docker run --name oracle-database -d --shm-size=2g -p 1521:1521 alexeiled/docker-oracle-xe-11g
+
+Remover política de expirar senha: ALTER USER system ACCOUNT UNLOCK;
+
