@@ -46,14 +46,14 @@
             this.mtxtTelefone.Mask = "(99) 00000-0000";
             this.mtxtTelefone.Name = "mtxtTelefone";
             this.mtxtTelefone.Size = new System.Drawing.Size(173, 20);
-            this.mtxtTelefone.TabIndex = 13;
+            this.mtxtTelefone.TabIndex = 3;
             // 
             // dateNascimento
             // 
             this.dateNascimento.Location = new System.Drawing.Point(75, 75);
             this.dateNascimento.Name = "dateNascimento";
             this.dateNascimento.Size = new System.Drawing.Size(200, 20);
-            this.dateNascimento.TabIndex = 11;
+            this.dateNascimento.TabIndex = 2;
             this.dateNascimento.Value = new System.DateTime(2018, 5, 31, 0, 0, 0, 0);
             // 
             // cbSexo
@@ -66,14 +66,14 @@
             this.cbSexo.Location = new System.Drawing.Point(75, 44);
             this.cbSexo.Name = "cbSexo";
             this.cbSexo.Size = new System.Drawing.Size(121, 21);
-            this.cbSexo.TabIndex = 9;
+            this.cbSexo.TabIndex = 1;
             // 
             // btnSalvar
             // 
             this.btnSalvar.Location = new System.Drawing.Point(219, 171);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
-            this.btnSalvar.TabIndex = 15;
+            this.btnSalvar.TabIndex = 4;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -83,7 +83,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(127, 171);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 16;
+            this.btnCancelar.TabIndex = 5;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -120,7 +120,7 @@
             this.txtNome.Location = new System.Drawing.Point(75, 12);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(328, 20);
-            this.txtNome.TabIndex = 8;
+            this.txtNome.TabIndex = 0;
             // 
             // label1
             // 
@@ -147,6 +147,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FrmCadastroFuncionario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro Funcionario";

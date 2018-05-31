@@ -19,5 +19,18 @@ namespace V2.Source.Entity
         public string Sexo { get => sexo; set => sexo = value; }
         public string Endereco { get => endereco; set => endereco = value; }
         public string Nascimento { get => nascimento; set => nascimento = value; }
+
+        public Funcionario()
+        {
+        }
+
+        public Funcionario(int id, string nome, string sexo, string endereco, string nascimento)
+        {
+            Id = id;
+            Nome = nome;
+            Sexo = sexo;
+            Endereco = endereco;
+            Nascimento = nascimento;
+        }
     }
 }

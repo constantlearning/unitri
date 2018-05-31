@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using V2.Forms.Cadastro;
+using V2.Source.Entity;
 
 namespace V2
 {
@@ -18,12 +19,14 @@ namespace V2
             InitializeComponent();
         }
 
+        private Funcionario funcionario = new Funcionario(1, "Lucas", "M", "R. a", "01071994");
+
         private void conveniadaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
             FrmCadastroConveniada frmCadastroConveniada = new FrmCadastroConveniada();
             frmCadastroConveniada.ShowDialog();
-            this.Show();   
+            this.Show();
         }
 
         private void motoristaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -39,6 +42,31 @@ namespace V2
             this.Hide();
             FrmCadastroFuncionario frmCadastroFuncionario = new FrmCadastroFuncionario();
             frmCadastroFuncionario.ShowDialog();
+            this.Show();
+        }
+
+        private void veículoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmCadastroVeículo frmCadastroVeículo = new FrmCadastroVeículo();
+            frmCadastroVeículo.ShowDialog();
+            this.Show();
+        }
+
+        private void habilitaçãoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmCadastroHabilitacao frmCadastroHabilitacao = new FrmCadastroHabilitacao();
+            frmCadastroHabilitacao.ShowDialog();
+            this.Show();
+        }
+
+        private void chamadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmCadastroChamado frmCadastroChamado = new FrmCadastroChamado();
+            frmCadastroChamado.funcionario = funcionario;
+            frmCadastroChamado.ShowDialog();
             this.Show();
         }
 

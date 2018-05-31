@@ -22,5 +22,20 @@ namespace V2.Forms.Cadastro
         {
             throw new NotImplementedException();
         }
+
+        internal static void SalvarVeiculo(string placa, string marcaVeiculo, DateTime dataModelo, DateTime dataFabricacao)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal static void SalvarHabilitacao(Motorista motorista, string categoria, DateTime emissao, DateTime validade)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal static void SalvarChamado(Funcionario funcionario, string origem, string destino, double valor)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

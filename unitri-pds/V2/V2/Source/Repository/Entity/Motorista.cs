@@ -19,5 +19,10 @@ namespace V2.Source.Entity
         public string Sexo { get => sexo; set => sexo = value; }
         public string Endereco { get => endereco; set => endereco = value; }
         public string Nascimento { get => nascimento; set => nascimento = value; }
+
+        public override string ToString()
+        {
+            return Nome;
+        }
     }
 }

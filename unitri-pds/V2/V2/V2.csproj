@@ -45,6 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\Cadastro\FrmCadastroChamado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Cadastro\FrmCadastroChamado.Designer.cs">
+      <DependentUpon>FrmCadastroChamado.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Cadastro\FrmCadastroFuncionario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -56,6 +62,18 @@
     </Compile>
     <Compile Include="Forms\Cadastro\FrmCadastroMotorista.Designer.cs">
       <DependentUpon>FrmCadastroMotorista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Cadastro\FrmCadastroVeículo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Cadastro\FrmCadastroVeículo.Designer.cs">
+      <DependentUpon>FrmCadastroVeículo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Cadastro\FrmCadastroHabilitacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Cadastro\FrmCadastroHabilitacao.Designer.cs">
+      <DependentUpon>FrmCadastroHabilitacao.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\Service\CadastroService.cs" />
     <Compile Include="Forms\Cadastro\FrmCadastroConveniada.cs">
@@ -81,14 +99,24 @@
     <Compile Include="Source\Repository\Entity\Veiculo.cs" />
     <Compile Include="Source\Repository\FabricaConexao.cs" />
     <Compile Include="Source\Repository\DAO\ConveniadaDAO.cs" />
+    <Compile Include="Source\Service\ConsultaService.cs" />
+    <EmbeddedResource Include="Forms\Cadastro\FrmCadastroChamado.resx">
+      <DependentUpon>FrmCadastroChamado.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Cadastro\FrmCadastroConveniada.resx">
       <DependentUpon>FrmCadastroConveniada.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Cadastro\FrmCadastroFuncionario.resx">
       <DependentUpon>FrmCadastroFuncionario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Cadastro\FrmCadastroHabilitacao.resx">
+      <DependentUpon>FrmCadastroHabilitacao.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Cadastro\FrmCadastroMotorista.resx">
       <DependentUpon>FrmCadastroMotorista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Cadastro\FrmCadastroVeículo.resx">
+      <DependentUpon>FrmCadastroVeículo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>

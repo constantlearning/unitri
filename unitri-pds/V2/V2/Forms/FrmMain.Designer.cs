@@ -48,8 +48,8 @@
             this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.auditoriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chamadosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,6 +84,7 @@
             this.chamadoToolStripMenuItem.Name = "chamadoToolStripMenuItem";
             this.chamadoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.chamadoToolStripMenuItem.Text = "Chamado";
+            this.chamadoToolStripMenuItem.Click += new System.EventHandler(this.chamadoToolStripMenuItem_Click);
             // 
             // motoristaToolStripMenuItem
             // 
@@ -97,12 +98,14 @@
             this.habilitaçãoToolStripMenuItem.Name = "habilitaçãoToolStripMenuItem";
             this.habilitaçãoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.habilitaçãoToolStripMenuItem.Text = "Habilitação";
+            this.habilitaçãoToolStripMenuItem.Click += new System.EventHandler(this.habilitaçãoToolStripMenuItem_Click);
             // 
             // veículoToolStripMenuItem
             // 
             this.veículoToolStripMenuItem.Name = "veículoToolStripMenuItem";
             this.veículoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.veículoToolStripMenuItem.Text = "Veículo";
+            this.veículoToolStripMenuItem.Click += new System.EventHandler(this.veículoToolStripMenuItem_Click);
             // 
             // conveniadaToolStripMenuItem
             // 
@@ -195,11 +198,6 @@
             this.chamadosToolStripMenuItem1.Size = new System.Drawing.Size(131, 22);
             this.chamadosToolStripMenuItem1.Text = "Chamados";
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
             // sairToolStripMenuItem
             // 
             this.sairToolStripMenuItem.BackColor = System.Drawing.Color.IndianRed;
@@ -207,6 +205,11 @@
             this.sairToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // FrmMain
             // 

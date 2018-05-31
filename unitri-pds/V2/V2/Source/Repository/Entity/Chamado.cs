@@ -14,12 +14,14 @@ namespace V2.Source.Entity
         private String telefone;
         private DateTime data;
         private Funcionario funcionario;
+        private Double valor;
 
         public int Id { get => id; set => id = value; }
         public string Origem { get => origem; set => origem = value; }
         public string Destino { get => destino; set => destino = value; }
         public string Telefone { get => telefone; set => telefone = value; }
         public DateTime Data { get => data; set => data = value; }
+        public double Valor { get => valor; set => valor = value; }
         internal Funcionario Funcionario { get => funcionario; set => funcionario = value; }
     }
 }
