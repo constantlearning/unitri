@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Data.SqlClient;
 using V2.Source.Entity;
+using V2.Source.Repository;
 
 namespace V2.Forms.Cadastro
 {
@@ -17,10 +19,12 @@ namespace V2.Forms.Cadastro
             MotoristaDAO.SalvarMotorista(motorista);
         }
 
-        internal static void SalvarFuncionario(string nome, string sexo, DateTime nascimento, string telefone)
+        internal static void SalvarFuncionario(string nome, string sexo, DateTime nascimento, string telefone, string usuario, string senha)
         {
-            Funcionario funcionario = new Funcionario(nome, sexo, nascimento, telefone);
-            FuncionarioDAO.salvarFuncionario(funcionario);
+            SqlConnection conexao = FabricaConexao.GetConexao();
+            FuncionarioDAO funcionarioDAO = new FuncionarioDAO(conexao);
+            Funcionario funcionario = new Funcionario(nome, sexo, nascimento, telefone, usuario, senha);
+            funcionarioDAO.salvarFuncionario(funcionario);
         }
 
         internal static void SalvarVeiculo(string placa, string marcaVeiculo, DateTime dataModelo, DateTime dataFabricacao)

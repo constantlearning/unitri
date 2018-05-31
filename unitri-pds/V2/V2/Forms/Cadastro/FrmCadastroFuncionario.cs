@@ -36,10 +36,12 @@ namespace V2.Forms.Cadastro
                 String sexo = cbSexo.Text;
                 DateTime nascimento = dateNascimento.Value;
                 String telefone = mtxtTelefone.Text;
+                String usuario = tbUsuario.Text;
+                String senha = tbSenha.Text;
 
                 try
                 {
-                    CadastroService.SalvarFuncionario(nome, sexo, nascimento, telefone);
+                    CadastroService.SalvarFuncionario(nome, sexo, nascimento, telefone, usuario, senha);
                     MessageBox.Show("Salvo com sucesso!");
                     this.Close();
                 }

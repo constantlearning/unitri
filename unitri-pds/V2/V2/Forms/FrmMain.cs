@@ -14,12 +14,12 @@ namespace V2
 {
     public partial class FrmMain : Form
     {
+        internal Funcionario funcionario;
+
         public FrmMain()
         {
             InitializeComponent();
         }
-
-        private Funcionario funcionario = new Funcionario(1, "Lucas", "M", "R. a", "01071994");
 
         private void conveniadaToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -75,8 +75,13 @@ namespace V2
             DialogResult dialogResult = MessageBox.Show("Deseja sair?", "Aviso!", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                this.Close();
+                Application.Exit();
             }
+        }
+
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
+            lbNomeFuncionario.Text = funcionario.Nome;
         }
     }
 }

@@ -50,6 +50,8 @@
             this.chamadosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.lbNomeFuncionario = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,42 +84,42 @@
             // chamadoToolStripMenuItem
             // 
             this.chamadoToolStripMenuItem.Name = "chamadoToolStripMenuItem";
-            this.chamadoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.chamadoToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.chamadoToolStripMenuItem.Text = "Chamado";
             this.chamadoToolStripMenuItem.Click += new System.EventHandler(this.chamadoToolStripMenuItem_Click);
             // 
             // motoristaToolStripMenuItem
             // 
             this.motoristaToolStripMenuItem.Name = "motoristaToolStripMenuItem";
-            this.motoristaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.motoristaToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.motoristaToolStripMenuItem.Text = "Motorista";
             this.motoristaToolStripMenuItem.Click += new System.EventHandler(this.motoristaToolStripMenuItem_Click);
             // 
             // habilitaçãoToolStripMenuItem
             // 
             this.habilitaçãoToolStripMenuItem.Name = "habilitaçãoToolStripMenuItem";
-            this.habilitaçãoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.habilitaçãoToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.habilitaçãoToolStripMenuItem.Text = "Habilitação";
             this.habilitaçãoToolStripMenuItem.Click += new System.EventHandler(this.habilitaçãoToolStripMenuItem_Click);
             // 
             // veículoToolStripMenuItem
             // 
             this.veículoToolStripMenuItem.Name = "veículoToolStripMenuItem";
-            this.veículoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.veículoToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.veículoToolStripMenuItem.Text = "Veículo";
             this.veículoToolStripMenuItem.Click += new System.EventHandler(this.veículoToolStripMenuItem_Click);
             // 
             // conveniadaToolStripMenuItem
             // 
             this.conveniadaToolStripMenuItem.Name = "conveniadaToolStripMenuItem";
-            this.conveniadaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.conveniadaToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.conveniadaToolStripMenuItem.Text = "Conveniada";
             this.conveniadaToolStripMenuItem.Click += new System.EventHandler(this.conveniadaToolStripMenuItem_Click);
             // 
             // funcionárioToolStripMenuItem
             // 
             this.funcionárioToolStripMenuItem.Name = "funcionárioToolStripMenuItem";
-            this.funcionárioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.funcionárioToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.funcionárioToolStripMenuItem.Text = "Funcionário";
             this.funcionárioToolStripMenuItem.Click += new System.EventHandler(this.funcionárioToolStripMenuItem_Click);
             // 
@@ -211,12 +213,34 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(555, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(84, 16);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Funcionário: ";
+            // 
+            // lbNomeFuncionario
+            // 
+            this.lbNomeFuncionario.AutoSize = true;
+            this.lbNomeFuncionario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNomeFuncionario.Location = new System.Drawing.Point(645, 24);
+            this.lbNomeFuncionario.Name = "lbNomeFuncionario";
+            this.lbNomeFuncionario.Size = new System.Drawing.Size(12, 16);
+            this.lbNomeFuncionario.TabIndex = 2;
+            this.lbNomeFuncionario.Text = "-";
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 503);
             this.ControlBox = false;
+            this.Controls.Add(this.lbNomeFuncionario);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
@@ -225,6 +249,7 @@
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Controle de chamadas";
+            this.Load += new System.EventHandler(this.FrmMain_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -255,6 +280,8 @@
         private System.Windows.Forms.ToolStripMenuItem funcionárioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem funcionárioToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbNomeFuncionario;
     }
 }
 

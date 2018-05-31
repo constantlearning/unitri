@@ -38,6 +38,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.tbUsuario = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tbSenha = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // mtxtTelefone
@@ -70,7 +74,7 @@
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(219, 171);
+            this.btnSalvar.Location = new System.Drawing.Point(223, 215);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar.TabIndex = 4;
@@ -80,7 +84,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(127, 171);
+            this.btnCancelar.Location = new System.Drawing.Point(131, 215);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 5;
@@ -131,12 +135,48 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "Nome:";
             // 
+            // tbUsuario
+            // 
+            this.tbUsuario.Location = new System.Drawing.Point(75, 145);
+            this.tbUsuario.Name = "tbUsuario";
+            this.tbUsuario.Size = new System.Drawing.Size(121, 20);
+            this.tbUsuario.TabIndex = 15;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(12, 145);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(49, 13);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "Usuário: ";
+            // 
+            // tbSenha
+            // 
+            this.tbSenha.Location = new System.Drawing.Point(75, 171);
+            this.tbSenha.Name = "tbSenha";
+            this.tbSenha.Size = new System.Drawing.Size(121, 20);
+            this.tbSenha.TabIndex = 17;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(12, 174);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(44, 13);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Senha: ";
+            // 
             // FrmCadastroFuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(420, 202);
+            this.ClientSize = new System.Drawing.Size(420, 250);
             this.ControlBox = false;
+            this.Controls.Add(this.tbSenha);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.tbUsuario);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.mtxtTelefone);
             this.Controls.Add(this.dateNascimento);
             this.Controls.Add(this.cbSexo);
@@ -168,5 +208,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox tbUsuario;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox tbSenha;
+        private System.Windows.Forms.Label label6;
     }
 }

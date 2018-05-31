@@ -75,6 +75,13 @@
     <Compile Include="Forms\Cadastro\FrmCadastroHabilitacao.Designer.cs">
       <DependentUpon>FrmCadastroHabilitacao.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Service\AutenticacaoService.cs" />
     <Compile Include="Source\Service\CadastroService.cs" />
     <Compile Include="Forms\Cadastro\FrmCadastroConveniada.cs">
       <SubType>Form</SubType>
@@ -105,6 +112,7 @@
     <Compile Include="Source\Repository\DAO\FuncionarioDAO.cs" />
     <Compile Include="Source\Repository\DAO\VeiculoDAO.cs" />
     <Compile Include="Source\Repository\DAO\HabilitacaoDAO.cs" />
+    <Compile Include="Source\Service\util\EncryptPassword.cs" />
     <EmbeddedResource Include="Forms\Cadastro\FrmCadastroChamado.resx">
       <DependentUpon>FrmCadastroChamado.cs</DependentUpon>
     </EmbeddedResource>
@@ -122,6 +130,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Cadastro\FrmCadastroVeículo.resx">
       <DependentUpon>FrmCadastroVeículo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
