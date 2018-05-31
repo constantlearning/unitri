@@ -100,6 +100,9 @@
     <Compile Include="Source\Repository\FabricaConexao.cs" />
     <Compile Include="Source\Repository\DAO\ConveniadaDAO.cs" />
     <Compile Include="Source\Service\ConsultaService.cs" />
+    <Compile Include="Source\Repository\DAO\MotoristaDAO.cs" />
+    <Compile Include="Source\Repository\DAO\FuncionarioDAO.cs" />
+    <Compile Include="Source\Repository\DAO\VeiculoDAO.cs" />
     <EmbeddedResource Include="Forms\Cadastro\FrmCadastroChamado.resx">
       <DependentUpon>FrmCadastroChamado.cs</DependentUpon>
     </EmbeddedResource>

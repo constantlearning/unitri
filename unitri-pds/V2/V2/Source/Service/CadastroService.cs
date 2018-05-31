@@ -7,35 +7,39 @@ namespace V2.Forms.Cadastro
     {
         internal static void SalvarConveniada(string nome, string telefone)
         {
-            Conveniada conveniada = new Conveniada();
-            conveniada.Nome = nome;
-            conveniada.Telefone = telefone;
+            Conveniada conveniada = new Conveniada(nome, telefone);
             ConveniadaDAO.SalvarConveniada(conveniada);
         }
 
         internal static void SalvarMotorista(string nome, string sexo, DateTime nascimento, string telefone)
         {
-            throw new NotImplementedException();
+            Motorista motorista = new Motorista(nome, sexo, nascimento, telefone);
+            MotoristaDAO.SalvarMotorista(motorista);
         }
 
         internal static void SalvarFuncionario(string nome, string sexo, DateTime nascimento, string telefone)
         {
-            throw new NotImplementedException();
+            Funcionario funcionario = new Funcionario(nome, sexo, nascimento, telefone);
+            FuncionarioDAO.salvarFuncionario(funcionario);
         }
 
         internal static void SalvarVeiculo(string placa, string marcaVeiculo, DateTime dataModelo, DateTime dataFabricacao)
         {
-            throw new NotImplementedException();
+            Veiculo veiculo = new Veiculo(placa, marcaVeiculo, dataModelo, dataFabricacao);
+            VeiculoDAO.salvarVeiculo(veiculo);
+
         }
 
         internal static void SalvarHabilitacao(Motorista motorista, string categoria, DateTime emissao, DateTime validade)
         {
-            throw new NotImplementedException();
+            Habilitacao habilitacao = new Habilitacao(motorista, categoria, emissao, validade);
+            HabilitacaoDAO.salvarHabilitacao(habilitacao);
         }
 
         internal static void SalvarChamado(Funcionario funcionario, string origem, string destino, double valor)
         {
-            throw new NotImplementedException();
+            Chamado chamado = new Chamado(funcionario, origem, destino, valor);
+            ChamadoDAO.salvarChamado(chamado);
         }
     }
 }
