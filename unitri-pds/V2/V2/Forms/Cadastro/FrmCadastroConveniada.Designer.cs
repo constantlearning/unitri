@@ -76,7 +76,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(135, 89);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
-            this.btnSalvar.TabIndex = 5;
+            this.btnSalvar.TabIndex = 3;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -87,7 +87,7 @@
             this.mtxtTelefone.Mask = "(99) 00000-0000";
             this.mtxtTelefone.Name = "mtxtTelefone";
             this.mtxtTelefone.Size = new System.Drawing.Size(173, 20);
-            this.mtxtTelefone.TabIndex = 6;
+            this.mtxtTelefone.TabIndex = 2;
             // 
             // FrmCadastroConveniada
             // 

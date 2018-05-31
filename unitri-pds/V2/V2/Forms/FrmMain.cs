@@ -33,5 +33,22 @@ namespace V2
             frmCadastroMotorista.ShowDialog();
             this.Show();
         }
+
+        private void funcionárioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmCadastroFuncionario frmCadastroFuncionario = new FrmCadastroFuncionario();
+            frmCadastroFuncionario.ShowDialog();
+            this.Show();
+        }
+
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Deseja sair?", "Aviso!", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
     }
 }

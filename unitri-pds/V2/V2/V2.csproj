@@ -45,6 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\Cadastro\FrmCadastroFuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Cadastro\FrmCadastroFuncionario.Designer.cs">
+      <DependentUpon>FrmCadastroFuncionario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Cadastro\FrmCadastroMotorista.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +83,9 @@
     <Compile Include="Source\Repository\DAO\ConveniadaDAO.cs" />
     <EmbeddedResource Include="Forms\Cadastro\FrmCadastroConveniada.resx">
       <DependentUpon>FrmCadastroConveniada.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Cadastro\FrmCadastroFuncionario.resx">
+      <DependentUpon>FrmCadastroFuncionario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Cadastro\FrmCadastroMotorista.resx">
       <DependentUpon>FrmCadastroMotorista.cs</DependentUpon>

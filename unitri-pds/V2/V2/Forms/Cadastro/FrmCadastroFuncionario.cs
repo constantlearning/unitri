@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace V2.Forms.Cadastro
 {
-    public partial class FrmCadastroMotorista : Form
+    public partial class FrmCadastroFuncionario : Form
     {
-        public FrmCadastroMotorista()
+        public FrmCadastroFuncionario()
         {
             InitializeComponent();
         }
@@ -39,7 +39,7 @@ namespace V2.Forms.Cadastro
 
                 try
                 {
-                    CadastroService.SalvarMotorista(nome, sexo, nascimento, telefone);
+                    CadastroService.SalvarFuncionario(nome, sexo, nascimento, telefone);
                     MessageBox.Show("Salvo com sucesso!");
                     this.Close();
                 }
@@ -48,7 +48,6 @@ namespace V2.Forms.Cadastro
                     MessageBox.Show(ex.Message);
                 }
             }
-
         }
     }
 }

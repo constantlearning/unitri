@@ -12,5 +12,15 @@ namespace V2.Forms.Cadastro
             conveniada.Telefone = telefone;
             ConveniadaDAO.SalvarConveniada(conveniada);
         }
+
+        internal static void SalvarMotorista(string nome, string sexo, DateTime nascimento, string telefone)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal static void SalvarFuncionario(string nome, string sexo, DateTime nascimento, string telefone)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
