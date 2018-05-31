@@ -16,6 +16,14 @@ namespace V2.Source.Entity
         private Funcionario funcionario;
         private Double valor;
 
+        public Chamado(Funcionario funcionario, string origem, string destino, double valor)
+        {
+            this.funcionario = funcionario;
+            this.origem = origem;
+            this.destino = destino;
+            this.valor = valor;
+        }
+
         public int Id { get => id; set => id = value; }
         public string Origem { get => origem; set => origem = value; }
         public string Destino { get => destino; set => destino = value; }
