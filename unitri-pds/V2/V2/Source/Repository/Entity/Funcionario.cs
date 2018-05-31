@@ -12,25 +12,23 @@ namespace V2.Source.Entity
         private String nome;
         private String sexo;
         private String endereco;
-        private String nascimento;
+        private DateTime nascimento;
+        private string telefone;
 
         public int Id { get => id; set => id = value; }
         public string Nome { get => nome; set => nome = value; }
         public string Sexo { get => sexo; set => sexo = value; }
         public string Endereco { get => endereco; set => endereco = value; }
-        public string Nascimento { get => nascimento; set => nascimento = value; }
+        public DateTime Nascimento { get => nascimento; set => nascimento = value; }
 
-        public Funcionario()
-        {
-        }
+        public Funcionario() { }
 
-        public Funcionario(int id, string nome, string sexo, string endereco, string nascimento)
+        public Funcionario(string nome, string sexo, DateTime nascimento, string telefone)
         {
-            Id = id;
-            Nome = nome;
-            Sexo = sexo;
-            Endereco = endereco;
-            Nascimento = nascimento;
+            this.nome = nome;
+            this.sexo = sexo;
+            this.nascimento = nascimento;
+            this.telefone = telefone;
         }
     }
 }

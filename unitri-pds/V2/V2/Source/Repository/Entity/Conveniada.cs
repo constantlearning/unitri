@@ -12,6 +12,12 @@ namespace V2.Source.Entity
         private String nome;
         private String telefone;
 
+        public Conveniada(string nome, string telefone)
+        {
+            this.nome = nome;
+            this.telefone = telefone;
+        }
+
         public int Id { get => id; set => id = value; }
         public string Nome { get => nome; set => nome = value; }
         public string Telefone { get => telefone; set => telefone = value; }

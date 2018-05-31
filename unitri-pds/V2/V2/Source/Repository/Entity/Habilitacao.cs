@@ -15,6 +15,14 @@ namespace V2.Source.Entity
         private DateTime validade;
         private Motorista motorista;
 
+        public Habilitacao(Motorista motorista, string categoria, DateTime emissao, DateTime validade)
+        {
+            this.motorista = motorista;
+            this.categoria = categoria;
+            this.emissao = emissao;
+            this.validade = validade;
+        }
+
         public int Id { get => id; set => id = value; }
         public string Categoria { get => categoria; set => categoria = value; }
         public DateTime Emissao { get => emissao; set => emissao = value; }
