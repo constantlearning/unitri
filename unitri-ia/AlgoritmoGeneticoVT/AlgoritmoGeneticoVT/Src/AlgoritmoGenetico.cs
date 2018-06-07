@@ -147,7 +147,7 @@ namespace AlgoritmoGeneticoVT.Src
          */
         private int AptidaoRelativaDoIndividuo(int i, double soma)
         {
-            return (int) Math.Floor((populacao[i] * (double)populacao[i]) / (soma * 100));
+            return (int) Math.Floor(populacao[i] * (double)populacao[i] / soma * 100);
         }
 
        /*
