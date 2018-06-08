@@ -39,7 +39,7 @@ namespace V2.Forms.register
 
                 try
                 {
-                    CadastroService.SalvarAtendente(nome, cpf, nascimento);
+                    AtendenteService.SalvarAtendente(nome, cpf, nascimento);
 
                     MessageBox.Show("Salvo com sucesso!");
                     this.Close();
@@ -57,34 +57,5 @@ namespace V2.Forms.register
             Dispose();
         }
 
-        private void dtNascimento_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void mtbCPF_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
-
-        private void tbNome_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

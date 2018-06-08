@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using V2.Forms.register;
+using V2.Forms.reports;
+using V2.Forms.search;
 
 namespace V2
 {
@@ -82,12 +84,18 @@ namespace V2
 
         private void atendenteToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
+            FrmConsultaAtendente frmConsultaAtendente = new FrmConsultaAtendente();
+            frmConsultaAtendente.MdiParent = this;
+            frmConsultaAtendente.Show();
+            frmConsultaAtendente.WindowState = FormWindowState.Maximized;
         }
 
         private void barbeariaToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
+            FrmConsultaBarbearia frmConsultaBarbearia = new FrmConsultaBarbearia();
+            frmConsultaBarbearia.MdiParent = this;
+            frmConsultaBarbearia.Show();
+            frmConsultaBarbearia.WindowState = FormWindowState.Maximized;
         }
 
         private void clienteToolStripMenuItem1_Click(object sender, EventArgs e)

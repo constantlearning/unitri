@@ -120,6 +120,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(307, 140);
+            this.ControlBox = false;
             this.Controls.Add(this.tbEndereco);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnSalvar);
