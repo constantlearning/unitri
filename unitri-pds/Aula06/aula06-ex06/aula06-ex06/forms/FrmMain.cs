@@ -74,5 +74,10 @@ namespace aula06_ex06
         {
             dgvCliente.DataSource = ConnectionFactory.obterTodosOsClientes();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

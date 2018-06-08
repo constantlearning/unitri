@@ -93,6 +93,12 @@
     <Compile Include="Forms\register\FrmCadastroTelefone.Designer.cs">
       <DependentUpon>FrmCadastroTelefone.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\search\FrmConsultaAtendente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\search\FrmConsultaAtendente.Designer.cs">
+      <DependentUpon>FrmConsultaAtendente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Source\domain\Atendente.cs" />
@@ -104,6 +110,8 @@
     <Compile Include="Source\domain\Telefone.cs" />
     <Compile Include="Source\DAO\AtendenteDAO.cs" />
     <Compile Include="Source\DAO\BarbeariaDAO.cs" />
+    <Compile Include="Source\service\AtendenteService.cs" />
+    <Compile Include="Source\service\BarbeariaService.cs" />
     <Compile Include="Source\service\CadastroService.cs" />
     <Compile Include="Source\DAO\ClienteDAO.cs" />
     <Compile Include="Source\DAO\FilialDAO.cs" />
@@ -136,6 +144,9 @@
     <EmbeddedResource Include="Forms\register\FrmCadastroTelefone.resx">
       <DependentUpon>FrmCadastroTelefone.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\search\FrmConsultaAtendente.resx">
+      <DependentUpon>FrmConsultaAtendente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -161,7 +172,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Forms\reports\" />
-    <Folder Include="Forms\search\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\barbershop.jpg" />

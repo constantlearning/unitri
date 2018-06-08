@@ -11,16 +11,6 @@ namespace V2.Source.service
 {
     class CadastroService
     {
-
-        public static void SalvarAtendente(String nome, String cpf, DateTime nascimento)
-        {
-            SqlConnection conexao = FabricaConexao.GetConnection();
-            AtendenteDAO atendenteDAO = new AtendenteDAO(conexao);
-
-            Atendente atendente = new Atendente(nome, cpf, nascimento);
-            atendenteDAO.salvarAtendente(atendente);
-        }
-
         public static void SalvarBarbearia(String nome, String cnpj)
         {
             SqlConnection conexao = FabricaConexao.GetConnection();

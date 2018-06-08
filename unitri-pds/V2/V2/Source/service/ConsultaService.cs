@@ -12,14 +12,6 @@ namespace V2.Source.service
     class ConsultaService
     {
 
-        public static Atendente BuscarAtendente(Int32 id)
-        {
-            SqlConnection conexao = FabricaConexao.GetConnection();
-            AtendenteDAO atendenteDAO = new AtendenteDAO(conexao);
-
-            return atendenteDAO.buscarAtendente(id);
-        }
-
         public static Barbearia BuscarBarbearia(Int32 id)
         {
             SqlConnection conexao = FabricaConexao.GetConnection();
