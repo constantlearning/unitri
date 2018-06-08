@@ -20,11 +20,7 @@ namespace V2.Source.service
             return barbeariaDAO.buscarBarbearia(id);
         }
 
-<<<<<<< HEAD
         public static List<Barbearia> BuscarTodasBarbearias()
-=======
-        public static List<Barbearia> BuscarTodosBarbearias()
->>>>>>> d70c839188ce89b46505b8e562dfb62a43c4fa66
         {
             SqlConnection conexao = FabricaConexao.GetConnection();
             BarbeariaDAO barbeariaDAO = new BarbeariaDAO(conexao);

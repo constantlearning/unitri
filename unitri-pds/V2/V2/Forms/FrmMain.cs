@@ -9,10 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using V2.Forms.register;
 using V2.Forms.reports;
-<<<<<<< HEAD
 using V2.Forms.search;
-=======
->>>>>>> d70c839188ce89b46505b8e562dfb62a43c4fa66
 
 namespace V2
 {
