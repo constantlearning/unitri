@@ -55,7 +55,7 @@ namespace V2.Source.domain
             }
         }
 
-        private void verifyCnpjDigits(String cppj)
+        private void verifyCnpjDigits(String cnpj)
         {
             if (!cnpj.All(char.IsDigit))
             {
