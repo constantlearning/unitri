@@ -45,6 +45,7 @@ namespace V2.Forms.reports
         {
             dgvCliente.DataSource = AtendenteService.BuscarTodosAtendentes();
         }
+<<<<<<< HEAD
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -59,5 +60,7 @@ namespace V2.Forms.reports
         {
             this.Dispose();
         }
+=======
+>>>>>>> d70c839188ce89b46505b8e562dfb62a43c4fa66
     }
 }

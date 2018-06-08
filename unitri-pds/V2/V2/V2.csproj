@@ -99,12 +99,15 @@
     <Compile Include="Forms\search\FrmConsultaAtendente.Designer.cs">
       <DependentUpon>FrmConsultaAtendente.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Forms\search\FrmConsultaBarbearia.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\search\FrmConsultaBarbearia.Designer.cs">
       <DependentUpon>FrmConsultaBarbearia.cs</DependentUpon>
     </Compile>
+=======
+>>>>>>> d70c839188ce89b46505b8e562dfb62a43c4fa66
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Source\domain\Atendente.cs" />
@@ -153,9 +156,12 @@
     <EmbeddedResource Include="Forms\search\FrmConsultaAtendente.resx">
       <DependentUpon>FrmConsultaAtendente.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
     <EmbeddedResource Include="Forms\search\FrmConsultaBarbearia.resx">
       <DependentUpon>FrmConsultaBarbearia.cs</DependentUpon>
     </EmbeddedResource>
+=======
+>>>>>>> d70c839188ce89b46505b8e562dfb62a43c4fa66
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

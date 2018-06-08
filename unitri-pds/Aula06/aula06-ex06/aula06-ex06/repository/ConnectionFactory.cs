@@ -11,7 +11,7 @@ namespace aula06_ex06.repository
 {
     class ConnectionFactory
     {
-        private static String connString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Lucas Gontijo\Documents\Projetos VS2017\unitri-pds\Aula06\aula06-ex06\aula06ex06.mdf;Integrated Security=True;Connect Timeout=30";
+        private static String connString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Lucas\Documents\github\unitri\unitri-pds\Aula06\aula06-ex06\aula06-ex06\aula06ex06.mdf;Integrated Security=True;Connect Timeout=30";
 
         public static SqlConnection GetConnection()
         {
