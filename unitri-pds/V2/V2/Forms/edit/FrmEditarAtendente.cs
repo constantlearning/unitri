@@ -10,16 +10,31 @@ using System.Windows.Forms;
 using V2.Source.domain;
 using V2.Source.service;
 
-namespace V2.Forms.register
+namespace V2.Forms.edit
 {
-    public partial class FrmCadastroAtendente : Form
+    public partial class FrmEditarAtendente : Form
     {
-        public FrmCadastroAtendente()
+        public FrmEditarAtendente()
         {
             InitializeComponent();
         }
 
-        private void btnCancelar_Click_1(object sender, EventArgs e)
+        internal Int32 idAtendente;
+
+        private void FrmCadastroAtendente_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Dispose();
+        }
+
+        private void FrmEditarAtendente_Load(object sender, EventArgs e)
+        {
+            Atendente atendente = AtendenteService.BuscarAtendente(this.idAtendente);
+            tbNome.Text = atendente.Nome;
+            mtbCPF.Text = atendente.Cpf;
+            dtNascimento.Value = atendente.Nascimento;
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Deseja cancelar?", "Aviso!", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
@@ -33,23 +48,17 @@ namespace V2.Forms.register
             DialogResult dialogResult = MessageBox.Show("Deseja salvar?", "Aviso!", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                String nome = tbNome.Text;
-                String cpf = mtbCPF.Text.Replace("-", "");
-                DateTime nascimento = dtNascimento.Value;
-                Filial filial = (Filial)cbFilial.SelectedValue;
-
-
                 Atendente atendente = new Atendente();
-                atendente.Nome = nome;
-                atendente.Cpf = cpf;
-                atendente.Nascimento = nascimento;
-                atendente.Filial = filial;
+                atendente.Id = idAtendente;
+                atendente.Nome = tbNome.Text;
+                atendente.Cpf = mtbCPF.Text.Replace("-", "");
+                atendente.Nascimento = dtNascimento.Value;
 
                 try
                 {
-                    AtendenteService.SalvarAtendente(atendente);
+                    AtendenteService.AtualizarAtendente(atendente);
 
-                    MessageBox.Show("Salvo com sucesso!");
+                    MessageBox.Show("Atualizado com sucesso!");
                     this.Close();
                 }
                 catch (Exception ex)
@@ -57,19 +66,6 @@ namespace V2.Forms.register
                     MessageBox.Show(ex.Message);
                 }
             }
-
-        }
-
-        private void FrmCadastroAtendente_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Dispose();
-        }
-
-        private void FrmCadastroAtendente_Load(object sender, EventArgs e)
-        {
-
-            List<Filial> filiais = FilialService.buscarTodasFiliais();
-            cbFilial.DataSource = filiais;
         }
     }
 }

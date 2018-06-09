@@ -36,6 +36,8 @@
             this.dtNascimento = new System.Windows.Forms.DateTimePicker();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cbFilial = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -115,12 +117,33 @@
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(13, 100);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(33, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Filial: ";
+            // 
+            // cbFilial
+            // 
+            this.cbFilial.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbFilial.FormattingEnabled = true;
+            this.cbFilial.Location = new System.Drawing.Point(83, 100);
+            this.cbFilial.Name = "cbFilial";
+            this.cbFilial.Size = new System.Drawing.Size(200, 21);
+            this.cbFilial.TabIndex = 9;
+            // 
             // FrmCadastroAtendente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(342, 177);
             this.ControlBox = false;
+            this.Controls.Add(this.cbFilial);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.dtNascimento);
@@ -132,6 +155,7 @@
             this.Name = "FrmCadastroAtendente";
             this.Text = "Cadastro Atendente";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmCadastroAtendente_FormClosed);
+            this.Load += new System.EventHandler(this.FrmCadastroAtendente_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -147,5 +171,7 @@
         private System.Windows.Forms.DateTimePicker dtNascimento;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnSalvar;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cbFilial;
     }
 }

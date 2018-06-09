@@ -25,7 +25,11 @@ namespace V2.Forms.search
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-
+            //Int32 idBarbearia = Convert.ToInt32(dgvCliente.CurrentRow.Cells[0].Value);
+            //DynamicForm dynamicForm = new DynamicForm("Edit", BarbeariaService.BuscarBarbearia(idBarbearia));
+            //dynamicForm.MdiParent = this.ParentForm;
+            //dynamicForm.Show();
+            //dynamicForm.WindowState = FormWindowState.Maximized;
         }
 
         private void btnDeletar_Click(object sender, EventArgs e)

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using V2.Forms.edit;
 using V2.Source.service;
 
 namespace V2.Forms.reports
@@ -26,7 +27,13 @@ namespace V2.Forms.reports
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            Int32 idAtendente = Convert.ToInt32(dgvCliente.CurrentRow.Cells[0].Value);
 
+            FrmEditarAtendente frmEditarAtendente = new FrmEditarAtendente();
+            frmEditarAtendente.idAtendente = idAtendente;
+            frmEditarAtendente.MdiParent = this.ParentForm;
+            frmEditarAtendente.Show();
+            frmEditarAtendente.WindowState = FormWindowState.Maximized;
         }
 
         private void btnDeletar_Click(object sender, EventArgs e)

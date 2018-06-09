@@ -42,7 +42,7 @@ namespace V2.Forms.register
 
                 try
                 {
-                    CadastroService.SalvarFilial(nome, endereco, cnpj);
+                    FilialService.SalvarFilial(nome, endereco, cnpj);
 
                     MessageBox.Show("Salvo com sucesso!");
                     this.Close();

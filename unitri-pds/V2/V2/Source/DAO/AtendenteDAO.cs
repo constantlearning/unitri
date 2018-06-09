@@ -10,25 +10,71 @@ namespace V2.Source.service
     internal class AtendenteDAO
     {
         private SqlConnection conexao;
+        private SqlTransaction tx;
 
         public AtendenteDAO(SqlConnection conexao)
         {
             this.conexao = conexao;
         }
 
+        public AtendenteDAO(SqlConnection conexao, SqlTransaction tx)
+        {
+            this.conexao = conexao;
+            this.tx = tx;
+        }
+
         public void salvarAtendente(Atendente atendente)
         {
             SqlCommand command = new SqlCommand();
             command.Connection = this.conexao;
+            command.Transaction = this.tx;
             command.CommandType = CommandType.Text;
             command.CommandText = "insert into atendente (nome, cpf, nascimento) values (@nome, @cpf, @nascimento)";
             command.Parameters.AddWithValue("@nome", atendente.Nome);
             command.Parameters.AddWithValue("@cpf", atendente.Cpf);
             command.Parameters.AddWithValue("@nascimento", atendente.Nascimento);
 
-            int n = command.ExecuteNonQuery();
+            command.ExecuteNonQuery();
+        }
+
+        public void salvarAtendenteFilial(Atendente atendente)
+        {
+            SqlCommand command = new SqlCommand();
+            command.Connection = this.conexao;
+            command.Transaction = this.tx;
+            command.CommandType = CommandType.Text;
+            command.CommandText = "insert into atendente_filial(id_atendente, id_filial) values(@idatendente, @idfilial)";
+            command.Parameters.AddWithValue("@idatendente", atendente.Id);
+            command.Parameters.AddWithValue("@idfilial", atendente.Filial.Id);
+
+            command.ExecuteNonQuery();
+        }
+
+        internal Atendente buscarAtendenteCPF(String cpf)
+        {
+            Atendente atendente = new Atendente();
+
+            SqlCommand command = new SqlCommand();
+            command.Connection = this.conexao;
+            if (tx != null)
+            {
+                command.Transaction = this.tx;
+            }
+            command.CommandType = CommandType.Text;
+            command.CommandText = "SELECT * FROM atendente WHERE cpf = @cpf";
+            command.Parameters.AddWithValue("cpf", cpf);
+            SqlDataReader reader = command.ExecuteReader();
+
+            reader.Read();
+
+            atendente.Id = (Int32)reader["Id"];
+            atendente.Cpf = (String)reader["cpf"];
+            atendente.Nome = (String)reader["nome"];
+            atendente.Nascimento = (DateTime)reader["nascimento"];
 
             FabricaConexao.CloseConnection(this.conexao);
+
+            return atendente;
         }
 
         internal Atendente buscarAtendente(int id)
@@ -44,10 +90,10 @@ namespace V2.Source.service
 
             reader.Read();
 
-            atendente.Id = reader.GetInt32(0);
-            atendente.Nome = reader.GetString(1);
-            atendente.Cpf = reader.GetString(2);
-            atendente.Nascimento = reader.GetDateTime(3);
+            atendente.Id = (Int32)reader["Id"];
+            atendente.Cpf = (String)reader["cpf"];
+            atendente.Nome = (String)reader["nome"];
+            atendente.Nascimento = (DateTime)reader["nascimento"];
 
             FabricaConexao.CloseConnection(this.conexao);
 
@@ -67,10 +113,10 @@ namespace V2.Source.service
             while (reader.Read())
             {
                 Atendente atendente = new Atendente();
-                atendente.Id = reader.GetInt32(0);
-                atendente.Nome = reader.GetString(1);
-                atendente.Cpf = reader.GetString(2);
-                atendente.Nascimento = reader.GetDateTime(3);
+                atendente.Id = (Int32)reader["Id"];
+                atendente.Cpf = (String)reader["cpf"];
+                atendente.Nome = (String)reader["nome"];
+                atendente.Nascimento = (DateTime)reader["nascimento"];
 
                 atendentes.Add(atendente);
             }
@@ -78,6 +124,21 @@ namespace V2.Source.service
             FabricaConexao.CloseConnection(conexao);
 
             return atendentes;
+        }
+
+        public void atualizarAtendente(Atendente atendente)
+        {
+            SqlCommand command = new SqlCommand();
+            command.Connection = this.conexao;
+            command.CommandType = CommandType.Text;
+            command.CommandText = "UPDATE atendente SET nome = @nome, cpf = @cpf, nascimento = @nascimento WHERE id = @id";
+            command.Parameters.AddWithValue("@id", atendente.Id);
+            command.Parameters.AddWithValue("@nome", atendente.Nome);
+            command.Parameters.AddWithValue("@cpf", atendente.Cpf);
+            command.Parameters.AddWithValue("@nascimento", atendente.Nascimento);
+            int n = command.ExecuteNonQuery();
+
+            FabricaConexao.CloseConnection(this.conexao);
         }
 
         public void deletarAtendente(int idAtendente)
@@ -107,10 +168,10 @@ namespace V2.Source.service
             while (reader.Read())
             {
                 Atendente atendente = new Atendente();
-                atendente.Id = reader.GetInt32(0);
-                atendente.Nome = reader.GetString(1);
-                atendente.Cpf = reader.GetString(2);
-                atendente.Nascimento = reader.GetDateTime(3);
+                atendente.Id = (Int32)reader["Id"];
+                atendente.Cpf = (String)reader["cpf"];
+                atendente.Nome = (String)reader["nome"];
+                atendente.Nascimento = (DateTime)reader["nascimento"];
 
                 atendentes.Add(atendente);
             }

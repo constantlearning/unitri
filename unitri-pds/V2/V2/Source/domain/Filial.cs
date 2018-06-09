@@ -58,12 +58,27 @@ namespace V2.Source.domain
             }
         }
 
-        private void verifyCnpjDigits(String cppj)
+        private void verifyCnpjDigits(String cnpj)
         {
             if (!cnpj.All(char.IsDigit))
             {
                 throw new Exception("Valor inválido no CPNJ, inserir apenas números.");
             }
+        }
+
+        public override string ToString()
+        {
+            return this.Nome;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return base.Equals(obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }

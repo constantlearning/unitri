@@ -42,13 +42,40 @@ namespace V2.Source.service
             atendenteDAO.deletarAtendente(idAtendente);
         }
 
-        public static void SalvarAtendente(String nome, String cpf, DateTime nascimento)
+        public static void SalvarAtendente(Atendente atendente)
+        {
+            SqlConnection conexao = null;
+            SqlTransaction tx = null;
+
+            try
+            {
+                conexao = FabricaConexao.GetConnection();
+                tx = conexao.BeginTransaction();
+
+                AtendenteDAO atendenteDAO = new AtendenteDAO(conexao, tx);
+                atendenteDAO.salvarAtendente(atendente);
+                Atendente atendenteInserido = atendenteDAO.buscarAtendenteCPF(atendente.Cpf);
+                atendenteDAO.salvarAtendenteFilial(atendenteInserido);
+                tx.Commit();
+            }
+            catch (Exception ex)
+            {
+                tx.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                FabricaConexao.CloseConnection(conexao);
+            }
+
+        }
+
+        public static void AtualizarAtendente(Atendente atendente)
         {
             SqlConnection conexao = FabricaConexao.GetConnection();
             AtendenteDAO atendenteDAO = new AtendenteDAO(conexao);
 
-            Atendente atendente = new Atendente(nome, cpf, nascimento);
-            atendenteDAO.salvarAtendente(atendente);
+            atendenteDAO.atualizarAtendente(atendente);
         }
     }
 }

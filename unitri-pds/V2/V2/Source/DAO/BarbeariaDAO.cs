@@ -18,6 +18,7 @@ namespace V2.Source.service
 
         internal void salvarBarbearia(Barbearia barbearia)
         {
+            SqlCommand command = new SqlCommand();
             command.Connection = this.conexao;
             command.CommandType = CommandType.Text;
             command.CommandText = "insert into barbearia (name, cnpj) values (@nome, @cnpj)";

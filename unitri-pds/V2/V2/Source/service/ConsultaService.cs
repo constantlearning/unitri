@@ -28,13 +28,7 @@ namespace V2.Source.service
             return clienteDAO.buscarCliente(id);
         }
 
-        public static Filial BuscarFilial(Int32 id)
-        {
-            SqlConnection conexao = FabricaConexao.GetConnection();
-            FilialDAO filialDAO = new FilialDAO(conexao);
 
-            return filialDAO.buscarFilial(id);
-        }
 
         public static Produto BuscarProduto(Int32 id)
         {

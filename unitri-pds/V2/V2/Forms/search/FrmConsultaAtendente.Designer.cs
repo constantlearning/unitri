@@ -33,10 +33,8 @@
             this.dgvCliente = new System.Windows.Forms.DataGridView();
             this.btnDeletar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
-<<<<<<< HEAD
             this.btnCancelar = new System.Windows.Forms.Button();
-=======
->>>>>>> d70c839188ce89b46505b8e562dfb62a43c4fa66
+
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,11 +73,7 @@
             // 
             // btnDeletar
             // 
-<<<<<<< HEAD
             this.btnDeletar.Location = new System.Drawing.Point(309, 378);
-=======
-            this.btnDeletar.Location = new System.Drawing.Point(359, 378);
->>>>>>> d70c839188ce89b46505b8e562dfb62a43c4fa66
             this.btnDeletar.Name = "btnDeletar";
             this.btnDeletar.Size = new System.Drawing.Size(75, 23);
             this.btnDeletar.TabIndex = 7;
@@ -89,11 +83,7 @@
             // 
             // btnEditar
             // 
-<<<<<<< HEAD
             this.btnEditar.Location = new System.Drawing.Point(206, 378);
-=======
-            this.btnEditar.Location = new System.Drawing.Point(256, 378);
->>>>>>> d70c839188ce89b46505b8e562dfb62a43c4fa66
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(75, 23);
             this.btnEditar.TabIndex = 6;
@@ -101,7 +91,6 @@
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
-<<<<<<< HEAD
             // btnCancelar
             // 
             this.btnCancelar.Location = new System.Drawing.Point(410, 378);
@@ -112,17 +101,12 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-=======
->>>>>>> d70c839188ce89b46505b8e562dfb62a43c4fa66
             // FrmConsultaAtendente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(690, 413);
-<<<<<<< HEAD
             this.Controls.Add(this.btnCancelar);
-=======
->>>>>>> d70c839188ce89b46505b8e562dfb62a43c4fa66
             this.Controls.Add(this.btnDeletar);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.dgvCliente);
@@ -130,10 +114,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FrmConsultaAtendente";
             this.Text = "FrmConsultaAtendente";
-<<<<<<< HEAD
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmConsultaAtendente_FormClosed);
-=======
->>>>>>> d70c839188ce89b46505b8e562dfb62a43c4fa66
             this.Load += new System.EventHandler(this.FrmConsultaAtendente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).EndInit();
             this.ResumeLayout(false);
@@ -148,9 +129,6 @@
         private System.Windows.Forms.DataGridView dgvCliente;
         private System.Windows.Forms.Button btnDeletar;
         private System.Windows.Forms.Button btnEditar;
-<<<<<<< HEAD
         private System.Windows.Forms.Button btnCancelar;
-=======
->>>>>>> d70c839188ce89b46505b8e562dfb62a43c4fa66
     }
 }

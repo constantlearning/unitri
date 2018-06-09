@@ -29,14 +29,6 @@ namespace V2.Source.service
             clienteDAO.salvarCliente(cliente);
         }
 
-        public static void SalvarFilial(String nome, String endereco, String cnpj)
-        {
-            SqlConnection conexao = FabricaConexao.GetConnection();
-            FilialDAO filialDAO = new FilialDAO(conexao);
-
-            Filial filial = new Filial(nome, endereco, cnpj);
-            filialDAO.salvarFilial(filial);
-        }
 
         public static void SalvarProduto(String nome, String descricao, Double valor)
         {
