@@ -232,6 +232,13 @@ namespace pod_vt06
                 lblQtdComparacoes.Text = indicePesquisa.ToString();
             }
 
+            if (rbSequencial.Checked && rbTipoNota.Checked)
+            {
+                int indicePesquisa = Pesquisa.pesquisaSequencial(chave, candidatosOrdenados, TIPO.NOTA);
+                lblIndiceEncontrado.Text = indicePesquisa.ToString();
+                lblQtdComparacoes.Text = indicePesquisa.ToString();
+            }
+
             // Pesquisa Binária
             if (rbBinaria.Checked && rbTipoNome.Checked)
             {
@@ -263,16 +270,115 @@ namespace pod_vt06
                 }
             }
 
+            if (rbBinaria.Checked && rbTipoNota.Checked)
+            {
+                int[] pesquisaBinaria = Pesquisa.pesquisaBinaria(chave, candidatosOrdenados, TIPO.NOTA);
+
+                if (pesquisaBinaria[0] == -1)
+                {
+                    lblIndiceEncontrado.Text = "Não encontrado";
+                }
+                else
+                {
+                    lblIndiceEncontrado.Text = pesquisaBinaria[0].ToString();
+                    lblQtdComparacoes.Text = pesquisaBinaria[1].ToString();
+                }
+            }
+
+
+
+
+            // Pesquisa Interpolação
+            if (rbInterpolacao.Checked && rbTipoNome.Checked)
+            {
+                int[] pesquisaInterpolacao = Pesquisa.pesquisaInterpolacao(chave, candidatosOrdenados, TIPO.NOME);
+
+                if (pesquisaInterpolacao[0] == -1)
+                {
+                    lblIndiceEncontrado.Text = "Não encontrado";
+                }
+                else
+                {
+                    lblIndiceEncontrado.Text = pesquisaInterpolacao[0].ToString();
+                    lblQtdComparacoes.Text = pesquisaInterpolacao[1].ToString();
+                }
+            }
+
+            if (rbInterpolacao.Checked && rbTipoInscricao.Checked)
+            {
+                int[] pesquisaInterpolacao = Pesquisa.pesquisaInterpolacao(chave, candidatosOrdenados, TIPO.MATRICULA);
+
+                if (pesquisaInterpolacao[0] == -1)
+                {
+                    lblIndiceEncontrado.Text = "Não encontrado";
+                }
+                else
+                {
+                    lblIndiceEncontrado.Text = pesquisaInterpolacao[0].ToString();
+                    lblQtdComparacoes.Text = pesquisaInterpolacao[1].ToString();
+                }
+            }
+
+            if (rbInterpolacao.Checked && rbTipoNota.Checked)
+            {
+                int[] pesquisaInterpolacao = Pesquisa.pesquisaInterpolacao(chave, candidatosOrdenados, TIPO.NOTA);
+
+                if (pesquisaInterpolacao[0] == -1)
+                {
+                    lblIndiceEncontrado.Text = "Não encontrado";
+                }
+                else
+                {
+                    lblIndiceEncontrado.Text = pesquisaInterpolacao[0].ToString();
+                    lblQtdComparacoes.Text = pesquisaInterpolacao[1].ToString();
+                }
+            }
 
             // Pesquisa Hashing
             if (rbHashing.Checked && rbTipoNome.Checked)
             {
-                MessageBox.Show("Em breve!");
+                int[] pesquisaInterpolacao = Pesquisa.pesquisaHashing(chave, candidatosOrdenados, TIPO.NOME);
+
+                if (pesquisaInterpolacao[0] == -1)
+                {
+                    lblIndiceEncontrado.Text = "Não encontrado";
+                }
+                else
+                {
+                    lblIndiceEncontrado.Text = pesquisaInterpolacao[0].ToString();
+                    lblQtdComparacoes.Text = pesquisaInterpolacao[1].ToString();
+                }
             }
 
             if (rbHashing.Checked && rbTipoInscricao.Checked)
             {
-                MessageBox.Show("Em breve!");
+                int[] pesquisaInterpolacao = Pesquisa.pesquisaHashing(chave, candidatosOrdenados, TIPO.MATRICULA);
+
+                if (pesquisaInterpolacao[0] == -1)
+                {
+                    lblIndiceEncontrado.Text = "Não encontrado";
+                }
+                else
+                {
+                    lblIndiceEncontrado.Text = pesquisaInterpolacao[0].ToString();
+                    lblQtdComparacoes.Text = pesquisaInterpolacao[1].ToString();
+                }
+            }
+
+
+            if (rbHashing.Checked && rbTipoNota.Checked)
+            {
+                int[] pesquisaInterpolacao = Pesquisa.pesquisaHashing(chave, candidatosOrdenados, TIPO.NOTA);
+
+                if (pesquisaInterpolacao[0] == -1)
+                {
+                    lblIndiceEncontrado.Text = "Não encontrado";
+                }
+                else
+                {
+                    lblIndiceEncontrado.Text = pesquisaInterpolacao[0].ToString();
+                    lblQtdComparacoes.Text = pesquisaInterpolacao[1].ToString();
+                }
             }
 
         }

@@ -55,10 +55,6 @@
             this.btnOrdenar = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.matriculaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.notaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.candidatoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -67,6 +63,8 @@
             this.rbBinaria = new System.Windows.Forms.RadioButton();
             this.rbHashing = new System.Windows.Forms.RadioButton();
             this.gpbPesquisa = new System.Windows.Forms.GroupBox();
+            this.lblQtdComparacoes = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rbTipoInscricao = new System.Windows.Forms.RadioButton();
             this.rbTipoNome = new System.Windows.Forms.RadioButton();
@@ -76,17 +74,20 @@
             this.lblIndiceEncontrado = new System.Windows.Forms.Label();
             this.txtChave = new System.Windows.Forms.TextBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.rbInterpolacao = new System.Windows.Forms.RadioButton();
+            this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.matriculaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.notaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.candidatoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblQtdComparacoes = new System.Windows.Forms.Label();
+            this.rbTipoNota = new System.Windows.Forms.RadioButton();
             this.gbAlgoritmo.SuspendLayout();
             this.gbOrdenar.SuspendLayout();
             this.gbFiltro.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.candidatoBindingSource)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -94,6 +95,7 @@
             this.gpbPesquisa.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.candidatoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // gbAlgoritmo
@@ -113,10 +115,12 @@
             // rbQuickSort
             // 
             this.rbQuickSort.AutoSize = true;
+            this.rbQuickSort.Checked = true;
             this.rbQuickSort.Location = new System.Drawing.Point(7, 112);
             this.rbQuickSort.Name = "rbQuickSort";
             this.rbQuickSort.Size = new System.Drawing.Size(75, 17);
             this.rbQuickSort.TabIndex = 4;
+            this.rbQuickSort.TabStop = true;
             this.rbQuickSort.Text = "Quick Sort";
             this.rbQuickSort.UseVisualStyleBackColor = true;
             // 
@@ -153,12 +157,10 @@
             // rbBubbleSort
             // 
             this.rbBubbleSort.AutoSize = true;
-            this.rbBubbleSort.Checked = true;
             this.rbBubbleSort.Location = new System.Drawing.Point(7, 20);
             this.rbBubbleSort.Name = "rbBubbleSort";
             this.rbBubbleSort.Size = new System.Drawing.Size(80, 17);
             this.rbBubbleSort.TabIndex = 0;
-            this.rbBubbleSort.TabStop = true;
             this.rbBubbleSort.Text = "Bubble Sort";
             this.rbBubbleSort.UseVisualStyleBackColor = true;
             // 
@@ -318,22 +320,22 @@
             // rbNotaAbaixo
             // 
             this.rbNotaAbaixo.AutoSize = true;
+            this.rbNotaAbaixo.Checked = true;
             this.rbNotaAbaixo.Location = new System.Drawing.Point(6, 44);
             this.rbNotaAbaixo.Name = "rbNotaAbaixo";
             this.rbNotaAbaixo.Size = new System.Drawing.Size(100, 17);
             this.rbNotaAbaixo.TabIndex = 3;
+            this.rbNotaAbaixo.TabStop = true;
             this.rbNotaAbaixo.Text = "Nota abaixo de:";
             this.rbNotaAbaixo.UseVisualStyleBackColor = true;
             // 
             // rbNotaAcima
             // 
             this.rbNotaAcima.AutoSize = true;
-            this.rbNotaAcima.Checked = true;
             this.rbNotaAcima.Location = new System.Drawing.Point(6, 19);
             this.rbNotaAcima.Name = "rbNotaAcima";
             this.rbNotaAcima.Size = new System.Drawing.Size(100, 17);
             this.rbNotaAcima.TabIndex = 2;
-            this.rbNotaAcima.TabStop = true;
             this.rbNotaAcima.Text = "Nota acima de :";
             this.rbNotaAcima.UseVisualStyleBackColor = true;
             // 
@@ -376,34 +378,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(535, 246);
             this.dataGridView1.TabIndex = 6;
             // 
-            // nomeDataGridViewTextBoxColumn
-            // 
-            this.nomeDataGridViewTextBoxColumn.DataPropertyName = "Nome";
-            this.nomeDataGridViewTextBoxColumn.HeaderText = "Nome";
-            this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
-            this.nomeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nomeDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // matriculaDataGridViewTextBoxColumn
-            // 
-            this.matriculaDataGridViewTextBoxColumn.DataPropertyName = "Matricula";
-            this.matriculaDataGridViewTextBoxColumn.HeaderText = "Matricula";
-            this.matriculaDataGridViewTextBoxColumn.Name = "matriculaDataGridViewTextBoxColumn";
-            this.matriculaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.matriculaDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // notaDataGridViewTextBoxColumn
-            // 
-            this.notaDataGridViewTextBoxColumn.DataPropertyName = "Nota";
-            this.notaDataGridViewTextBoxColumn.HeaderText = "Nota";
-            this.notaDataGridViewTextBoxColumn.Name = "notaDataGridViewTextBoxColumn";
-            this.notaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.notaDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // candidatoBindingSource
-            // 
-            this.candidatoBindingSource.DataSource = typeof(pod_v1.sort.entity.Candidato);
-            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
@@ -441,6 +415,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.rbInterpolacao);
             this.groupBox2.Controls.Add(this.rbSequencial);
             this.groupBox2.Controls.Add(this.rbBinaria);
             this.groupBox2.Controls.Add(this.rbHashing);
@@ -454,22 +429,22 @@
             // rbSequencial
             // 
             this.rbSequencial.AutoSize = true;
-            this.rbSequencial.Checked = true;
             this.rbSequencial.Location = new System.Drawing.Point(6, 19);
             this.rbSequencial.Name = "rbSequencial";
             this.rbSequencial.Size = new System.Drawing.Size(124, 17);
             this.rbSequencial.TabIndex = 2;
-            this.rbSequencial.TabStop = true;
             this.rbSequencial.Text = "Pesquisa Sequencial";
             this.rbSequencial.UseVisualStyleBackColor = true;
             // 
             // rbBinaria
             // 
             this.rbBinaria.AutoSize = true;
-            this.rbBinaria.Location = new System.Drawing.Point(6, 46);
+            this.rbBinaria.Checked = true;
+            this.rbBinaria.Location = new System.Drawing.Point(6, 37);
             this.rbBinaria.Name = "rbBinaria";
             this.rbBinaria.Size = new System.Drawing.Size(103, 17);
             this.rbBinaria.TabIndex = 3;
+            this.rbBinaria.TabStop = true;
             this.rbBinaria.Text = "Pesquisa Binária";
             this.rbBinaria.UseVisualStyleBackColor = true;
             // 
@@ -500,8 +475,27 @@
             this.gpbPesquisa.TabStop = false;
             this.gpbPesquisa.Text = "Pesquisa";
             // 
+            // lblQtdComparacoes
+            // 
+            this.lblQtdComparacoes.AutoSize = true;
+            this.lblQtdComparacoes.Location = new System.Drawing.Point(431, 131);
+            this.lblQtdComparacoes.Name = "lblQtdComparacoes";
+            this.lblQtdComparacoes.Size = new System.Drawing.Size(16, 13);
+            this.lblQtdComparacoes.TabIndex = 14;
+            this.lblQtdComparacoes.Text = " - ";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(300, 103);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(125, 13);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Índice valor encontrado: ";
+            // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.rbTipoNota);
             this.groupBox1.Controls.Add(this.rbTipoInscricao);
             this.groupBox1.Controls.Add(this.rbTipoNome);
             this.groupBox1.Location = new System.Drawing.Point(206, 53);
@@ -514,22 +508,22 @@
             // rbTipoInscricao
             // 
             this.rbTipoInscricao.AutoSize = true;
-            this.rbTipoInscricao.Location = new System.Drawing.Point(6, 61);
+            this.rbTipoInscricao.Checked = true;
+            this.rbTipoInscricao.Location = new System.Drawing.Point(6, 46);
             this.rbTipoInscricao.Name = "rbTipoInscricao";
             this.rbTipoInscricao.Size = new System.Drawing.Size(68, 17);
             this.rbTipoInscricao.TabIndex = 2;
+            this.rbTipoInscricao.TabStop = true;
             this.rbTipoInscricao.Text = "Inscrição";
             this.rbTipoInscricao.UseVisualStyleBackColor = true;
             // 
             // rbTipoNome
             // 
             this.rbTipoNome.AutoSize = true;
-            this.rbTipoNome.Checked = true;
             this.rbTipoNome.Location = new System.Drawing.Point(6, 20);
             this.rbTipoNome.Name = "rbTipoNome";
             this.rbTipoNome.Size = new System.Drawing.Size(53, 17);
             this.rbTipoNome.TabIndex = 1;
-            this.rbTipoNome.TabStop = true;
             this.rbTipoNome.Text = "Nome";
             this.rbTipoNome.UseVisualStyleBackColor = true;
             // 
@@ -595,6 +589,44 @@
             this.dataGridView2.Size = new System.Drawing.Size(535, 246);
             this.dataGridView2.TabIndex = 7;
             // 
+            // rbInterpolacao
+            // 
+            this.rbInterpolacao.AutoSize = true;
+            this.rbInterpolacao.Location = new System.Drawing.Point(6, 55);
+            this.rbInterpolacao.Name = "rbInterpolacao";
+            this.rbInterpolacao.Size = new System.Drawing.Size(130, 17);
+            this.rbInterpolacao.TabIndex = 5;
+            this.rbInterpolacao.Text = "Pesquisa Interpolação";
+            this.rbInterpolacao.UseVisualStyleBackColor = true;
+            // 
+            // nomeDataGridViewTextBoxColumn
+            // 
+            this.nomeDataGridViewTextBoxColumn.DataPropertyName = "Nome";
+            this.nomeDataGridViewTextBoxColumn.HeaderText = "Nome";
+            this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
+            this.nomeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nomeDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // matriculaDataGridViewTextBoxColumn
+            // 
+            this.matriculaDataGridViewTextBoxColumn.DataPropertyName = "Matricula";
+            this.matriculaDataGridViewTextBoxColumn.HeaderText = "Matricula";
+            this.matriculaDataGridViewTextBoxColumn.Name = "matriculaDataGridViewTextBoxColumn";
+            this.matriculaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.matriculaDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // notaDataGridViewTextBoxColumn
+            // 
+            this.notaDataGridViewTextBoxColumn.DataPropertyName = "Nota";
+            this.notaDataGridViewTextBoxColumn.HeaderText = "Nota";
+            this.notaDataGridViewTextBoxColumn.Name = "notaDataGridViewTextBoxColumn";
+            this.notaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.notaDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // candidatoBindingSource
+            // 
+            this.candidatoBindingSource.DataSource = typeof(pod_v1.sort.entity.Candidato);
+            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "Nome";
@@ -619,23 +651,15 @@
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
             this.dataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // label2
+            // rbTipoNota
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(300, 103);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(125, 13);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Índice valor encontrado: ";
-            // 
-            // lblQtdComparacoes
-            // 
-            this.lblQtdComparacoes.AutoSize = true;
-            this.lblQtdComparacoes.Location = new System.Drawing.Point(431, 131);
-            this.lblQtdComparacoes.Name = "lblQtdComparacoes";
-            this.lblQtdComparacoes.Size = new System.Drawing.Size(16, 13);
-            this.lblQtdComparacoes.TabIndex = 14;
-            this.lblQtdComparacoes.Text = " - ";
+            this.rbTipoNota.AutoSize = true;
+            this.rbTipoNota.Location = new System.Drawing.Point(6, 73);
+            this.rbTipoNota.Name = "rbTipoNota";
+            this.rbTipoNota.Size = new System.Drawing.Size(48, 17);
+            this.rbTipoNota.TabIndex = 4;
+            this.rbTipoNota.Text = "Nota";
+            this.rbTipoNota.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -656,7 +680,6 @@
             this.gbFiltro.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.candidatoBindingSource)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
@@ -667,6 +690,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.candidatoBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -726,6 +750,8 @@
         private System.Windows.Forms.RadioButton rbTipoNome;
         private System.Windows.Forms.Label lblQtdComparacoes;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.RadioButton rbInterpolacao;
+        private System.Windows.Forms.RadioButton rbTipoNota;
     }
 }
 

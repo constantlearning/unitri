@@ -61,6 +61,7 @@
     <Compile Include="sort\algoritmos\pesquisar\Pesquisa.cs" />
     <Compile Include="sort\entidade\Candidato.cs" />
     <Compile Include="sort\entidade\CompararCandidatos.cs" />
+    <Compile Include="sort\entidade\OperacaoCandidato.cs" />
     <Compile Include="sort\entidade\TIPO.cs" />
     <Compile Include="sort\util\FiltrarCandidatos.cs" />
     <Compile Include="sort\util\LerArquivo.cs" />
