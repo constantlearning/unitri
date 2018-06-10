@@ -20,16 +20,6 @@ namespace V2.Source.service
             barbeariaDAO.salvarBarbearia(barbearia);
         }
 
-        public static void SalvarCliente(String nome, String cpf, DateTime nascimento)
-        {
-            SqlConnection conexao = FabricaConexao.GetConnection();
-            ClienteDAO clienteDAO = new ClienteDAO(conexao);
-
-            Cliente cliente = new Cliente(nome, cpf, nascimento);
-            clienteDAO.salvarCliente(cliente);
-        }
-
-
         public static void SalvarProduto(String nome, String descricao, Double valor)
         {
             SqlConnection conexao = FabricaConexao.GetConnection();

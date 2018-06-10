@@ -12,11 +12,13 @@ namespace V2.Source.domain
         private String nome;
         private String cpf;
         private DateTime nascimento;
+        private Telefone telefone;
 
         public int Id { get => id; set => id = value; }
         public string Nome { get => nome; set => nome = value; }
         public string Cpf { get => cpf; set => validarCpf(value); }
         public DateTime Nascimento { get => nascimento; set => nascimento = value; }
+        internal Telefone Telefone { get => telefone; set => telefone = value; }
 
         public Cliente()
         {

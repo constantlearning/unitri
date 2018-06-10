@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using V2.Source.domain;
 using V2.Source.service;
 
 namespace V2.Forms.register
@@ -36,10 +37,21 @@ namespace V2.Forms.register
                 String nome = tbNome.Text;
                 String cpf = mtbCPF.Text.Replace("-", "");
                 DateTime nascimento = dtNascimento.Value;
+                Telefone telefone = new Telefone();
+                telefone.Numero = mtbTelefone.Text
+                    .Replace("(", "")
+                    .Replace(")", "")
+                    .Replace("-", "");
+
+                Cliente cliente = new Cliente();
+                cliente.Nome = nome;
+                cliente.Cpf = cpf;
+                cliente.Nascimento = nascimento;
+                cliente.Telefone = telefone;
 
                 try
                 {
-                    CadastroService.SalvarCliente(nome, cpf, nascimento);
+                    ClienteService.SalvarCliente(cliente);
 
                     MessageBox.Show("Salvo com sucesso!");
                     this.Close();
@@ -49,6 +61,16 @@ namespace V2.Forms.register
                     MessageBox.Show(ex.Message);
                 }
             }
+        }
+
+        private void rbResidencial_CheckedChanged(object sender, EventArgs e)
+        {
+            mtbTelefone.Mask = "(00)0000-0000";
+        }
+
+        private void rbCelular_CheckedChanged(object sender, EventArgs e)
+        {
+            mtbTelefone.Mask = "(00)00000-0000";
         }
     }
 }

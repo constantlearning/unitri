@@ -57,6 +57,7 @@
     <Compile Include="Forms\FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Source\service\ClienteService.cs" />
     <Compile Include="Source\service\FilialService.cs" />
     <Compile Include="Forms\register\FrmCadastroAtendente.cs">
       <SubType>Form</SubType>
