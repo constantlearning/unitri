@@ -43,7 +43,6 @@ namespace V2.Forms.register
                     .Replace(")", "")
                     .Replace("-", "");
 
-
                 Atendente atendente = new Atendente();
                 atendente.Nome = nome;
                 atendente.Cpf = cpf;
