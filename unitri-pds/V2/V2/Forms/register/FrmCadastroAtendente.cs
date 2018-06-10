@@ -37,6 +37,11 @@ namespace V2.Forms.register
                 String cpf = mtbCPF.Text.Replace("-", "");
                 DateTime nascimento = dtNascimento.Value;
                 Filial filial = (Filial)cbFilial.SelectedValue;
+                Telefone telefone = new Telefone();
+                telefone.Numero = mtbTelefone.Text
+                    .Replace("(", "")
+                    .Replace(")", "")
+                    .Replace("-", "");
 
 
                 Atendente atendente = new Atendente();
@@ -44,6 +49,7 @@ namespace V2.Forms.register
                 atendente.Cpf = cpf;
                 atendente.Nascimento = nascimento;
                 atendente.Filial = filial;
+                atendente.Telefone = telefone;
 
                 try
                 {
@@ -70,6 +76,16 @@ namespace V2.Forms.register
 
             List<Filial> filiais = FilialService.buscarTodasFiliais();
             cbFilial.DataSource = filiais;
+        }
+
+        private void rbResidencial_CheckedChanged(object sender, EventArgs e)
+        {
+            mtbTelefone.Mask = "(00)0000-0000";
+        }
+
+        private void rbCelular_CheckedChanged(object sender, EventArgs e)
+        {
+            mtbTelefone.Mask = "(00)00000-0000";
         }
     }
 }

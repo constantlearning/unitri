@@ -37,7 +37,6 @@
             this.pedidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.produtoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serviçoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.telefoneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.atendenteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.barbeariaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,8 +71,7 @@
             this.filialToolStripMenuItem,
             this.pedidoToolStripMenuItem,
             this.produtoToolStripMenuItem,
-            this.serviçoToolStripMenuItem,
-            this.telefoneToolStripMenuItem});
+            this.serviçoToolStripMenuItem});
             this.cadastroToolStripMenuItem.Name = "cadastroToolStripMenuItem";
             this.cadastroToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.cadastroToolStripMenuItem.Text = "Cadastro";
@@ -81,58 +79,51 @@
             // atendenteToolStripMenuItem
             // 
             this.atendenteToolStripMenuItem.Name = "atendenteToolStripMenuItem";
-            this.atendenteToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.atendenteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.atendenteToolStripMenuItem.Text = "Atendente";
             this.atendenteToolStripMenuItem.Click += new System.EventHandler(this.atendenteToolStripMenuItem_Click);
             // 
             // barbeariaToolStripMenuItem
             // 
             this.barbeariaToolStripMenuItem.Name = "barbeariaToolStripMenuItem";
-            this.barbeariaToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.barbeariaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.barbeariaToolStripMenuItem.Text = "Barbearia";
             this.barbeariaToolStripMenuItem.Click += new System.EventHandler(this.barbeariaToolStripMenuItem_Click);
             // 
             // clienteToolStripMenuItem
             // 
             this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
-            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.clienteToolStripMenuItem.Text = "Cliente";
             this.clienteToolStripMenuItem.Click += new System.EventHandler(this.clienteToolStripMenuItem_Click);
             // 
             // filialToolStripMenuItem
             // 
             this.filialToolStripMenuItem.Name = "filialToolStripMenuItem";
-            this.filialToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.filialToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.filialToolStripMenuItem.Text = "Filial";
             this.filialToolStripMenuItem.Click += new System.EventHandler(this.filialToolStripMenuItem_Click);
             // 
             // pedidoToolStripMenuItem
             // 
             this.pedidoToolStripMenuItem.Name = "pedidoToolStripMenuItem";
-            this.pedidoToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.pedidoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.pedidoToolStripMenuItem.Text = "Pedido";
             this.pedidoToolStripMenuItem.Click += new System.EventHandler(this.pedidoToolStripMenuItem_Click);
             // 
             // produtoToolStripMenuItem
             // 
             this.produtoToolStripMenuItem.Name = "produtoToolStripMenuItem";
-            this.produtoToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.produtoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.produtoToolStripMenuItem.Text = "Produto";
             this.produtoToolStripMenuItem.Click += new System.EventHandler(this.produtoToolStripMenuItem_Click);
             // 
             // serviçoToolStripMenuItem
             // 
             this.serviçoToolStripMenuItem.Name = "serviçoToolStripMenuItem";
-            this.serviçoToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.serviçoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.serviçoToolStripMenuItem.Text = "Serviço";
             this.serviçoToolStripMenuItem.Click += new System.EventHandler(this.serviçoToolStripMenuItem_Click);
-            // 
-            // telefoneToolStripMenuItem
-            // 
-            this.telefoneToolStripMenuItem.Name = "telefoneToolStripMenuItem";
-            this.telefoneToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
-            this.telefoneToolStripMenuItem.Text = "Telefone";
-            this.telefoneToolStripMenuItem.Click += new System.EventHandler(this.telefoneToolStripMenuItem_Click);
             // 
             // consultaToolStripMenuItem
             // 
@@ -242,7 +233,6 @@
         private System.Windows.Forms.ToolStripMenuItem pedidoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem produtoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem serviçoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem telefoneToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem atendenteToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem barbeariaToolStripMenuItem1;

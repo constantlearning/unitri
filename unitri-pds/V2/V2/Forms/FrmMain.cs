@@ -74,14 +74,6 @@ namespace V2
             frmCadastroServico.WindowState = FormWindowState.Maximized;
         }
 
-        private void telefoneToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmCadastroTelefone frmCadastroTelefone = new FrmCadastroTelefone();
-            frmCadastroTelefone.MdiParent = this;
-            frmCadastroTelefone.Show();
-            frmCadastroTelefone.WindowState = FormWindowState.Maximized;
-        }
-
         private void atendenteToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             FrmConsultaAtendente frmConsultaAtendente = new FrmConsultaAtendente();

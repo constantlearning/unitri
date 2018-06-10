@@ -53,9 +53,22 @@ namespace V2.Source.service
             command.Connection = this.conexao;
             command.Transaction = this.tx;
             command.CommandType = CommandType.Text;
-            command.CommandText = "insert into atendente_filial(id_atendente, id_filial) values(@idatendente, @idfilial)";
+            command.CommandText = "INSERT INTO atendente_filial(id_atendente, id_filial) values(@idatendente, @idfilial)";
             command.Parameters.AddWithValue("@idatendente", atendente.Id);
             command.Parameters.AddWithValue("@idfilial", atendente.Filial.Id);
+
+            command.ExecuteNonQuery();
+        }
+
+        internal void salvarAtendenteTelefone(Atendente atendente)
+        {
+            SqlCommand command = new SqlCommand();
+            command.Connection = this.conexao;
+            command.Transaction = this.tx;
+            command.CommandType = CommandType.Text;
+            command.CommandText = "INSERT INTO telefone_atendente(id_telefone, id_atendente) values(@idtelefone, @idatendente)";
+            command.Parameters.AddWithValue("@idtelefone", atendente.Telefone.Id);
+            command.Parameters.AddWithValue("@idatendente", atendente.Id);
 
             command.ExecuteNonQuery();
         }

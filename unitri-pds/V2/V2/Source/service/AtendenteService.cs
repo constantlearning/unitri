@@ -55,6 +55,10 @@ namespace V2.Source.service
                 AtendenteDAO atendenteDAO = new AtendenteDAO(conexao, tx);
                 atendenteDAO.salvarAtendente(atendente);
                 atendenteDAO.salvarAtendenteFilial(atendente);
+
+                TelefoneDAO telefoneDAO = new TelefoneDAO(conexao, tx);
+                telefoneDAO.salvarTelefone(atendente.Telefone);
+                atendenteDAO.salvarAtendenteTelefone(atendente);
                 tx.Commit();
             }
             catch (Exception ex)

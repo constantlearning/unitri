@@ -26,16 +26,7 @@ namespace V2.Source.domain
         private void verifyNumber(string value)
         {
             verifyPhoneNumbers(value);
-            verifyPhoneSize(value);
             numero = value;
-        }
-
-        private void verifyPhoneSize(string value)
-        {
-            if (value.Length != 11)
-            {
-                throw new Exception("O telefone precisa ter o tamanho de 11 digitos.");
-            }
         }
 
         private void verifyPhoneNumbers(string value)
