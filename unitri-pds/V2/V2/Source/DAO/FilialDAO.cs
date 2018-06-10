@@ -46,6 +46,19 @@ namespace V2.Source.service
             filial.Id = Convert.ToInt32(id);
         }
 
+        internal void salvarFilialTelefone(Filial filial)
+        {
+            SqlCommand command = new SqlCommand();
+            command.Connection = this.conexao;
+            command.Transaction = this.tx;
+            command.CommandType = CommandType.Text;
+            command.CommandText = "INSERT INTO telefone_filial(id_telefone, id_filial) values(@idtelefone, @idfilial)";
+            command.Parameters.AddWithValue("@idtelefone", filial.Telefone.Id);
+            command.Parameters.AddWithValue("@idfilial", filial.Id);
+
+            command.ExecuteNonQuery();
+        }
+
         internal void salvarFilialBarbearia(Filial filial)
         {
             SqlCommand command = new SqlCommand();

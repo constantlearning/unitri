@@ -24,6 +24,10 @@ namespace V2.Forms.register
                 filialDAO.salvarFilial(filial);
                 filialDAO.salvarFilialBarbearia(filial);
 
+                TelefoneDAO telefoneDAO = new TelefoneDAO(conexao, tx);
+                telefoneDAO.salvarTelefone(filial.Telefone);
+                filialDAO.salvarFilialTelefone(filial);
+
                 tx.Commit();
             }
             catch (Exception ex)

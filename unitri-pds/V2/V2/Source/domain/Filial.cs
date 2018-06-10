@@ -13,12 +13,14 @@ namespace V2.Source.domain
         private String endereco;
         private String cnpj;
         private Barbearia barbearia;
+        private Telefone telefone;
 
         public int Id { get => id; set => id = value; }
         public string Cnpj { get => cnpj; set => validateCnpj(value); }
         public string Nome { get => nome; set => validateName(value); }
         public string Endereco { get => endereco; set => endereco = value; }
         internal Barbearia Barbearia { get => barbearia; set => barbearia = value; }
+        internal Telefone Telefone { get => telefone; set => telefone = value; }
 
         public Filial()
         {

@@ -38,12 +38,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.cbBarbearias = new System.Windows.Forms.ComboBox();
+            this.mtbTelefone = new System.Windows.Forms.MaskedTextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnSalvar
             // 
             this.btnSalvar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSalvar.Location = new System.Drawing.Point(178, 143);
+            this.btnSalvar.Location = new System.Drawing.Point(178, 175);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar.TabIndex = 15;
@@ -54,7 +56,7 @@
             // btnCancelar
             // 
             this.btnCancelar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCancelar.Location = new System.Drawing.Point(53, 143);
+            this.btnCancelar.Location = new System.Drawing.Point(53, 175);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 14;
@@ -66,7 +68,7 @@
             // 
             this.mtbCNPJ.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.mtbCNPJ.Location = new System.Drawing.Point(73, 68);
+            this.mtbCNPJ.Location = new System.Drawing.Point(73, 70);
             this.mtbCNPJ.Mask = "00.000.000/0000-00";
             this.mtbCNPJ.Name = "mtbCNPJ";
             this.mtbCNPJ.Size = new System.Drawing.Size(222, 20);
@@ -84,7 +86,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 71);
+            this.label2.Location = new System.Drawing.Point(12, 73);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 13);
             this.label2.TabIndex = 11;
@@ -103,7 +105,7 @@
             // 
             this.tbEndereco.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbEndereco.Location = new System.Drawing.Point(73, 38);
+            this.tbEndereco.Location = new System.Drawing.Point(73, 41);
             this.tbEndereco.Name = "tbEndereco";
             this.tbEndereco.Size = new System.Drawing.Size(222, 20);
             this.tbEndereco.TabIndex = 17;
@@ -111,7 +113,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(11, 41);
+            this.label3.Location = new System.Drawing.Point(11, 44);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 13);
             this.label3.TabIndex = 16;
@@ -120,7 +122,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(11, 106);
+            this.label4.Location = new System.Drawing.Point(12, 131);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(58, 13);
             this.label4.TabIndex = 18;
@@ -129,17 +131,36 @@
             // cbBarbearias
             // 
             this.cbBarbearias.FormattingEnabled = true;
-            this.cbBarbearias.Location = new System.Drawing.Point(73, 103);
+            this.cbBarbearias.Location = new System.Drawing.Point(74, 128);
             this.cbBarbearias.Name = "cbBarbearias";
             this.cbBarbearias.Size = new System.Drawing.Size(222, 21);
             this.cbBarbearias.TabIndex = 19;
+            // 
+            // mtbTelefone
+            // 
+            this.mtbTelefone.Location = new System.Drawing.Point(73, 99);
+            this.mtbTelefone.Mask = "(00)0000-0000";
+            this.mtbTelefone.Name = "mtbTelefone";
+            this.mtbTelefone.Size = new System.Drawing.Size(100, 20);
+            this.mtbTelefone.TabIndex = 21;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(11, 102);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(55, 13);
+            this.label5.TabIndex = 20;
+            this.label5.Text = "Telefone: ";
             // 
             // FrmCadastroFilial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(307, 190);
+            this.ClientSize = new System.Drawing.Size(307, 254);
             this.ControlBox = false;
+            this.Controls.Add(this.mtbTelefone);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.cbBarbearias);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.tbEndereco);
@@ -170,5 +191,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cbBarbearias;
+        private System.Windows.Forms.MaskedTextBox mtbTelefone;
+        private System.Windows.Forms.Label label5;
     }
 }

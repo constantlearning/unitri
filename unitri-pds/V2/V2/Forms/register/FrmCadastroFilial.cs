@@ -40,7 +40,13 @@ namespace V2.Forms.register
                     .Replace("-", "")
                     .Replace(".", "")
                     .Replace("/", "");
+                Telefone telefone = new Telefone();
+                telefone.Numero = mtbTelefone.Text
+                    .Replace("(", "")
+                    .Replace(")", "")
+                    .Replace("-", "");
                 Barbearia barbearia = (Barbearia)cbBarbearias.SelectedValue;
+
 
 
                 Filial filial = new Filial();
@@ -48,6 +54,7 @@ namespace V2.Forms.register
                 filial.Cnpj = cnpj;
                 filial.Endereco = endereco;
                 filial.Barbearia = barbearia;
+                filial.Telefone = telefone;
 
                 try
                 {
