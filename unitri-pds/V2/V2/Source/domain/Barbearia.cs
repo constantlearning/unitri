@@ -62,5 +62,10 @@ namespace V2.Source.domain
                 throw new Exception("Valor inválido no CPNJ, inserir apenas números.");
             }
         }
+
+        public override string ToString()
+        {
+            return Nome;
+        }
     }
 }

@@ -10,13 +10,31 @@ namespace V2.Forms.register
     internal class FilialService
     {
 
-        public static void SalvarFilial(String nome, String endereco, String cnpj)
+        public static void SalvarFilial(Filial filial)
         {
-            SqlConnection conexao = FabricaConexao.GetConnection();
-            FilialDAO filialDAO = new FilialDAO(conexao);
+            SqlConnection conexao = null;
+            SqlTransaction tx = null;
 
-            Filial filial = new Filial(nome, endereco, cnpj);
-            filialDAO.salvarFilial(filial);
+            try
+            {
+                conexao = FabricaConexao.GetConnection();
+                tx = conexao.BeginTransaction();
+
+                FilialDAO filialDAO = new FilialDAO(conexao, tx);
+                filialDAO.salvarFilial(filial);
+                filialDAO.salvarFilialBarbearia(filial);
+
+                tx.Commit();
+            }
+            catch (Exception ex)
+            {
+                tx.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                FabricaConexao.CloseConnection(conexao);
+            }
         }
 
         public static Filial BuscarFilial(Int32 id)

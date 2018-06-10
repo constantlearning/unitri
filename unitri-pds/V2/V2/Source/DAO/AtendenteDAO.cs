@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Text;
 using V2.Source.domain;
 using V2.Source.util;
 
@@ -26,15 +27,24 @@ namespace V2.Source.service
         public void salvarAtendente(Atendente atendente)
         {
             SqlCommand command = new SqlCommand();
-            command.Connection = this.conexao;
-            command.Transaction = this.tx;
             command.CommandType = CommandType.Text;
-            command.CommandText = "insert into atendente (nome, cpf, nascimento) values (@nome, @cpf, @nascimento)";
+            command.Connection = this.conexao;
+            if (tx != null)
+            {
+                command.Transaction = tx;
+            }
+
+            StringBuilder sql = new StringBuilder();
+            sql.Append("INSERT INTO atendente(nome, cpf, nascimento)");
+            sql.Append("VALUES (@nome, @cpf, @nascimento)");
+            sql.Append("SELECT @@identity from atendente");
+            command.CommandText = sql.ToString();
             command.Parameters.AddWithValue("@nome", atendente.Nome);
             command.Parameters.AddWithValue("@cpf", atendente.Cpf);
             command.Parameters.AddWithValue("@nascimento", atendente.Nascimento);
 
-            command.ExecuteNonQuery();
+            decimal id = (decimal)command.ExecuteScalar();
+            atendente.Id = Convert.ToInt32(id);
         }
 
         public void salvarAtendenteFilial(Atendente atendente)

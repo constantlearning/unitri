@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using V2.Source.domain;
 using V2.Source.service;
 
 namespace V2.Forms.register
@@ -39,10 +40,18 @@ namespace V2.Forms.register
                     .Replace("-", "")
                     .Replace(".", "")
                     .Replace("/", "");
+                Barbearia barbearia = (Barbearia)cbBarbearias.SelectedValue;
+
+
+                Filial filial = new Filial();
+                filial.Nome = nome;
+                filial.Cnpj = cnpj;
+                filial.Endereco = endereco;
+                filial.Barbearia = barbearia;
 
                 try
                 {
-                    FilialService.SalvarFilial(nome, endereco, cnpj);
+                    FilialService.SalvarFilial(filial);
 
                     MessageBox.Show("Salvo com sucesso!");
                     this.Close();
@@ -52,6 +61,13 @@ namespace V2.Forms.register
                     MessageBox.Show(ex.Message);
                 }
             }
+        }
+
+        private void FrmCadastroFilial_Load(object sender, EventArgs e)
+        {
+
+            List<Barbearia> barbearias = BarbeariaService.BuscarTodasBarbearias();
+            cbBarbearias.DataSource = barbearias;
         }
     }
 }

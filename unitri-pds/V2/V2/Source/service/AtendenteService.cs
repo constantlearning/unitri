@@ -54,8 +54,7 @@ namespace V2.Source.service
 
                 AtendenteDAO atendenteDAO = new AtendenteDAO(conexao, tx);
                 atendenteDAO.salvarAtendente(atendente);
-                Atendente atendenteInserido = atendenteDAO.buscarAtendenteCPF(atendente.Cpf);
-                atendenteDAO.salvarAtendenteFilial(atendenteInserido);
+                atendenteDAO.salvarAtendenteFilial(atendente);
                 tx.Commit();
             }
             catch (Exception ex)

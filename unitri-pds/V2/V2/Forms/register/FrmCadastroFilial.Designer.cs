@@ -36,12 +36,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tbEndereco = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cbBarbearias = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btnSalvar
             // 
             this.btnSalvar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSalvar.Location = new System.Drawing.Point(187, 105);
+            this.btnSalvar.Location = new System.Drawing.Point(178, 143);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar.TabIndex = 15;
@@ -52,7 +54,7 @@
             // btnCancelar
             // 
             this.btnCancelar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCancelar.Location = new System.Drawing.Point(62, 105);
+            this.btnCancelar.Location = new System.Drawing.Point(53, 143);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 14;
@@ -115,12 +117,31 @@
             this.label3.TabIndex = 16;
             this.label3.Text = "Endereço:";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(11, 106);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(58, 13);
+            this.label4.TabIndex = 18;
+            this.label4.Text = "Barbearia: ";
+            // 
+            // cbBarbearias
+            // 
+            this.cbBarbearias.FormattingEnabled = true;
+            this.cbBarbearias.Location = new System.Drawing.Point(73, 103);
+            this.cbBarbearias.Name = "cbBarbearias";
+            this.cbBarbearias.Size = new System.Drawing.Size(222, 21);
+            this.cbBarbearias.TabIndex = 19;
+            // 
             // FrmCadastroFilial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(307, 140);
+            this.ClientSize = new System.Drawing.Size(307, 190);
             this.ControlBox = false;
+            this.Controls.Add(this.cbBarbearias);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.tbEndereco);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnSalvar);
@@ -131,6 +152,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FrmCadastroFilial";
             this.Text = "FrmCadastroFilial";
+            this.Load += new System.EventHandler(this.FrmCadastroFilial_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -146,5 +168,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbEndereco;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cbBarbearias;
     }
 }
