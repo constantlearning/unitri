@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Text;
@@ -22,11 +23,6 @@ namespace V2.Source.service
             this.tx = tx;
         }
 
-        internal void salvarProduto(Servico servico)
-        {
-
-        }
-
         public void SalvarServico(Servico servico)
         {
             SqlCommand command = new SqlCommand();
@@ -48,9 +44,102 @@ namespace V2.Source.service
             command.ExecuteNonQuery();
         }
 
+        internal List<Servico> obterServicosLike(string filtro)
+        {
+            List<Servico> servicos = new List<Servico>();
+
+            SqlCommand command = new SqlCommand();
+            command.Connection = this.conexao;
+            command.CommandType = CommandType.Text;
+            command.CommandText = "SELECT * FROM servico WHERE nome like @filtro";
+            command.Parameters.AddWithValue("filtro", "%" + filtro + "%");
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Servico servico = new Servico();
+                servico.Id = (Int32)reader["Id"];
+                servico.Nome = (String)reader["nome"];
+                servico.Descricao = (String)reader["descricao"];
+                servico.Valor = (Double)reader["valor"];
+
+                servicos.Add(servico);
+            }
+
+            return servicos;
+        }
+
         internal Servico buscarProduto(int id)
         {
-            throw new NotImplementedException();
+            Servico servico = new Servico();
+
+            SqlCommand command = new SqlCommand();
+            command.Connection = this.conexao;
+            command.CommandType = CommandType.Text;
+            command.CommandText = "SELECT * FROM servico WHERE id = @id";
+            command.Parameters.AddWithValue("id", id);
+            SqlDataReader reader = command.ExecuteReader();
+
+            reader.Read();
+
+            servico.Id = (Int32)reader["Id"];
+            servico.Nome = (String)reader["nome"];
+            servico.Descricao = (String)reader["descricao"];
+            servico.Valor = (Double)reader["valor"];
+
+            return servico;
+        }
+
+        internal void deletarServico(int idServico)
+        {
+            SqlCommand command = new SqlCommand();
+            command.Connection = this.conexao;
+            command.CommandType = CommandType.Text;
+            command.CommandText = "DELETE FROM servico WHERE id = @id";
+            command.Parameters.AddWithValue("id", idServico);
+
+            int n = command.ExecuteNonQuery();
+        }
+
+        internal List<Servico> buscarTodosServicos()
+        {
+            List<Servico> servicos = new List<Servico>();
+
+            SqlCommand command = new SqlCommand();
+            command.Connection = conexao;
+            command.CommandType = CommandType.Text;
+            command.CommandText = "SELECT * FROM servico";
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Servico servico = new Servico();
+                servico.Id = (Int32)reader["Id"];
+                servico.Nome = (String)reader["nome"];
+                servico.Descricao = (String)reader["descricao"];
+                servico.Valor = (Double)reader["valor"];
+
+                servicos.Add(servico);
+            }
+
+            return servicos;
+        }
+
+        internal void atualizarProduto(Servico servico)
+        {
+            SqlCommand command = new SqlCommand();
+            command.Connection = this.conexao;
+            if (tx != null)
+            {
+                command.Transaction = tx;
+            }
+            command.CommandType = CommandType.Text;
+            command.CommandText = "UPDATE servico SET nome = @nome, descricao = @descricao, valor = @valor WHERE id = @id";
+            command.Parameters.AddWithValue("@id", servico.Id);
+            command.Parameters.AddWithValue("@nome", servico.Nome);
+            command.Parameters.AddWithValue("@descricao", servico.Descricao);
+            command.Parameters.AddWithValue("@valor", servico.Valor);
+            int n = command.ExecuteNonQuery();
         }
     }
 }

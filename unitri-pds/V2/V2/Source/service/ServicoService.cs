@@ -31,12 +31,82 @@ namespace V2.Source.service
             }
         }
 
+        internal static List<Servico> ObterServicosLike(string filtro)
+        {
+            List<Servico> servicos;
+            SqlConnection conexao = null;
+            try
+            {
+                conexao = FabricaConexao.GetConnection();
+                ServicoDAO servicoDAO = new ServicoDAO(conexao);
+                servicos = servicoDAO.obterServicosLike(filtro);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                FabricaConexao.CloseConnection(conexao);
+            }
+
+            return servicos;
+        }
+
         public static Servico BuscarServico(Int32 id)
         {
             SqlConnection conexao = FabricaConexao.GetConnection();
             ServicoDAO servicoDAO = new ServicoDAO(conexao);
 
             return servicoDAO.buscarProduto(id);
+        }
+
+        internal static void DeletarServico(int idServico)
+        {
+            SqlConnection conexao = null;
+            try
+            {
+                conexao = FabricaConexao.GetConnection();
+                ServicoDAO servicoDAO = new ServicoDAO(conexao);
+                servicoDAO.deletarServico(idServico);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                FabricaConexao.CloseConnection(conexao);
+            }
+        }
+
+        internal static List<Servico> BuscarTodosServicos()
+        {
+            SqlConnection conexao = FabricaConexao.GetConnection();
+            ServicoDAO servicoDAO = new ServicoDAO(conexao);
+
+            return servicoDAO.buscarTodosServicos();
+        }
+
+        internal static void AtualizarServico(Servico servico)
+        {
+            SqlConnection conexao = null;
+
+            try
+            {
+                conexao = FabricaConexao.GetConnection();
+
+                ServicoDAO servicoDAO = new ServicoDAO(conexao);
+                servicoDAO.atualizarProduto(servico);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                FabricaConexao.CloseConnection(conexao);
+            }
         }
     }
 }

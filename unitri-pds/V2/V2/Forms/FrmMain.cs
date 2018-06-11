@@ -106,24 +106,25 @@ namespace V2
             frmConsultaFilial.WindowState = FormWindowState.Maximized;
         }
 
-        private void produtoToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void serviçoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            FrmConsultaProduto frmConsultaProduto = new FrmConsultaProduto();
+            frmConsultaProduto.MdiParent = this;
+            frmConsultaProduto.Show();
+            frmConsultaProduto.WindowState = FormWindowState.Maximized;
+        }
 
+        private void produtoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Not implemented.");
         }
 
         private void serviçoToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void telefoneToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-
+            FrmConsultaServico frmConsultaServico = new FrmConsultaServico();
+            frmConsultaServico.MdiParent = this;
+            frmConsultaServico.Show();
+            frmConsultaServico.WindowState = FormWindowState.Maximized;
         }
     }
 }
