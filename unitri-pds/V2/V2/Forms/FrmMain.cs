@@ -55,7 +55,10 @@ namespace V2
 
         private void pedidoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Not implemented.");
+            FrmCadastroPedido frmCadastroPedido = new FrmCadastroPedido();
+            frmCadastroPedido.MdiParent = this;
+            frmCadastroPedido.Show();
+            frmCadastroPedido.WindowState = FormWindowState.Maximized;
         }
 
         private void produtoToolStripMenuItem_Click(object sender, EventArgs e)

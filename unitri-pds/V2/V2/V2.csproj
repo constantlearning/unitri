@@ -87,6 +87,12 @@
     <Compile Include="Forms\FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\register\FrmCadastroPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\register\FrmCadastroPedido.Designer.cs">
+      <DependentUpon>FrmCadastroPedido.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\search\FrmConsultaCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -215,6 +221,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\register\FrmCadastroFilial.resx">
       <DependentUpon>FrmCadastroFilial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\register\FrmCadastroPedido.resx">
+      <DependentUpon>FrmCadastroPedido.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\register\FrmCadastroProduto.resx">
       <DependentUpon>FrmCadastroProduto.cs</DependentUpon>
