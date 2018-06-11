@@ -103,6 +103,7 @@ namespace V2.Source.service
         internal Atendente buscarAtendente(int id)
         {
             Atendente atendente = new Atendente();
+            Telefone telefone = new Telefone();
 
             SqlCommand command = new SqlCommand();
             command.Connection = this.conexao;
@@ -117,8 +118,6 @@ namespace V2.Source.service
             atendente.Cpf = (String)reader["cpf"];
             atendente.Nome = (String)reader["nome"];
             atendente.Nascimento = (DateTime)reader["nascimento"];
-
-            FabricaConexao.CloseConnection(this.conexao);
 
             return atendente;
         }
@@ -153,6 +152,10 @@ namespace V2.Source.service
         {
             SqlCommand command = new SqlCommand();
             command.Connection = this.conexao;
+            if(tx != null)
+            {
+                command.Transaction = tx;
+            }
             command.CommandType = CommandType.Text;
             command.CommandText = "UPDATE atendente SET nome = @nome, cpf = @cpf, nascimento = @nascimento WHERE id = @id";
             command.Parameters.AddWithValue("@id", atendente.Id);
@@ -161,7 +164,6 @@ namespace V2.Source.service
             command.Parameters.AddWithValue("@nascimento", atendente.Nascimento);
             int n = command.ExecuteNonQuery();
 
-            FabricaConexao.CloseConnection(this.conexao);
         }
 
         public void deletarAtendente(int idAtendente)

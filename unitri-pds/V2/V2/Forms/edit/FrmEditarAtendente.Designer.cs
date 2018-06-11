@@ -36,6 +36,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.rbCelular = new System.Windows.Forms.RadioButton();
+            this.rbResidencial = new System.Windows.Forms.RadioButton();
+            this.mtbTelefone = new System.Windows.Forms.MaskedTextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cbFilial = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnSalvar
@@ -115,11 +121,79 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "Nome: ";
             // 
+            // rbCelular
+            // 
+            this.rbCelular.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.rbCelular.AutoSize = true;
+            this.rbCelular.Location = new System.Drawing.Point(244, 96);
+            this.rbCelular.Name = "rbCelular";
+            this.rbCelular.Size = new System.Drawing.Size(40, 17);
+            this.rbCelular.TabIndex = 21;
+            this.rbCelular.Text = "Cel";
+            this.rbCelular.UseVisualStyleBackColor = true;
+            // 
+            // rbResidencial
+            // 
+            this.rbResidencial.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.rbResidencial.AutoSize = true;
+            this.rbResidencial.Checked = true;
+            this.rbResidencial.Location = new System.Drawing.Point(191, 96);
+            this.rbResidencial.Name = "rbResidencial";
+            this.rbResidencial.Size = new System.Drawing.Size(44, 17);
+            this.rbResidencial.TabIndex = 20;
+            this.rbResidencial.TabStop = true;
+            this.rbResidencial.Text = "Res";
+            this.rbResidencial.UseVisualStyleBackColor = true;
+            // 
+            // mtbTelefone
+            // 
+            this.mtbTelefone.Location = new System.Drawing.Point(84, 94);
+            this.mtbTelefone.Mask = "(00)0000-0000";
+            this.mtbTelefone.Name = "mtbTelefone";
+            this.mtbTelefone.Size = new System.Drawing.Size(100, 20);
+            this.mtbTelefone.TabIndex = 19;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(13, 97);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(55, 13);
+            this.label5.TabIndex = 18;
+            this.label5.Text = "Telefone: ";
+            // 
+            // cbFilial
+            // 
+            this.cbFilial.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbFilial.FormattingEnabled = true;
+            this.cbFilial.Location = new System.Drawing.Point(84, 122);
+            this.cbFilial.Name = "cbFilial";
+            this.cbFilial.Size = new System.Drawing.Size(200, 21);
+            this.cbFilial.TabIndex = 17;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(14, 125);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(33, 13);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "Filial: ";
+            // 
             // FrmEditarAtendente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(307, 203);
+            this.Controls.Add(this.rbCelular);
+            this.Controls.Add(this.rbResidencial);
+            this.Controls.Add(this.mtbTelefone);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.cbFilial);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.dtNascimento);
@@ -146,5 +220,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.RadioButton rbCelular;
+        private System.Windows.Forms.RadioButton rbResidencial;
+        private System.Windows.Forms.MaskedTextBox mtbTelefone;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cbFilial;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -49,6 +49,14 @@ namespace V2.Forms.register
             return filialDAO.buscarFilial(id);
         }
 
+        public static Filial BuscarFilialDoAtendente(Atendente atendente)
+        {
+            SqlConnection conexao = FabricaConexao.GetConnection();
+            FilialDAO filialDAO = new FilialDAO(conexao);
+
+            return filialDAO.buscarFilialDoAtendente(atendente);
+        }
+
         internal static List<Filial> buscarTodasFiliais()
         {
             SqlConnection conexao = FabricaConexao.GetConnection();
@@ -56,5 +64,7 @@ namespace V2.Forms.register
 
             return filialDAO.buscarTodasFiliais();
         }
+
+
     }
 }

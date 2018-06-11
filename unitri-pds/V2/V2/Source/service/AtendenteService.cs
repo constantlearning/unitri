@@ -13,10 +13,25 @@ namespace V2.Source.service
     {
         public static Atendente BuscarAtendente(Int32 id)
         {
-            SqlConnection conexao = FabricaConexao.GetConnection();
-            AtendenteDAO atendenteDAO = new AtendenteDAO(conexao);
+            SqlConnection conexao = null;
+            Atendente atendente = new Atendente();
 
-            return atendenteDAO.buscarAtendente(id);
+            try
+            {
+                conexao = FabricaConexao.GetConnection();
+                AtendenteDAO atendenteDAO = new AtendenteDAO(conexao);
+                atendente = atendenteDAO.buscarAtendente(id);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                FabricaConexao.CloseConnection(conexao);
+            }
+
+            return atendente;
         }
 
         public static List<Atendente> BuscarTodosAtendentes()
@@ -75,10 +90,35 @@ namespace V2.Source.service
 
         public static void AtualizarAtendente(Atendente atendente)
         {
-            SqlConnection conexao = FabricaConexao.GetConnection();
-            AtendenteDAO atendenteDAO = new AtendenteDAO(conexao);
+            SqlConnection conexao = null;
+            SqlTransaction tx = null;
 
-            atendenteDAO.atualizarAtendente(atendente);
+            try
+            {
+                conexao = FabricaConexao.GetConnection();
+                tx = conexao.BeginTransaction();
+
+                AtendenteDAO atendenteDAO = new AtendenteDAO(conexao, tx);
+                atendenteDAO.atualizarAtendente(atendente);
+
+                FilialDAO filialDAO = new FilialDAO(conexao, tx);
+                filialDAO.atualizarFilialDoAtendente(atendente);
+
+                TelefoneDAO telefoneDAO = new TelefoneDAO(conexao, tx);
+                telefoneDAO.atualizarTelefoneDoAtendente(atendente);
+
+                tx.Commit();
+            }
+            catch (Exception ex)
+            {
+                tx.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                FabricaConexao.CloseConnection(conexao);
+            }
+
         }
     }
 }

@@ -95,12 +95,6 @@
     <Compile Include="Forms\register\FrmCadastroServico.Designer.cs">
       <DependentUpon>FrmCadastroServico.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\register\FrmCadastroTelefone.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\register\FrmCadastroTelefone.Designer.cs">
-      <DependentUpon>FrmCadastroTelefone.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\search\FrmConsultaAtendente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +127,7 @@
     <Compile Include="Source\DAO\ServicoDAO.cs" />
     <Compile Include="Source\DAO\TelefoneDAO.cs" />
     <Compile Include="Source\service\ConsultaService.cs" />
+    <Compile Include="Source\service\TelefoneService.cs" />
     <Compile Include="Source\util\FabricaConexao.cs" />
     <EmbeddedResource Include="Forms\edit\FrmEditarAtendente.resx">
       <DependentUpon>FrmEditarAtendente.cs</DependentUpon>
@@ -157,9 +152,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\register\FrmCadastroServico.resx">
       <DependentUpon>FrmCadastroServico.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\register\FrmCadastroTelefone.resx">
-      <DependentUpon>FrmCadastroTelefone.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\search\FrmConsultaAtendente.resx">
       <DependentUpon>FrmConsultaAtendente.cs</DependentUpon>

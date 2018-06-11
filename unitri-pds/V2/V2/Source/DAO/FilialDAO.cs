@@ -59,6 +59,54 @@ namespace V2.Source.service
             command.ExecuteNonQuery();
         }
 
+        internal Filial buscarFilialDoAtendente(Atendente atendente)
+        {
+            Filial filial = new Filial();
+
+
+            SqlCommand command = new SqlCommand();
+            command.Connection = this.conexao;
+            command.CommandType = CommandType.Text;
+
+            StringBuilder sql = new StringBuilder();
+            sql.Append("SELECT * FROM filial ");
+            sql.Append("INNER JOIN atendente_filial ON filial.Id = atendente_filial.id_atendente ");
+            sql.Append("WHERE id_atendente = @id");
+            command.Parameters.AddWithValue("id", atendente.Id);
+
+            command.CommandText = sql.ToString();
+            SqlDataReader reader = command.ExecuteReader();
+
+            reader.Read();
+
+            filial.Id = (Int32)reader["Id"];
+            filial.Nome = (String)reader["nome"];
+            filial.Endereco = (String)reader["endereco"];
+            filial.Cnpj = (String)reader["cnpj"];
+
+            return filial;
+        }
+
+        internal void atualizarFilialDoAtendente(Atendente atendente)
+        {
+            SqlCommand command = new SqlCommand();
+            command.Connection = this.conexao;
+            command.CommandType = CommandType.Text;
+            if (tx != null)
+            {
+                command.Transaction = tx;
+            }
+            StringBuilder sql = new StringBuilder();
+            sql.Append("UPDATE atendente_filial ");
+            sql.Append("SET id_filial = @idfilial ");
+            sql.Append("WHERE id_atendente = @idatendente");
+            command.Parameters.AddWithValue("idfilial", atendente.Filial.Id);
+            command.Parameters.AddWithValue("idatendente", atendente.Id);
+
+            command.CommandText = sql.ToString();
+            command.ExecuteNonQuery();
+        }
+
         internal void salvarFilialBarbearia(Filial filial)
         {
             SqlCommand command = new SqlCommand();

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using V2.Forms.register;
 using V2.Source.domain;
 using V2.Source.service;
 
@@ -19,19 +20,26 @@ namespace V2.Forms.edit
             InitializeComponent();
         }
 
-        internal Int32 idAtendente;
-
         private void FrmCadastroAtendente_FormClosed(object sender, FormClosedEventArgs e)
         {
             Dispose();
         }
 
+        internal Int32 idAtendente;
+        private Atendente atendente;
+
         private void FrmEditarAtendente_Load(object sender, EventArgs e)
         {
-            Atendente atendente = AtendenteService.BuscarAtendente(this.idAtendente);
+            this.atendente = AtendenteService.BuscarAtendente(this.idAtendente);
             tbNome.Text = atendente.Nome;
             mtbCPF.Text = atendente.Cpf;
             dtNascimento.Value = atendente.Nascimento;
+
+            atendente.Filial = FilialService.BuscarFilialDoAtendente(atendente);
+            atendente.Telefone = TelefoneService.BuscarTelefoneDoAtendente(atendente);
+
+            mtbTelefone.Text = atendente.Telefone.Numero;
+            cbFilial.DataSource = FilialService.buscarTodasFiliais();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -48,15 +56,19 @@ namespace V2.Forms.edit
             DialogResult dialogResult = MessageBox.Show("Deseja salvar?", "Aviso!", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                Atendente atendente = new Atendente();
-                atendente.Id = idAtendente;
-                atendente.Nome = tbNome.Text;
-                atendente.Cpf = mtbCPF.Text.Replace("-", "");
-                atendente.Nascimento = dtNascimento.Value;
+                this.atendente.Nome = tbNome.Text;
+                this.atendente.Cpf = mtbCPF.Text.Replace("-", "");
+                this.atendente.Nascimento = dtNascimento.Value;
+                this.atendente.Telefone.Numero = mtbTelefone.Text
+                    .Replace("(", "")
+                    .Replace(")", "")
+                    .Replace("-", "");
+                this.atendente.Filial = (Filial)cbFilial.SelectedValue;
 
                 try
                 {
                     AtendenteService.AtualizarAtendente(atendente);
+                    
 
                     MessageBox.Show("Atualizado com sucesso!");
                     this.Close();
