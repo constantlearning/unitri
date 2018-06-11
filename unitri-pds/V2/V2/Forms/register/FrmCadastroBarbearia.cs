@@ -42,7 +42,7 @@ namespace V2.Forms.register
 
                 try
                 {
-                    CadastroService.SalvarBarbearia(nome, cnpj);
+                    BarbeariaService.SalvarBarbearia(nome, cnpj);
 
                     MessageBox.Show("Salvo com sucesso!");
                     this.Close();

@@ -56,7 +56,7 @@ namespace V2.Source.service
 
             StringBuilder sql = new StringBuilder();
             sql.Append("SELECT * FROM telefone ");
-            sql.Append("INNER JOIN telefone_cliente ON telefone.Id = telefone_cliente.id_cliente ");
+            sql.Append("INNER JOIN telefone_cliente ON telefone.Id = telefone_cliente.id_telefone ");
             sql.Append("WHERE id_cliente = @id");
             command.Parameters.AddWithValue("id", cliente.Id);
 
@@ -102,11 +102,11 @@ namespace V2.Source.service
                 command.Transaction = tx;
             }
             StringBuilder sql = new StringBuilder();
-            sql.Append("UPDATE telefone_cliente ");
-            sql.Append("SET id_telefone = @idtelefone ");
-            sql.Append("WHERE id_cliente = @idcliente");
+            sql.Append("UPDATE telefone ");
+            sql.Append("SET numero = @numero ");
+            sql.Append("WHERE id = @idtelefone");
             command.Parameters.AddWithValue("idtelefone", cliente.Telefone.Id);
-            command.Parameters.AddWithValue("idcliente", cliente.Id);
+            command.Parameters.AddWithValue("numero", cliente.Telefone.Numero);
 
             command.CommandText = sql.ToString();
             command.ExecuteNonQuery();

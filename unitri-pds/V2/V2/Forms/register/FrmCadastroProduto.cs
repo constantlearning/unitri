@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using V2.Source.domain;
 using V2.Source.service;
 
 namespace V2.Forms.register
@@ -32,15 +33,20 @@ namespace V2.Forms.register
             DialogResult dialogResult = MessageBox.Show("Deseja salvar?", "Aviso!", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-
                 String nome = tbNome.Text;
                 String descricao = tbDescricao.Text;
+                Double valor = Convert.ToDouble(mtbValor.Text
+                    .Replace("R$", "")
+                    .Replace(",", "."));
+
+                Produto produto = new Produto();
+                produto.Nome = nome;
+                produto.Descricao = descricao;
+                produto.Valor = valor;
 
                 try
                 {
-                    Double valor = Convert.ToDouble(mtbValor.Text);
-
-                    CadastroService.SalvarProduto(nome, descricao, valor);
+                    ProdutoService.SalvarProduto(produto);
 
                     MessageBox.Show("Salvo com sucesso!");
                     this.Close();

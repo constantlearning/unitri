@@ -20,6 +20,15 @@ namespace V2.Source.service
             return telefoneDAO.buscarTelefoneDoAtendente(atendente);
         }
 
+        public static void SalvarTelefone(String numero)
+        {
+            SqlConnection conexao = FabricaConexao.GetConnection();
+            TelefoneDAO telefoneDAO = new TelefoneDAO(conexao);
+
+            Telefone telefone = new Telefone(numero);
+            telefoneDAO.salvarTelefone(telefone);
+        }
+
         internal static Telefone BuscarTelefoneDoCliente(Cliente cliente)
         {
             SqlConnection conexao = null;
@@ -42,6 +51,14 @@ namespace V2.Source.service
             }
 
             return telefone;
+        }
+
+        public static Telefone BuscarTelefone(Int32 id)
+        {
+            SqlConnection conexao = FabricaConexao.GetConnection();
+            TelefoneDAO telefoneDAO = new TelefoneDAO(conexao);
+
+            return telefoneDAO.buscarTelefone(id);
         }
     }
 }

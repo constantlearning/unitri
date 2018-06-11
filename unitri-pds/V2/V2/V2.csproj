@@ -132,13 +132,13 @@
     <Compile Include="Source\DAO\BarbeariaDAO.cs" />
     <Compile Include="Source\service\AtendenteService.cs" />
     <Compile Include="Source\service\BarbeariaService.cs" />
-    <Compile Include="Source\service\CadastroService.cs" />
     <Compile Include="Source\DAO\ClienteDAO.cs" />
     <Compile Include="Source\DAO\FilialDAO.cs" />
     <Compile Include="Source\DAO\ProdutoDAO.cs" />
     <Compile Include="Source\DAO\ServicoDAO.cs" />
     <Compile Include="Source\DAO\TelefoneDAO.cs" />
-    <Compile Include="Source\service\ConsultaService.cs" />
+    <Compile Include="Source\service\ProdutoService.cs" />
+    <Compile Include="Source\service\ServicoService.cs" />
     <Compile Include="Source\service\TelefoneService.cs" />
     <Compile Include="Source\util\FabricaConexao.cs" />
     <EmbeddedResource Include="Forms\edit\FrmEditarAtendente.resx">

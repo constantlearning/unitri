@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using V2.Source.domain;
 using V2.Source.service;
 
 namespace V2.Forms.register
@@ -35,12 +36,19 @@ namespace V2.Forms.register
 
                 String nome = tbNome.Text;
                 String descricao = tbDescricao.Text;
+                Double valor = Convert.ToDouble(mtbValor.Text
+                    .Replace("R$", "")
+                    .Replace(",", "."));
+
+                Servico servico = new Servico();
+                servico.Nome = nome;
+                servico.Descricao = descricao;
+                servico.Valor = valor;
 
                 try
                 {
-                    Double valor = Convert.ToDouble(mtbValor.Text);
 
-                    CadastroService.SalvarServico(nome, descricao, valor);
+                    ServicoService.SalvarServico(servico);
 
                     MessageBox.Show("Salvo com sucesso!");
                     this.Close();

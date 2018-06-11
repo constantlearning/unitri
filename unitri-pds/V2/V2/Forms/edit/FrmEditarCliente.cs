@@ -60,7 +60,6 @@ namespace V2.Forms.edit
                 {
                     ClienteService.AtualizarCliente(cliente);
 
-
                     MessageBox.Show("Atualizado com sucesso!");
                     this.Close();
                 }
