@@ -19,5 +19,29 @@ namespace V2.Source.service
 
             return telefoneDAO.buscarTelefoneDoAtendente(atendente);
         }
+
+        internal static Telefone BuscarTelefoneDoCliente(Cliente cliente)
+        {
+            SqlConnection conexao = null;
+
+            Telefone telefone;
+
+            try
+            {
+                conexao = FabricaConexao.GetConnection();
+                TelefoneDAO telefoneDAO = new TelefoneDAO(conexao);
+                telefone = telefoneDAO.buscarTelefoneDoCliente(cliente);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                FabricaConexao.CloseConnection(conexao);
+            }
+
+            return telefone;
+        }
     }
 }

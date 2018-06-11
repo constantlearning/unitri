@@ -25,7 +25,6 @@ namespace V2.Source.service
         {
             Telefone telefone = new Telefone();
 
-
             SqlCommand command = new SqlCommand();
             command.Connection = this.conexao;
             command.CommandType = CommandType.Text;
@@ -35,6 +34,31 @@ namespace V2.Source.service
             sql.Append("INNER JOIN telefone_atendente ON telefone.Id = telefone_atendente.id_atendente ");
             sql.Append("WHERE id_atendente = @id");
             command.Parameters.AddWithValue("id", atendente.Id);
+
+            command.CommandText = sql.ToString();
+            SqlDataReader reader = command.ExecuteReader();
+
+            reader.Read();
+
+            telefone.Id = (Int32)reader["Id"];
+            telefone.Numero = (String)reader["numero"];
+
+            return telefone;
+        }
+
+        internal Telefone buscarTelefoneDoCliente(Cliente cliente)
+        {
+            Telefone telefone = new Telefone();
+
+            SqlCommand command = new SqlCommand();
+            command.Connection = this.conexao;
+            command.CommandType = CommandType.Text;
+
+            StringBuilder sql = new StringBuilder();
+            sql.Append("SELECT * FROM telefone ");
+            sql.Append("INNER JOIN telefone_cliente ON telefone.Id = telefone_cliente.id_cliente ");
+            sql.Append("WHERE id_cliente = @id");
+            command.Parameters.AddWithValue("id", cliente.Id);
 
             command.CommandText = sql.ToString();
             SqlDataReader reader = command.ExecuteReader();
@@ -66,6 +90,26 @@ namespace V2.Source.service
 
             decimal id = (decimal)command.ExecuteScalar();
             telefone.Id = Convert.ToInt32(id);
+        }
+
+        internal void atualizarTelefoneDoCliente(Cliente cliente)
+        {
+            SqlCommand command = new SqlCommand();
+            command.Connection = this.conexao;
+            command.CommandType = CommandType.Text;
+            if (tx != null)
+            {
+                command.Transaction = tx;
+            }
+            StringBuilder sql = new StringBuilder();
+            sql.Append("UPDATE telefone_cliente ");
+            sql.Append("SET id_telefone = @idtelefone ");
+            sql.Append("WHERE id_cliente = @idcliente");
+            command.Parameters.AddWithValue("idtelefone", cliente.Telefone.Id);
+            command.Parameters.AddWithValue("idcliente", cliente.Id);
+
+            command.CommandText = sql.ToString();
+            command.ExecuteNonQuery();
         }
 
         internal Telefone buscarTelefone(int id)

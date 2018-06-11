@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Text;
 using V2.Source.domain;
+using V2.Source.util;
 
 namespace V2.Source.service
 {
@@ -44,6 +46,60 @@ namespace V2.Source.service
             cliente.Id = Convert.ToInt32(id);
         }
 
+        internal void deletarCliente(int idCliente)
+        {
+            SqlCommand command = new SqlCommand();
+            command.Connection = this.conexao;
+            command.CommandType = CommandType.Text;
+            command.CommandText = "DELETE FROM cliente WHERE id = @id";
+            command.Parameters.AddWithValue("id", idCliente);
+
+            int n = command.ExecuteNonQuery();
+        }
+
+        internal List<Cliente> BuscarTodosClientes()
+        {
+            List<Cliente> clientes = new List<Cliente>();
+
+            SqlCommand command = new SqlCommand();
+            command.Connection = conexao;
+            command.CommandType = CommandType.Text;
+            command.CommandText = "SELECT * FROM cliente";
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Cliente cliente = new Cliente();
+                cliente.Id = (Int32)reader["Id"];
+                cliente.Cpf = (String)reader["cpf"];
+                cliente.Nome = (String)reader["nome"];
+                cliente.Nascimento = (DateTime)reader["nascimento"];
+
+                clientes.Add(cliente);
+            }
+
+            FabricaConexao.CloseConnection(conexao);
+
+            return clientes;
+        }
+
+        internal void atualizarCliente(Cliente cliente)
+        {
+            SqlCommand command = new SqlCommand();
+            command.Connection = this.conexao;
+            if (tx != null)
+            {
+                command.Transaction = tx;
+            }
+            command.CommandType = CommandType.Text;
+            command.CommandText = "UPDATE cliente SET nome = @nome, cpf = @cpf, nascimento = @nascimento WHERE id = @id";
+            command.Parameters.AddWithValue("@id", cliente.Id);
+            command.Parameters.AddWithValue("@nome", cliente.Nome);
+            command.Parameters.AddWithValue("@cpf", cliente.Cpf);
+            command.Parameters.AddWithValue("@nascimento", cliente.Nascimento);
+            int n = command.ExecuteNonQuery();
+        }
+
         internal void salvarClienteTelefone(Cliente cliente)
         {
             SqlCommand command = new SqlCommand();
@@ -57,9 +113,50 @@ namespace V2.Source.service
             command.ExecuteNonQuery();
         }
 
+        internal List<Cliente> buscarClientesLike(string filtro)
+        {
+            List<Cliente> clientes = new List<Cliente>();
+
+            SqlCommand command = new SqlCommand();
+            command.Connection = this.conexao;
+            command.CommandType = CommandType.Text;
+            command.CommandText = "SELECT * FROM cliente WHERE nome like @filtro";
+            command.Parameters.AddWithValue("filtro", "%" + filtro + "%");
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Cliente cliente = new Cliente();
+                cliente.Id = (Int32)reader["Id"];
+                cliente.Cpf = (String)reader["cpf"];
+                cliente.Nome = (String)reader["nome"];
+                cliente.Nascimento = (DateTime)reader["nascimento"];
+
+                clientes.Add(cliente);
+            }
+
+            return clientes;
+        }
+
         internal Cliente buscarCliente(int id)
         {
-            throw new NotImplementedException();
+            Cliente cliente = new Cliente();
+
+            SqlCommand command = new SqlCommand();
+            command.Connection = this.conexao;
+            command.CommandType = CommandType.Text;
+            command.CommandText = "SELECT * FROM cliente WHERE id = @id";
+            command.Parameters.AddWithValue("id", id);
+            SqlDataReader reader = command.ExecuteReader();
+
+            reader.Read();
+
+            cliente.Id = (Int32)reader["Id"];
+            cliente.Cpf = (String)reader["cpf"];
+            cliente.Nome = (String)reader["nome"];
+            cliente.Nascimento = (DateTime)reader["nascimento"];
+
+            return cliente;
         }
     }
 }

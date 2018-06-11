@@ -103,7 +103,6 @@ namespace V2.Source.service
         internal Atendente buscarAtendente(int id)
         {
             Atendente atendente = new Atendente();
-            Telefone telefone = new Telefone();
 
             SqlCommand command = new SqlCommand();
             command.Connection = this.conexao;
@@ -163,7 +162,6 @@ namespace V2.Source.service
             command.Parameters.AddWithValue("@cpf", atendente.Cpf);
             command.Parameters.AddWithValue("@nascimento", atendente.Nascimento);
             int n = command.ExecuteNonQuery();
-
         }
 
         public void deletarAtendente(int idAtendente)

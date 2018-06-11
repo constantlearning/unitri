@@ -92,7 +92,10 @@ namespace V2
 
         private void clienteToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
+            FrmConsultaCliente frmConsultaCliente = new FrmConsultaCliente();
+            frmConsultaCliente.MdiParent = this;
+            frmConsultaCliente.Show();
+            frmConsultaCliente.WindowState = FormWindowState.Maximized;
         }
 
         private void filialToolStripMenuItem1_Click(object sender, EventArgs e)
