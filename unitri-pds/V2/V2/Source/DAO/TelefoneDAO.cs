@@ -71,6 +71,51 @@ namespace V2.Source.service
             return telefone;
         }
 
+        internal Telefone buscarTelefoneDaFilial(Filial filial)
+        {
+            Telefone telefone = new Telefone();
+
+            SqlCommand command = new SqlCommand();
+            command.Connection = this.conexao;
+            command.CommandType = CommandType.Text;
+
+            StringBuilder sql = new StringBuilder();
+            sql.Append("SELECT * FROM telefone ");
+            sql.Append("INNER JOIN telefone_filial ON telefone.Id = telefone_filial.id_telefone ");
+            sql.Append("WHERE id_filial = @id");
+            command.Parameters.AddWithValue("id", filial.Id);
+
+            command.CommandText = sql.ToString();
+            SqlDataReader reader = command.ExecuteReader();
+
+            reader.Read();
+
+            telefone.Id = (Int32)reader["Id"];
+            telefone.Numero = (String)reader["numero"];
+
+            return telefone;
+        }
+
+        internal void atualizarTelefoneDaFilial(Filial filial)
+        {
+            SqlCommand command = new SqlCommand();
+            command.Connection = this.conexao;
+            command.CommandType = CommandType.Text;
+            if (tx != null)
+            {
+                command.Transaction = tx;
+            }
+            StringBuilder sql = new StringBuilder();
+            sql.Append("UPDATE telefone ");
+            sql.Append("SET numero = @numero ");
+            sql.Append("WHERE id = @idtelefone");
+            command.Parameters.AddWithValue("idtelefone", filial.Telefone.Id);
+            command.Parameters.AddWithValue("numero", filial.Telefone.Numero);
+
+            command.CommandText = sql.ToString();
+            command.ExecuteNonQuery();
+        }
+
         internal void salvarTelefone(Telefone telefone)
         {
             SqlCommand command = new SqlCommand();

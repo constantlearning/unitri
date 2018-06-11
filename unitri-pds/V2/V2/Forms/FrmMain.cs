@@ -100,7 +100,10 @@ namespace V2
 
         private void filialToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
+            FrmConsultaFilial frmConsultaFilial = new FrmConsultaFilial();
+            frmConsultaFilial.MdiParent = this;
+            frmConsultaFilial.Show();
+            frmConsultaFilial.WindowState = FormWindowState.Maximized;
         }
 
         private void produtoToolStripMenuItem1_Click(object sender, EventArgs e)

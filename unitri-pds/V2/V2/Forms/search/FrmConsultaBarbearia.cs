@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using V2.Forms.edit;
 using V2.Source.service;
 
 namespace V2.Forms.search
@@ -25,11 +26,13 @@ namespace V2.Forms.search
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            //Int32 idBarbearia = Convert.ToInt32(dgvCliente.CurrentRow.Cells[0].Value);
-            //DynamicForm dynamicForm = new DynamicForm("Edit", BarbeariaService.BuscarBarbearia(idBarbearia));
-            //dynamicForm.MdiParent = this.ParentForm;
-            //dynamicForm.Show();
-            //dynamicForm.WindowState = FormWindowState.Maximized;
+            Int32 idBarbearia = Convert.ToInt32(dgvCliente.CurrentRow.Cells[0].Value);
+
+            FrmEditarBarbearia frmEditarBarbearia = new FrmEditarBarbearia();
+            frmEditarBarbearia.idBarbearia = idBarbearia;
+            frmEditarBarbearia.MdiParent = this.ParentForm;
+            frmEditarBarbearia.Show();
+            frmEditarBarbearia.WindowState = FormWindowState.Maximized;
         }
 
         private void btnDeletar_Click(object sender, EventArgs e)

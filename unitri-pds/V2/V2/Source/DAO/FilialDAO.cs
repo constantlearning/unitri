@@ -59,6 +59,61 @@ namespace V2.Source.service
             command.ExecuteNonQuery();
         }
 
+        internal void deletarFilial(int idFilial)
+        {
+            SqlCommand command = new SqlCommand();
+            command.Connection = this.conexao;
+            command.CommandType = CommandType.Text;
+            command.CommandText = "DELETE FROM filial WHERE id = @id";
+            command.Parameters.AddWithValue("id", idFilial);
+
+            int n = command.ExecuteNonQuery();
+        }
+
+        internal List<Filial> buscarFiliaisLike(string filtro)
+        {
+            List<Filial> filiais = new List<Filial>();
+
+            SqlCommand command = new SqlCommand();
+            command.Connection = this.conexao;
+            command.CommandType = CommandType.Text;
+            command.CommandText = "SELECT * FROM filial WHERE nome like @filtro";
+            command.Parameters.AddWithValue("filtro", "%" + filtro + "%");
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Filial filial = new Filial();
+                filial.Id = (Int32) reader["Id"];
+                filial.Nome = (String)reader["nome"];
+                filial.Cnpj = (String) reader["cnpj"];
+                filial.Endereco = (String)reader["endereco"];
+
+                filiais.Add(filial);
+            }
+
+            FabricaConexao.CloseConnection(conexao);
+
+            return filiais;
+        }
+
+        internal void atualizarFilial(Filial filial)
+        {
+            SqlCommand command = new SqlCommand();
+            command.Connection = this.conexao;
+            if (tx != null)
+            {
+                command.Transaction = tx;
+            }
+            command.CommandType = CommandType.Text;
+            command.CommandText = "UPDATE filial SET nome = @nome, endereco = @endereco, cnpj = @cnpj WHERE id = @id";
+            command.Parameters.AddWithValue("@id", filial.Id);
+            command.Parameters.AddWithValue("@nome", filial.Nome);
+            command.Parameters.AddWithValue("@endereco", filial.Endereco);
+            command.Parameters.AddWithValue("@cnpj", filial.Cnpj);
+            int n = command.ExecuteNonQuery();
+        }
+
         internal Filial buscarFilialDoAtendente(Atendente atendente)
         {
             Filial filial = new Filial();
@@ -122,7 +177,23 @@ namespace V2.Source.service
 
         internal Filial buscarFilial(int id)
         {
-            throw new NotImplementedException();
+            Filial filial = new Filial();
+
+            SqlCommand command = new SqlCommand();
+            command.Connection = this.conexao;
+            command.CommandType = CommandType.Text;
+            command.CommandText = "SELECT * FROM filial WHERE id = @id";
+            command.Parameters.AddWithValue("id", id);
+            SqlDataReader reader = command.ExecuteReader();
+
+            reader.Read();
+
+            filial.Id = (Int32)reader["Id"];
+            filial.Nome = (String)reader["nome"];
+            filial.Cnpj = (String)reader["cnpj"];
+            filial.Endereco = (String)reader["endereco"];
+
+            return filial;
         }
 
         internal List<Filial> buscarTodasFiliais()

@@ -51,11 +51,23 @@
     <Compile Include="Forms\edit\FrmEditarAtendente.Designer.cs">
       <DependentUpon>FrmEditarAtendente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\edit\FrmEditarBarbearia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\edit\FrmEditarBarbearia.Designer.cs">
+      <DependentUpon>FrmEditarBarbearia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\edit\FrmEditarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\edit\FrmEditarCliente.Designer.cs">
       <DependentUpon>FrmEditarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\edit\FrmEditarFilial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\edit\FrmEditarFilial.Designer.cs">
+      <DependentUpon>FrmEditarFilial.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmMain.cs">
       <SubType>Form</SubType>
@@ -68,6 +80,12 @@
     </Compile>
     <Compile Include="Forms\search\FrmConsultaCliente.Designer.cs">
       <DependentUpon>FrmConsultaCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\search\FrmConsultaFilial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\search\FrmConsultaFilial.Designer.cs">
+      <DependentUpon>FrmConsultaFilial.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\service\ClienteService.cs" />
     <Compile Include="Source\service\FilialService.cs" />
@@ -144,8 +162,14 @@
     <EmbeddedResource Include="Forms\edit\FrmEditarAtendente.resx">
       <DependentUpon>FrmEditarAtendente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\edit\FrmEditarBarbearia.resx">
+      <DependentUpon>FrmEditarBarbearia.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\edit\FrmEditarCliente.resx">
       <DependentUpon>FrmEditarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\edit\FrmEditarFilial.resx">
+      <DependentUpon>FrmEditarFilial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
@@ -176,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\search\FrmConsultaCliente.resx">
       <DependentUpon>FrmConsultaCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\search\FrmConsultaFilial.resx">
+      <DependentUpon>FrmConsultaFilial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

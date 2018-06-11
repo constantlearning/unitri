@@ -53,6 +53,30 @@ namespace V2.Source.service
             return telefone;
         }
 
+        internal static Telefone BuscarTelefoneDaFilial(Filial filial)
+        {
+            SqlConnection conexao = null;
+
+            Telefone telefone;
+
+            try
+            {
+                conexao = FabricaConexao.GetConnection();
+                TelefoneDAO telefoneDAO = new TelefoneDAO(conexao);
+                telefone = telefoneDAO.buscarTelefoneDaFilial(filial);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                FabricaConexao.CloseConnection(conexao);
+            }
+
+            return telefone;
+        }
+
         public static Telefone BuscarTelefone(Int32 id)
         {
             SqlConnection conexao = FabricaConexao.GetConnection();
