@@ -137,6 +137,10 @@
     <Compile Include="Forms\search\FrmConsultaServico.Designer.cs">
       <DependentUpon>FrmConsultaServico.cs</DependentUpon>
     </Compile>
+    <Compile Include="Source\DAO\PedidoDAO.cs" />
+    <Compile Include="Source\domain\ItemProduto.cs" />
+    <Compile Include="Source\domain\ItemServico.cs" />
+    <Compile Include="Source\domain\Pedido.cs" />
     <Compile Include="Source\service\ClienteService.cs" />
     <Compile Include="Source\service\FilialService.cs" />
     <Compile Include="Forms\register\FrmCadastroAtendente.cs">
@@ -205,6 +209,7 @@
     <Compile Include="Source\DAO\ProdutoDAO.cs" />
     <Compile Include="Source\DAO\ServicoDAO.cs" />
     <Compile Include="Source\DAO\TelefoneDAO.cs" />
+    <Compile Include="Source\service\PedidoService.cs" />
     <Compile Include="Source\service\ProdutoService.cs" />
     <Compile Include="Source\service\ServicoService.cs" />
     <Compile Include="Source\service\TelefoneService.cs" />
@@ -290,6 +295,8 @@
     <None Include="databaseDataSet.xss">
       <DependentUpon>databaseDataSet.xsd</DependentUpon>
     </None>
+    <None Include="Properties\DataSources\V2.Source.domain.ItemProduto.datasource" />
+    <None Include="Properties\DataSources\V2.Source.domain.ItemServico.datasource" />
     <None Include="Properties\DataSources\V2.Source.domain.Produto.datasource" />
     <None Include="Properties\DataSources\V2.Source.domain.Servico.datasource" />
     <None Include="Properties\Settings.settings">
