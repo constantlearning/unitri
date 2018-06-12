@@ -76,13 +76,16 @@ namespace V2.Source.service
             command.CommandText = sql.ToString();
             SqlDataReader reader = command.ExecuteReader();
 
-            reader.Read();
+            if (reader.Read())
+            {
+                barbearia.Id = (Int32)reader["Id"];
+                barbearia.Nome = (String)reader["name"];
+                barbearia.Cnpj = (String)reader["cnpj"];
 
-            barbearia.Id = (Int32)reader["Id"];
-            barbearia.Nome = (String)reader["name"];
-            barbearia.Cnpj = (String)reader["cnpj"];
+                return barbearia;
+            }
 
-            return barbearia;
+            return null;
         }
 
         public List<Barbearia> buscarTodosBarbearias()

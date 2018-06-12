@@ -70,6 +70,40 @@ namespace V2.Source.service
             int n = command.ExecuteNonQuery();
         }
 
+        internal List<Filial> buscarFiliaisDaBarbearia(Barbearia barbearia)
+        {
+            List<Filial> filiais = new List<Filial>();
+
+            SqlCommand command = new SqlCommand();
+            command.Connection = this.conexao;
+            command.CommandType = CommandType.Text;
+
+            StringBuilder sql = new StringBuilder();
+            sql.Append("SELECT * FROM filial ");
+            sql.Append("INNER JOIN filial_barbearia ON filial.Id = filial_barbearia.id_filial ");
+            sql.Append("WHERE filial_barbearia.id_barbearia = @id");
+            command.Parameters.AddWithValue("@id", barbearia.Id);
+
+            command.CommandText = sql.ToString();
+
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Filial filial = new Filial();
+                filial.Id = (Int32)reader["Id"];
+                filial.Nome = (String)reader["nome"];
+                filial.Cnpj = (String)reader["cnpj"];
+                filial.Endereco = (String)reader["endereco"];
+
+                filiais.Add(filial);
+            }
+
+            FabricaConexao.CloseConnection(conexao);
+
+            return filiais;
+        }
+
         internal List<Filial> buscarFiliaisLike(string filtro)
         {
             List<Filial> filiais = new List<Filial>();
@@ -125,21 +159,24 @@ namespace V2.Source.service
 
             StringBuilder sql = new StringBuilder();
             sql.Append("SELECT * FROM filial ");
-            sql.Append("INNER JOIN atendente_filial ON filial.Id = atendente_filial.id_atendente ");
+            sql.Append("INNER JOIN atendente_filial ON filial.Id = atendente_filial.id_filial ");
             sql.Append("WHERE id_atendente = @id");
             command.Parameters.AddWithValue("id", atendente.Id);
 
             command.CommandText = sql.ToString();
             SqlDataReader reader = command.ExecuteReader();
 
-            reader.Read();
+            if (reader.Read())
+            {
+                filial.Id = (Int32)reader["Id"];
+                filial.Nome = (String)reader["nome"];
+                filial.Endereco = (String)reader["endereco"];
+                filial.Cnpj = (String)reader["cnpj"];
 
-            filial.Id = (Int32)reader["Id"];
-            filial.Nome = (String)reader["nome"];
-            filial.Endereco = (String)reader["endereco"];
-            filial.Cnpj = (String)reader["cnpj"];
+                return filial;
+            }
 
-            return filial;
+            return null;
         }
 
         internal void atualizarFilialDoAtendente(Atendente atendente)

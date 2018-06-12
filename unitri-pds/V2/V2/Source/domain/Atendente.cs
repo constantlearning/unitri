@@ -55,5 +55,10 @@ namespace V2.Source.domain
                 throw new Exception("O CPF precisa ter o tamanho de 11 digitos.");
             }
         }
+
+        public override string ToString()
+        {
+            return this.Nome;
+        }
     }
 }

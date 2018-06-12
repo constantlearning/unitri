@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using V2.Source.domain;
+using V2.Source.service;
 
 namespace V2.Forms.register
 {
@@ -19,23 +21,37 @@ namespace V2.Forms.register
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-
+            DialogResult dialogResult = MessageBox.Show("Deseja cancelar?", "Aviso!", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
 
         private void FrmCadastroPedido_Load(object sender, EventArgs e)
         {
-            // Carregar clientes e setar no combobox.
-            // Carregar barbearias e setar no combobox responsável.
+            List<Barbearia> barbearias = BarbeariaService.BuscarTodasBarbearias();
+            cbBarbearias.DataSource = barbearias;
+
+            List<Cliente> clientes = ClienteService.BuscarTodosClientes();
+            cbClientes.DataSource = clientes;
+
+            dgvProdutos.DataSource = ProdutoService.BuscarTodosProdutos();
+            dgvServicos.DataSource = ServicoService.BuscarTodosServicos();
         }
 
         private void cbBarbearias_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Carregar filiais dessa barbearia
+            Barbearia barbearia = (Barbearia)cbBarbearias.SelectedValue;
+            List<Filial> filiais = FilialService.BuscarFiliaisDaBarbearia(barbearia);
+            cbFiliais.DataSource = filiais;
         }
 
         private void cbFiliais_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Carregar Atendentes dessa filial.
+            Filial filial = (Filial)cbFiliais.SelectedValue;
+            List<Atendente> atendentes = AtendenteService.BuscarAtendentesDaFilial(filial);
+            cbAtendente.DataSource = atendentes;
         }
 
         private void btnAdicionarProduto_Click(object sender, EventArgs e)
@@ -60,9 +76,16 @@ namespace V2.Forms.register
 
         private void btnFinalizar_Click(object sender, EventArgs e)
         {
-
+            DialogResult dialogResult = MessageBox.Show("Deseja finalizar compra?", "Aviso!", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                MessageBox.Show("Não implementado!");
+            }
         }
 
-
+        private void FrmCadastroPedido_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }

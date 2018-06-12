@@ -53,12 +53,25 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.databaseDataSet = new V2.databaseDataSet();
             this.databaseDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nomeDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valorDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.servicoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nomeDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valorDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.produtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nomeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valorDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblTotal = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvServicos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarrinhoProdutos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarrinhoServicos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.servicoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.produtoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // cbBarbearias
@@ -155,49 +168,58 @@
             // 
             this.dgvServicos.AllowUserToAddRows = false;
             this.dgvServicos.AllowUserToDeleteRows = false;
-            this.dgvServicos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvServicos.AutoGenerateColumns = false;
             this.dgvServicos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvServicos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvServicos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nomeDataGridViewTextBoxColumn1,
+            this.valorDataGridViewTextBoxColumn1});
+            this.dgvServicos.DataSource = this.servicoBindingSource;
             this.dgvServicos.Location = new System.Drawing.Point(16, 399);
             this.dgvServicos.Name = "dgvServicos";
             this.dgvServicos.ReadOnly = true;
-            this.dgvServicos.Size = new System.Drawing.Size(385, 197);
+            this.dgvServicos.Size = new System.Drawing.Size(298, 197);
             this.dgvServicos.TabIndex = 31;
             // 
             // dgvProdutos
             // 
             this.dgvProdutos.AllowUserToAddRows = false;
             this.dgvProdutos.AllowUserToDeleteRows = false;
-            this.dgvProdutos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvProdutos.AutoGenerateColumns = false;
             this.dgvProdutos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProdutos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nomeDataGridViewTextBoxColumn,
+            this.valorDataGridViewTextBoxColumn});
+            this.dgvProdutos.DataSource = this.produtoBindingSource;
             this.dgvProdutos.Location = new System.Drawing.Point(16, 171);
             this.dgvProdutos.Name = "dgvProdutos";
             this.dgvProdutos.ReadOnly = true;
-            this.dgvProdutos.Size = new System.Drawing.Size(385, 197);
+            this.dgvProdutos.Size = new System.Drawing.Size(298, 197);
             this.dgvProdutos.TabIndex = 29;
             // 
             // dgvCarrinhoProdutos
             // 
             this.dgvCarrinhoProdutos.AllowUserToAddRows = false;
             this.dgvCarrinhoProdutos.AllowUserToDeleteRows = false;
-            this.dgvCarrinhoProdutos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvCarrinhoProdutos.AutoGenerateColumns = false;
             this.dgvCarrinhoProdutos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCarrinhoProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCarrinhoProdutos.Location = new System.Drawing.Point(497, 171);
+            this.dgvCarrinhoProdutos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nomeDataGridViewTextBoxColumn2,
+            this.valorDataGridViewTextBoxColumn2});
+            this.dgvCarrinhoProdutos.DataSource = this.produtoBindingSource;
+            this.dgvCarrinhoProdutos.Location = new System.Drawing.Point(401, 171);
             this.dgvCarrinhoProdutos.Name = "dgvCarrinhoProdutos";
             this.dgvCarrinhoProdutos.ReadOnly = true;
-            this.dgvCarrinhoProdutos.Size = new System.Drawing.Size(393, 197);
+            this.dgvCarrinhoProdutos.Size = new System.Drawing.Size(298, 197);
             this.dgvCarrinhoProdutos.TabIndex = 33;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(493, 148);
+            this.label7.Location = new System.Drawing.Point(397, 148);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(87, 20);
             this.label7.TabIndex = 32;
@@ -207,19 +229,22 @@
             // 
             this.dgvCarrinhoServicos.AllowUserToAddRows = false;
             this.dgvCarrinhoServicos.AllowUserToDeleteRows = false;
-            this.dgvCarrinhoServicos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvCarrinhoServicos.AutoGenerateColumns = false;
             this.dgvCarrinhoServicos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCarrinhoServicos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCarrinhoServicos.Location = new System.Drawing.Point(497, 399);
+            this.dgvCarrinhoServicos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nomeDataGridViewTextBoxColumn3,
+            this.valorDataGridViewTextBoxColumn3});
+            this.dgvCarrinhoServicos.DataSource = this.servicoBindingSource;
+            this.dgvCarrinhoServicos.Location = new System.Drawing.Point(401, 399);
             this.dgvCarrinhoServicos.Name = "dgvCarrinhoServicos";
             this.dgvCarrinhoServicos.ReadOnly = true;
-            this.dgvCarrinhoServicos.Size = new System.Drawing.Size(393, 197);
+            this.dgvCarrinhoServicos.Size = new System.Drawing.Size(298, 197);
             this.dgvCarrinhoServicos.TabIndex = 35;
             // 
             // btnAdicionarProduto
             // 
-            this.btnAdicionarProduto.Location = new System.Drawing.Point(413, 245);
+            this.btnAdicionarProduto.Location = new System.Drawing.Point(320, 247);
             this.btnAdicionarProduto.Name = "btnAdicionarProduto";
             this.btnAdicionarProduto.Size = new System.Drawing.Size(75, 23);
             this.btnAdicionarProduto.TabIndex = 36;
@@ -229,7 +254,7 @@
             // 
             // btnRemoverProduto
             // 
-            this.btnRemoverProduto.Location = new System.Drawing.Point(413, 287);
+            this.btnRemoverProduto.Location = new System.Drawing.Point(320, 276);
             this.btnRemoverProduto.Name = "btnRemoverProduto";
             this.btnRemoverProduto.Size = new System.Drawing.Size(75, 23);
             this.btnRemoverProduto.TabIndex = 37;
@@ -239,7 +264,7 @@
             // 
             // btnRemoverServico
             // 
-            this.btnRemoverServico.Location = new System.Drawing.Point(413, 505);
+            this.btnRemoverServico.Location = new System.Drawing.Point(320, 501);
             this.btnRemoverServico.Name = "btnRemoverServico";
             this.btnRemoverServico.Size = new System.Drawing.Size(75, 23);
             this.btnRemoverServico.TabIndex = 39;
@@ -249,7 +274,7 @@
             // 
             // btnAdicionarServico
             // 
-            this.btnAdicionarServico.Location = new System.Drawing.Point(413, 464);
+            this.btnAdicionarServico.Location = new System.Drawing.Point(320, 472);
             this.btnAdicionarServico.Name = "btnAdicionarServico";
             this.btnAdicionarServico.Size = new System.Drawing.Size(75, 23);
             this.btnAdicionarServico.TabIndex = 38;
@@ -261,7 +286,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(493, 15);
+            this.label8.Location = new System.Drawing.Point(397, 15);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(92, 20);
             this.label8.TabIndex = 40;
@@ -269,7 +294,7 @@
             // 
             // btnFinalizar
             // 
-            this.btnFinalizar.Location = new System.Drawing.Point(497, 69);
+            this.btnFinalizar.Location = new System.Drawing.Point(401, 631);
             this.btnFinalizar.Name = "btnFinalizar";
             this.btnFinalizar.Size = new System.Drawing.Size(75, 23);
             this.btnFinalizar.TabIndex = 41;
@@ -279,7 +304,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(578, 69);
+            this.btnCancelar.Location = new System.Drawing.Point(239, 631);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 42;
@@ -297,11 +322,86 @@
             this.databaseDataSetBindingSource.DataSource = this.databaseDataSet;
             this.databaseDataSetBindingSource.Position = 0;
             // 
+            // nomeDataGridViewTextBoxColumn3
+            // 
+            this.nomeDataGridViewTextBoxColumn3.DataPropertyName = "Nome";
+            this.nomeDataGridViewTextBoxColumn3.HeaderText = "Nome";
+            this.nomeDataGridViewTextBoxColumn3.Name = "nomeDataGridViewTextBoxColumn3";
+            this.nomeDataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // valorDataGridViewTextBoxColumn3
+            // 
+            this.valorDataGridViewTextBoxColumn3.DataPropertyName = "Valor";
+            this.valorDataGridViewTextBoxColumn3.HeaderText = "Valor";
+            this.valorDataGridViewTextBoxColumn3.Name = "valorDataGridViewTextBoxColumn3";
+            this.valorDataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // servicoBindingSource
+            // 
+            this.servicoBindingSource.DataSource = typeof(V2.Source.domain.Servico);
+            // 
+            // nomeDataGridViewTextBoxColumn2
+            // 
+            this.nomeDataGridViewTextBoxColumn2.DataPropertyName = "Nome";
+            this.nomeDataGridViewTextBoxColumn2.HeaderText = "Nome";
+            this.nomeDataGridViewTextBoxColumn2.Name = "nomeDataGridViewTextBoxColumn2";
+            this.nomeDataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // valorDataGridViewTextBoxColumn2
+            // 
+            this.valorDataGridViewTextBoxColumn2.DataPropertyName = "Valor";
+            this.valorDataGridViewTextBoxColumn2.HeaderText = "Valor";
+            this.valorDataGridViewTextBoxColumn2.Name = "valorDataGridViewTextBoxColumn2";
+            this.valorDataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // produtoBindingSource
+            // 
+            this.produtoBindingSource.DataSource = typeof(V2.Source.domain.Produto);
+            // 
+            // nomeDataGridViewTextBoxColumn1
+            // 
+            this.nomeDataGridViewTextBoxColumn1.DataPropertyName = "Nome";
+            this.nomeDataGridViewTextBoxColumn1.HeaderText = "Nome";
+            this.nomeDataGridViewTextBoxColumn1.Name = "nomeDataGridViewTextBoxColumn1";
+            this.nomeDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // valorDataGridViewTextBoxColumn1
+            // 
+            this.valorDataGridViewTextBoxColumn1.DataPropertyName = "Valor";
+            this.valorDataGridViewTextBoxColumn1.HeaderText = "Valor";
+            this.valorDataGridViewTextBoxColumn1.Name = "valorDataGridViewTextBoxColumn1";
+            this.valorDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // nomeDataGridViewTextBoxColumn
+            // 
+            this.nomeDataGridViewTextBoxColumn.DataPropertyName = "Nome";
+            this.nomeDataGridViewTextBoxColumn.HeaderText = "Nome";
+            this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
+            this.nomeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // valorDataGridViewTextBoxColumn
+            // 
+            this.valorDataGridViewTextBoxColumn.DataPropertyName = "Valor";
+            this.valorDataGridViewTextBoxColumn.HeaderText = "Valor";
+            this.valorDataGridViewTextBoxColumn.Name = "valorDataGridViewTextBoxColumn";
+            this.valorDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.Location = new System.Drawing.Point(495, 15);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(13, 18);
+            this.lblTotal.TabIndex = 43;
+            this.lblTotal.Text = "-";
+            // 
             // FrmCadastroPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(902, 612);
+            this.ClientSize = new System.Drawing.Size(713, 678);
+            this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnFinalizar);
             this.Controls.Add(this.label8);
@@ -326,6 +426,7 @@
             this.Controls.Add(this.label4);
             this.Name = "FrmCadastroPedido";
             this.Text = "FrmCadastroPedido";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmCadastroPedido_FormClosed);
             this.Load += new System.EventHandler(this.FrmCadastroPedido_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvServicos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).EndInit();
@@ -333,6 +434,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarrinhoServicos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.servicoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.produtoBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -364,5 +467,16 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.BindingSource databaseDataSetBindingSource;
         private databaseDataSet databaseDataSet;
+        private System.Windows.Forms.BindingSource servicoBindingSource;
+        private System.Windows.Forms.BindingSource produtoBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valorDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valorDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valorDataGridViewTextBoxColumn3;
+        private System.Windows.Forms.Label lblTotal;
     }
 }

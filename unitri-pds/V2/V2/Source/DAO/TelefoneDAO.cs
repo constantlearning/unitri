@@ -31,19 +31,21 @@ namespace V2.Source.service
 
             StringBuilder sql = new StringBuilder();
             sql.Append("SELECT * FROM telefone ");
-            sql.Append("INNER JOIN telefone_atendente ON telefone.Id = telefone_atendente.id_atendente ");
+            sql.Append("INNER JOIN telefone_atendente ON telefone.Id = telefone_atendente.id_telefone ");
             sql.Append("WHERE id_atendente = @id");
             command.Parameters.AddWithValue("id", atendente.Id);
 
             command.CommandText = sql.ToString();
             SqlDataReader reader = command.ExecuteReader();
 
-            reader.Read();
+            if (reader.Read())
+            {
+                telefone.Id = (Int32)reader["Id"];
+                telefone.Numero = (String)reader["numero"];
+                return telefone;
+            }
 
-            telefone.Id = (Int32)reader["Id"];
-            telefone.Numero = (String)reader["numero"];
-
-            return telefone;
+            return null;
         }
 
         internal Telefone buscarTelefoneDoCliente(Cliente cliente)

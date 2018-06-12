@@ -57,6 +57,29 @@ namespace V2.Source.service
             atendenteDAO.deletarAtendente(idAtendente);
         }
 
+        internal static List<Atendente> BuscarAtendentesDaFilial(Filial filial)
+        {
+            SqlConnection conexao = null;
+            List<Atendente> atendentes;
+
+            try
+            {
+                conexao = FabricaConexao.GetConnection();
+                AtendenteDAO atendenteDAO = new AtendenteDAO(conexao);
+                atendentes = atendenteDAO.buscarAtendentesDaFilial(filial);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                FabricaConexao.CloseConnection(conexao);
+            }
+
+            return atendentes;
+        }
+
         public static void SalvarAtendente(Atendente atendente)
         {
             SqlConnection conexao = null;

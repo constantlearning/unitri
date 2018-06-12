@@ -120,15 +120,15 @@ namespace pod_vt06.sort.algoritmos.pesquisar
         {
             int[] result = { 0, 0 };
 
-
             int size = candidatosOrdenados.Count;
 
             Dictionary<int, Candidato> candidatos = PopulateHashTable(candidatosOrdenados, size, tipo);
 
-            long hash = OperacaoCandidato.valorChave(chave, tipo);
+            long hash = OperacaoCandidato.valorChave(chave, candidatos.Count, tipo);
 
-            Candidato resultado = (Candidato)candidatos[hash];
+            Candidato resultado = (Candidato)candidatos[Convert.ToInt32(hash)];
 
+            result[0] = Convert.ToInt32(hash);
             return result;
 
         }
@@ -149,6 +149,7 @@ namespace pod_vt06.sort.algoritmos.pesquisar
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message);
+                    // Tratar colisão!
                 }
             }
 

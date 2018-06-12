@@ -111,9 +111,10 @@ namespace pod_vt06.sort.entidade
             return -1;
         }
 
-        internal static long valorChave(string chave, TIPO tipo)
+        internal static long valorChave(string chave, int size, TIPO tipo)
         {
             Candidato candidato = new Candidato(chave, Convert.ToInt64(chave), Convert.ToDouble(chave));
+            long key = Convert.ToInt64(chave);
 
             switch (tipo)
             {
@@ -121,11 +122,11 @@ namespace pod_vt06.sort.entidade
                     long resultado = 0;
                     byte[] asciiBytes = Encoding.ASCII.GetBytes(chave);
                     foreach (byte b in asciiBytes) { resultado += b; }
-                    return resultado;
+                    return resultado % size;
                 case TIPO.MATRICULA:
-                    return Convert.ToInt64(chave);
+                    return key % size;
                 case TIPO.NOTA:
-                    return Convert.ToInt64(chave);
+                    return key % size;
             }
 
             return -1;

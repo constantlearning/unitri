@@ -60,6 +60,40 @@ namespace V2.Source.service
             command.ExecuteNonQuery();
         }
 
+        internal List<Atendente> buscarAtendentesDaFilial(Filial filial)
+        {
+            List<Atendente> atendentes = new List<Atendente>();
+
+            SqlCommand command = new SqlCommand();
+            command.Connection = this.conexao;
+            command.CommandType = CommandType.Text;
+
+            StringBuilder sql = new StringBuilder();
+            sql.Append("SELECT * FROM atendente ");
+            sql.Append("INNER JOIN atendente_filial ON atendente.Id = atendente_filial.id_atendente ");
+            sql.Append("WHERE atendente_filial.id_filial = @id");
+            command.Parameters.AddWithValue("@id", filial.Id);
+
+            command.CommandText = sql.ToString();
+
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Atendente atendente = new Atendente();
+                atendente.Id = (Int32)reader["Id"];
+                atendente.Cpf = (String)reader["cpf"];
+                atendente.Nome = (String)reader["nome"];
+                atendente.Nascimento = (DateTime)reader["nascimento"];
+
+                atendentes.Add(atendente);
+            }
+
+            FabricaConexao.CloseConnection(conexao);
+
+            return atendentes;
+        }
+
         internal void salvarAtendenteTelefone(Atendente atendente)
         {
             SqlCommand command = new SqlCommand();

@@ -290,6 +290,8 @@
     <None Include="databaseDataSet.xss">
       <DependentUpon>databaseDataSet.xsd</DependentUpon>
     </None>
+    <None Include="Properties\DataSources\V2.Source.domain.Produto.datasource" />
+    <None Include="Properties\DataSources\V2.Source.domain.Servico.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -310,12 +312,9 @@
     <None Include="Resources\barbershop.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="database.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="database.mdf" />
     <Content Include="database_log.ldf">
       <DependentUpon>database.mdf</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>

@@ -64,6 +64,29 @@ namespace V2.Forms.register
             return filiais;
         }
 
+        internal static List<Filial> BuscarFiliaisDaBarbearia(Barbearia barbearia)
+        {
+            SqlConnection conexao = null;
+            List<Filial> filiais;
+
+            try
+            {
+                conexao = FabricaConexao.GetConnection();
+                FilialDAO filialDAO = new FilialDAO(conexao);
+                filiais = filialDAO.buscarFiliaisDaBarbearia(barbearia);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                FabricaConexao.CloseConnection(conexao);
+            }
+
+            return filiais;
+        }
+
         internal static void DeletarFilial(int idFilial)
         {
             SqlConnection conexao = null;

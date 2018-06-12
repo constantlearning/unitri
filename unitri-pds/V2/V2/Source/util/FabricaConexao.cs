@@ -11,10 +11,9 @@ namespace V2.Source.util
 {
     class FabricaConexao
     {
+        //private static String connectionString = Properties.Settings.Default.databaseConnectionString;
 
-        //private static String connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Lucas\Documents\github\unitri\unitri-pds\V2\V2\database.mdf;Integrated Security=True;Connect Timeout=30";
-
-        private static String connectionString = Properties.Settings.Default.databaseConnectionString;
+        private static String connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Lucas\Documents\github\unitri\unitri-pds\V2\V2\database.mdf;Integrated Security=True;Connect Timeout=30";
 
         public static SqlConnection GetConnection()
         {
