@@ -16,6 +16,12 @@ namespace V2.Source.domain
         internal Produto Produto { get => produto; set => produto = value; }
         internal Pedido Pedido { get => pedido; set => pedido = value; }
 
+
+        public void calcularValor()
+        {
+            Valor = produto.Valor * quantidade;
+        }
+
         public override bool Equals(object obj)
         {
             if (obj == null) return false;

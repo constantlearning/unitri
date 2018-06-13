@@ -84,6 +84,7 @@ namespace V2.Source.service
                     {
                         itemProduto.Pedido = pedido;
                         itemProduto.Produto = produtoDAO.buscarProdutoDoPedido(itemProduto);
+                        itemProduto.calcularValor();
                     }
 
                     ServicoDAO servicoDAO = new ServicoDAO(conexao, tx);
@@ -93,6 +94,7 @@ namespace V2.Source.service
                     {
                         itemServico.Pedido = pedido;
                         itemServico.Servico = servicoDAO.buscarServicoDoPedido(itemServico);
+                        itemServico.calcularValor();
                     }
 
                     pedido.atualizaTotal();

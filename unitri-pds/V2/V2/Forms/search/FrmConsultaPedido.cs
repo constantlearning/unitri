@@ -49,6 +49,7 @@ namespace V2.Forms.search
         private void atualizarGrid()
         {
             pedidos = PedidoService.BuscarTodosPedidos();
+            dgvCliente.DataSource = pedidos;
         }
     }
 }
