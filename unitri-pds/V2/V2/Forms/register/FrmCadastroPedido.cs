@@ -125,6 +125,7 @@ namespace V2.Forms.register
                 this.pedidoAtual.Filial = filial;
                 this.pedidoAtual.Atendente = atendente;
                 this.pedidoAtual.Cliente = cliente;
+                this.pedidoAtual.DataPedido = DateTime.Now;
 
                 try
                 {
@@ -143,6 +144,11 @@ namespace V2.Forms.register
         private void FrmCadastroPedido_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Dispose();
+        }
+
+        private void cbAtendente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

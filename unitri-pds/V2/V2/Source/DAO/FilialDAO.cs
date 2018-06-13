@@ -70,6 +70,42 @@ namespace V2.Source.service
             int n = command.ExecuteNonQuery();
         }
 
+        internal Filial buscarFilialDoPedido(Pedido pedido)
+        {
+            Filial filial = new Filial(); ;
+
+            SqlCommand command = new SqlCommand();
+            command.Connection = this.conexao;
+            command.CommandType = CommandType.Text;
+            if (tx != null)
+            {
+                command.Transaction = tx;
+            }
+
+            StringBuilder sql = new StringBuilder();
+
+            sql.Append("SELECT* FROM filial ");
+            sql.Append("INNER JOIN pedido ON pedido.id_filial = filial.Id ");
+            sql.Append("WHERE pedido.Id = @id");
+            command.Parameters.AddWithValue("@id", pedido.Id);
+
+            command.CommandText = sql.ToString();
+
+            SqlDataReader reader = command.ExecuteReader();
+
+            if (reader.Read())
+            {
+                filial.Id = (Int32)reader["Id"];
+                filial.Nome = (String)reader["nome"];
+                filial.Cnpj = (String)reader["cnpj"];
+                filial.Endereco = (String)reader["endereco"];
+
+                return filial;
+            }
+
+            return null;
+        }
+
         internal List<Filial> buscarFiliaisDaBarbearia(Barbearia barbearia)
         {
             List<Filial> filiais = new List<Filial>();

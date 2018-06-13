@@ -14,8 +14,9 @@ namespace V2.Source.DAO
         private SqlConnection conexao;
         private SqlTransaction tx;
 
-        public PedidoDAO()
+        public PedidoDAO(SqlConnection conexao)
         {
+            this.conexao = conexao;
         }
 
         public PedidoDAO(SqlConnection conexao, SqlTransaction tx)
@@ -35,17 +36,45 @@ namespace V2.Source.DAO
             }
 
             StringBuilder sql = new StringBuilder();
-            sql.Append("INSERT INTO pedido(id_barbearia, id_filial, id_atendente, id_cliente)");
-            sql.Append("VALUES(@idbarbearia, @idfilial, @idatendente, @idcliente)");
+            sql.Append("INSERT INTO pedido(id_barbearia, id_filial, id_atendente, id_cliente, data_pedido)");
+            sql.Append("VALUES(@idbarbearia, @idfilial, @idatendente, @idcliente, @datapedido)");
             sql.Append("SELECT @@identity from filial");
             command.CommandText = sql.ToString();
             command.Parameters.AddWithValue("@idbarbearia", pedidoAtual.Barbearia.Id);
             command.Parameters.AddWithValue("@idfilial", pedidoAtual.Filial.Id);
             command.Parameters.AddWithValue("@idatendente", pedidoAtual.Atendente.Id);
             command.Parameters.AddWithValue("@idcliente", pedidoAtual.Cliente.Id);
+            command.Parameters.AddWithValue("@datapedido", pedidoAtual.DataPedido);
 
             decimal id = (decimal)command.ExecuteScalar();
             pedidoAtual.Id = Convert.ToInt32(id);
+        }
+
+        internal List<Pedido> buscarTodosPedidos()
+        {
+
+            List<Pedido> pedidos = new List<Pedido>();
+
+            SqlCommand command = new SqlCommand();
+            command.Connection = conexao;
+            if (tx != null)
+            {
+                command.Transaction = tx;
+            }
+            command.CommandType = CommandType.Text;
+            command.CommandText = "SELECT * FROM pedido";
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Pedido pedido = new Pedido();
+                pedido.Id = (Int32)reader["Id"];
+                pedido.DataPedido = (DateTime)reader["data_pedido"];
+
+                pedidos.Add(pedido);
+            }
+
+            return pedidos;
         }
 
         internal void salvarItemServicoPedido(ItemServico itemServico)

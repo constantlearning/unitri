@@ -83,6 +83,42 @@ namespace V2.Source.service
             return clientes;
         }
 
+        internal Cliente buscarClienteDoPedido(Pedido pedido)
+        {
+            Cliente cliente = new Cliente(); ;
+
+            SqlCommand command = new SqlCommand();
+            command.Connection = this.conexao;
+            command.CommandType = CommandType.Text;
+            if (tx != null)
+            {
+                command.Transaction = tx;
+            }
+
+            StringBuilder sql = new StringBuilder();
+
+            sql.Append("SELECT* FROM cliente ");
+            sql.Append("INNER JOIN pedido ON pedido.id_cliente = cliente.Id ");
+            sql.Append("WHERE pedido.Id = @id");
+            command.Parameters.AddWithValue("@id", pedido.Id);
+
+            command.CommandText = sql.ToString();
+
+            SqlDataReader reader = command.ExecuteReader();
+
+            if (reader.Read())
+            {
+                cliente.Id = (Int32)reader["Id"];
+                cliente.Cpf = (String)reader["cpf"];
+                cliente.Nome = (String)reader["nome"];
+                cliente.Nascimento = (DateTime)reader["nascimento"];
+
+                return cliente;
+            }
+
+            return null;
+        }
+
         internal void atualizarCliente(Cliente cliente)
         {
             SqlCommand command = new SqlCommand();

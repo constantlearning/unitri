@@ -16,6 +16,7 @@ namespace V2.Source.domain
         private List<ItemProduto> itemProdutos;
         private List<ItemServico> itemServicos;
         private Double total;
+        private DateTime dataPedido;
 
         public int Id { get => id; set => id = value; }
         public List<ItemProduto> ItemProdutos { get => itemProdutos; set => itemProdutos = value; }
@@ -25,6 +26,7 @@ namespace V2.Source.domain
         internal Atendente Atendente { get => atendente; set => atendente = value; }
         internal Cliente Cliente { get => cliente; set => cliente = value; }
         internal List<ItemServico> ItemServicos { get => itemServicos; set => itemServicos = value; }
+        public DateTime DataPedido { get => dataPedido; set => dataPedido = value; }
 
         public Pedido()
         {

@@ -87,6 +87,80 @@ namespace V2.Source.service
             int n = command.ExecuteNonQuery();
         }
 
+        internal Produto buscarProdutoDoPedido(ItemProduto itemProduto)
+        {
+
+            Produto produto = new Produto(); ;
+
+            SqlCommand command = new SqlCommand();
+            command.Connection = this.conexao;
+            command.CommandType = CommandType.Text;
+            if (tx != null)
+            {
+                command.Transaction = tx;
+            }
+
+            StringBuilder sql = new StringBuilder();
+            sql.Append("SELECT* FROM produto ");
+            sql.Append("INNER JOIN pedido_itemproduto ON produto.Id = pedido_itemproduto.id_produto ");
+            sql.Append("WHERE pedido_itemproduto.Id = @id");
+            command.Parameters.AddWithValue("@id", itemProduto.Id);
+
+            command.CommandText = sql.ToString();
+
+            SqlDataReader reader = command.ExecuteReader();
+
+            if (reader.Read())
+            {
+                produto.Id = (Int32)reader["Id"];
+                produto.Nome = (String)reader["nome"];
+                produto.Descricao = (String)reader["descricao"];
+                produto.Valor = (Double)reader["valor"];
+
+                return produto;
+            }
+
+            return null;
+
+        }
+
+        internal List<ItemProduto> buscarItemProdutoDoPedido(Pedido pedido)
+        {
+
+            List<ItemProduto> itemProdutos = new List<ItemProduto>(); ;
+
+            SqlCommand command = new SqlCommand();
+            command.Connection = this.conexao;
+            command.CommandType = CommandType.Text;
+            if (tx != null)
+            {
+                command.Transaction = tx;
+            }
+
+            StringBuilder sql = new StringBuilder();
+
+            sql.Append("SELECT* FROM pedido_itemproduto ");
+            sql.Append("INNER JOIN pedido ON pedido.Id = pedido_itemproduto.id_pedido ");
+            sql.Append("WHERE pedido_itemproduto.id_pedido = @id");
+            command.Parameters.AddWithValue("@id", pedido.Id);
+
+            command.CommandText = sql.ToString();
+
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                ItemProduto itemProduto = new ItemProduto();
+                itemProduto.Id = (Int32)reader["Id"];
+                itemProduto.Quantidade = (Int32)reader["quantidade"];
+
+                itemProdutos.Add(itemProduto);
+            }
+
+            return itemProdutos;
+
+        }
+
         internal Produto buscarProduto(int id)
         {
             Produto produto = new Produto();

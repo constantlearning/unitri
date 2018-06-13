@@ -125,6 +125,12 @@
     <Compile Include="Forms\search\FrmConsultaFilial.Designer.cs">
       <DependentUpon>FrmConsultaFilial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\search\FrmConsultaPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\search\FrmConsultaPedido.Designer.cs">
+      <DependentUpon>FrmConsultaPedido.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\search\FrmConsultaProduto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -268,6 +274,9 @@
     <EmbeddedResource Include="Forms\search\FrmConsultaFilial.resx">
       <DependentUpon>FrmConsultaFilial.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\search\FrmConsultaPedido.resx">
+      <DependentUpon>FrmConsultaPedido.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\search\FrmConsultaProduto.resx">
       <DependentUpon>FrmConsultaProduto.cs</DependentUpon>
     </EmbeddedResource>
@@ -297,6 +306,7 @@
     </None>
     <None Include="Properties\DataSources\V2.Source.domain.ItemProduto.datasource" />
     <None Include="Properties\DataSources\V2.Source.domain.ItemServico.datasource" />
+    <None Include="Properties\DataSources\V2.Source.domain.Pedido.datasource" />
     <None Include="Properties\DataSources\V2.Source.domain.Produto.datasource" />
     <None Include="Properties\DataSources\V2.Source.domain.Servico.datasource" />
     <None Include="Properties\Settings.settings">

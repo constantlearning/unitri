@@ -119,7 +119,10 @@ namespace V2
 
         private void produtoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Not implemented.");
+            FrmConsultaPedido frmConsultaPedido = new FrmConsultaPedido();
+            frmConsultaPedido.MdiParent = this;
+            frmConsultaPedido.Show();
+            frmConsultaPedido.WindowState = FormWindowState.Maximized;
         }
 
         private void serviçoToolStripMenuItem2_Click(object sender, EventArgs e)

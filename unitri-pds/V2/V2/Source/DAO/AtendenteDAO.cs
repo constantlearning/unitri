@@ -94,6 +94,42 @@ namespace V2.Source.service
             return atendentes;
         }
 
+        internal Atendente buscalAtendenteDoPedido(Pedido pedido)
+        {
+            Atendente atendente = new Atendente(); ;
+
+            SqlCommand command = new SqlCommand();
+            command.Connection = this.conexao;
+            command.CommandType = CommandType.Text;
+            if (tx != null)
+            {
+                command.Transaction = tx;
+            }
+
+            StringBuilder sql = new StringBuilder();
+
+            sql.Append("SELECT* FROM atendente ");
+            sql.Append("INNER JOIN pedido ON pedido.id_atendente = atendente.Id ");
+            sql.Append("WHERE pedido.Id = @id");
+            command.Parameters.AddWithValue("@id", pedido.Id);
+
+            command.CommandText = sql.ToString();
+
+            SqlDataReader reader = command.ExecuteReader();
+
+            if (reader.Read())
+            {
+                atendente.Id = (Int32)reader["Id"];
+                atendente.Cpf = (String)reader["cpf"];
+                atendente.Nome = (String)reader["nome"];
+                atendente.Nascimento = (DateTime)reader["nascimento"];
+
+                return atendente;
+            }
+
+            return null;
+        }
+
         internal void salvarAtendenteTelefone(Atendente atendente)
         {
             SqlCommand command = new SqlCommand();

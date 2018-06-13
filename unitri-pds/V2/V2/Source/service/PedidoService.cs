@@ -47,5 +47,68 @@ namespace V2.Source.service
                 FabricaConexao.CloseConnection(conexao);
             }
         }
+
+        internal static List<Pedido> BuscarTodosPedidos()
+        {
+            SqlConnection conexao = null;
+            SqlTransaction tx = null;
+
+            List<Pedido> pedidos;
+
+            try
+            {
+                conexao = FabricaConexao.GetConnection();
+                tx = conexao.BeginTransaction();
+
+                PedidoDAO pedidoDAO = new PedidoDAO(conexao, tx);
+                pedidos = pedidoDAO.buscarTodosPedidos();
+
+                foreach (Pedido pedido in pedidos)
+                {
+                    BarbeariaDAO barbeariaDAO = new BarbeariaDAO(conexao, tx);
+                    pedido.Barbearia = barbeariaDAO.buscarBarbeariaDoPedido(pedido);
+
+                    FilialDAO filialDAO = new FilialDAO(conexao, tx);
+                    pedido.Filial = filialDAO.buscarFilialDoPedido(pedido);
+
+                    AtendenteDAO atendenteDAO = new AtendenteDAO(conexao, tx);
+                    pedido.Atendente = atendenteDAO.buscalAtendenteDoPedido(pedido);
+
+                    ClienteDAO clienteDAO = new ClienteDAO(conexao, tx);
+                    pedido.Cliente = clienteDAO.buscarClienteDoPedido(pedido);
+
+                    ProdutoDAO produtoDAO = new ProdutoDAO(conexao, tx);
+                    pedido.ItemProdutos = produtoDAO.buscarItemProdutoDoPedido(pedido);
+
+                    foreach (ItemProduto itemProduto in pedido.ItemProdutos)
+                    {
+                        itemProduto.Pedido = pedido;
+                        itemProduto.Produto = produtoDAO.buscarProdutoDoPedido(itemProduto);
+                    }
+
+                    ServicoDAO servicoDAO = new ServicoDAO(conexao, tx);
+                    pedido.ItemServicos = servicoDAO.buscarItemServicoDoPedido(pedido);
+
+                    foreach (ItemServico itemServico in pedido.ItemServicos)
+                    {
+                        itemServico.Pedido = pedido;
+                        itemServico.Servico = servicoDAO.buscarServicoDoPedido(itemServico);
+                    }
+
+                    pedido.atualizaTotal();
+                }
+            }
+            catch
+            {
+                tx.Rollback();
+                throw;
+            }
+            finally
+            {
+                FabricaConexao.CloseConnection(conexao);
+            }
+
+            return pedidos;
+        }
     }
 }

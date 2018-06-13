@@ -88,6 +88,41 @@ namespace V2.Source.service
             return null;
         }
 
+        internal Barbearia buscarBarbeariaDoPedido(Pedido pedido)
+        {
+            Barbearia barbearia = new Barbearia(); ;
+
+            SqlCommand command = new SqlCommand();
+            command.Connection = this.conexao;
+            command.CommandType = CommandType.Text;
+            if (tx != null)
+            {
+                command.Transaction = tx;
+            }
+
+            StringBuilder sql = new StringBuilder();
+
+            sql.Append("SELECT* FROM barbearia ");
+            sql.Append("INNER JOIN pedido ON pedido.id_barbearia = barbearia.Id ");
+            sql.Append("WHERE pedido.Id = @id");
+            command.Parameters.AddWithValue("@id", pedido.Id);
+
+            command.CommandText = sql.ToString();
+
+            SqlDataReader reader = command.ExecuteReader();
+
+            if (reader.Read())
+            {
+                barbearia.Id = (Int32)reader["Id"];
+                barbearia.Nome = (String)reader["name"];
+                barbearia.Cnpj = (String)reader["cnpj"];
+
+                return barbearia;
+            }
+
+            return null;
+        }
+
         public List<Barbearia> buscarTodosBarbearias()
         {
             List<Barbearia> barbearias = new List<Barbearia>();
