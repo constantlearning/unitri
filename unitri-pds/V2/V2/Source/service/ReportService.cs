@@ -40,6 +40,31 @@ namespace V2.Source.service
             return pedidoAtendente;
         }
 
+        internal static List<PedidoReport> BuscarPedidosDoAtendente(Atendente atendenteSelecionado)
+        {
+            SqlConnection conexao = null;
+
+            List<PedidoReport> pedidosAtendente;
+
+            try
+            {
+                conexao = FabricaConexao.GetConnection();
+
+                ReportDAO reportDAO = new ReportDAO(conexao);
+                pedidosAtendente = reportDAO.buscarPedidosDoAtendente(atendenteSelecionado);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                FabricaConexao.CloseConnection(conexao);
+            }
+
+            return pedidosAtendente;
+        }
+
         internal static List<FaturamentoBarbearia> BuscarFaturamentoDasBarbearias()
         {
             SqlConnection conexao = null;
