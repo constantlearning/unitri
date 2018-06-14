@@ -324,6 +324,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Forms\reports\" />
+    <Folder Include="Source\DTO\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\barbershop.jpg" />

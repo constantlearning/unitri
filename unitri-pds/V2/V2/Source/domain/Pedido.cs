@@ -21,11 +21,11 @@ namespace V2.Source.domain
         public int Id { get => id; set => id = value; }
         public List<ItemProduto> ItemProdutos { get => itemProdutos; set => itemProdutos = value; }
         public double Total { get => total; set => total = value; }
-        internal Barbearia Barbearia { get => barbearia; set => barbearia = value; }
-        internal Filial Filial { get => filial; set => filial = value; }
-        internal Atendente Atendente { get => atendente; set => atendente = value; }
-        internal Cliente Cliente { get => cliente; set => cliente = value; }
-        internal List<ItemServico> ItemServicos { get => itemServicos; set => itemServicos = value; }
+        public Barbearia Barbearia { get => barbearia; set => barbearia = value; }
+        public Filial Filial { get => filial; set => filial = value; }
+        public Atendente Atendente { get => atendente; set => atendente = value; }
+        public Cliente Cliente { get => cliente; set => cliente = value; }
+        public List<ItemServico> ItemServicos { get => itemServicos; set => itemServicos = value; }
         public DateTime DataPedido { get => dataPedido; set => dataPedido = value; }
 
         public Pedido()

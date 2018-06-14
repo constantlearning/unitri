@@ -50,6 +50,17 @@ namespace V2.Source.DAO
             pedidoAtual.Id = Convert.ToInt32(id);
         }
 
+        internal void deletarPedido(int idPedido)
+        {
+            SqlCommand command = new SqlCommand();
+            command.Connection = this.conexao;
+            command.CommandType = CommandType.Text;
+            command.CommandText = "DELETE FROM pedido WHERE id = @id";
+            command.Parameters.AddWithValue("id", idPedido);
+
+            int n = command.ExecuteNonQuery();
+        }
+
         internal List<Pedido> buscarTodosPedidos()
         {
 

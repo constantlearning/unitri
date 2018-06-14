@@ -48,6 +48,28 @@ namespace V2.Source.service
             }
         }
 
+        internal static void DeletarPedido(int idPedido)
+        {
+            SqlConnection conexao = null;
+
+            try
+            {
+                conexao = FabricaConexao.GetConnection();
+
+                PedidoDAO pedidoDAO = new PedidoDAO(conexao);
+                pedidoDAO.deletarPedido(idPedido);
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                FabricaConexao.CloseConnection(conexao);
+            }
+        }
+
         internal static List<Pedido> BuscarTodosPedidos()
         {
             SqlConnection conexao = null;

@@ -46,6 +46,13 @@
             this.serviçoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.serviçoToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pedidosEmPeríodoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pedidosPorFilialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gráficosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vendaPorAtendenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vendasPorFilialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.faturamentoBarbeariaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pedidosPorAtendenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,7 +61,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cadastroToolStripMenuItem,
             this.consultaToolStripMenuItem,
-            this.relatóriosToolStripMenuItem});
+            this.relatóriosToolStripMenuItem,
+            this.gráficosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(710, 24);
@@ -189,9 +197,59 @@
             // 
             // relatóriosToolStripMenuItem
             // 
+            this.relatóriosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pedidosEmPeríodoToolStripMenuItem,
+            this.pedidosPorFilialToolStripMenuItem,
+            this.pedidosPorAtendenteToolStripMenuItem});
             this.relatóriosToolStripMenuItem.Name = "relatóriosToolStripMenuItem";
             this.relatóriosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.relatóriosToolStripMenuItem.Text = "Relatórios";
+            // 
+            // pedidosEmPeríodoToolStripMenuItem
+            // 
+            this.pedidosEmPeríodoToolStripMenuItem.Name = "pedidosEmPeríodoToolStripMenuItem";
+            this.pedidosEmPeríodoToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.pedidosEmPeríodoToolStripMenuItem.Text = "Pedidos entre períodos";
+            // 
+            // pedidosPorFilialToolStripMenuItem
+            // 
+            this.pedidosPorFilialToolStripMenuItem.Name = "pedidosPorFilialToolStripMenuItem";
+            this.pedidosPorFilialToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.pedidosPorFilialToolStripMenuItem.Text = "Pedidos por Filial";
+            // 
+            // gráficosToolStripMenuItem
+            // 
+            this.gráficosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.vendaPorAtendenteToolStripMenuItem,
+            this.vendasPorFilialToolStripMenuItem,
+            this.faturamentoBarbeariaToolStripMenuItem});
+            this.gráficosToolStripMenuItem.Name = "gráficosToolStripMenuItem";
+            this.gráficosToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+            this.gráficosToolStripMenuItem.Text = "Gráficos";
+            // 
+            // vendaPorAtendenteToolStripMenuItem
+            // 
+            this.vendaPorAtendenteToolStripMenuItem.Name = "vendaPorAtendenteToolStripMenuItem";
+            this.vendaPorAtendenteToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.vendaPorAtendenteToolStripMenuItem.Text = "Venda por atendente";
+            // 
+            // vendasPorFilialToolStripMenuItem
+            // 
+            this.vendasPorFilialToolStripMenuItem.Name = "vendasPorFilialToolStripMenuItem";
+            this.vendasPorFilialToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.vendasPorFilialToolStripMenuItem.Text = "Faturamento das filiais";
+            // 
+            // faturamentoBarbeariaToolStripMenuItem
+            // 
+            this.faturamentoBarbeariaToolStripMenuItem.Name = "faturamentoBarbeariaToolStripMenuItem";
+            this.faturamentoBarbeariaToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.faturamentoBarbeariaToolStripMenuItem.Text = "Faturamento das barbearias";
+            // 
+            // pedidosPorAtendenteToolStripMenuItem
+            // 
+            this.pedidosPorAtendenteToolStripMenuItem.Name = "pedidosPorAtendenteToolStripMenuItem";
+            this.pedidosPorAtendenteToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.pedidosPorAtendenteToolStripMenuItem.Text = "Pedidos por Atendente";
             // 
             // FrmMain
             // 
@@ -234,6 +292,13 @@
         private System.Windows.Forms.ToolStripMenuItem serviçoToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem serviçoToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem relatóriosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pedidosEmPeríodoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pedidosPorFilialToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gráficosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem vendaPorAtendenteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem vendasPorFilialToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem faturamentoBarbeariaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pedidosPorAtendenteToolStripMenuItem;
     }
 }
 
