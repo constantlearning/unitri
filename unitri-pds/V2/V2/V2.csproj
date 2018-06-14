@@ -47,6 +47,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -107,11 +125,47 @@
     <Compile Include="Forms\FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\graphics\FrmGraficoFaturamentoDasBarbearias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\graphics\FrmGraficoFaturamentoDasBarbearias.Designer.cs">
+      <DependentUpon>FrmGraficoFaturamentoDasBarbearias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\graphics\FrmGraficoFaturamentoDasFiliais.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\graphics\FrmGraficoFaturamentoDasFiliais.Designer.cs">
+      <DependentUpon>FrmGraficoFaturamentoDasFiliais.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\graphics\FrmGraficoQuantidadeVendasPorAtendente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\graphics\FrmGraficoQuantidadeVendasPorAtendente.Designer.cs">
+      <DependentUpon>FrmGraficoQuantidadeVendasPorAtendente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\register\FrmCadastroPedido.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\register\FrmCadastroPedido.Designer.cs">
       <DependentUpon>FrmCadastroPedido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\reports\FrmReportPedidosPorAtendente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\reports\FrmReportPedidosPorAtendente.Designer.cs">
+      <DependentUpon>FrmReportPedidosPorAtendente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\reports\FrmReportPedidosEntrePeriodos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\reports\FrmReportPedidosEntrePeriodos.Designer.cs">
+      <DependentUpon>FrmReportPedidosEntrePeriodos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\reports\FrmReportPedidosPorFilial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\reports\FrmReportPedidosPorFilial.Designer.cs">
+      <DependentUpon>FrmReportPedidosPorFilial.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\search\FrmConsultaCliente.cs">
       <SubType>Form</SubType>
@@ -147,6 +201,7 @@
     <Compile Include="Source\domain\ItemProduto.cs" />
     <Compile Include="Source\domain\ItemServico.cs" />
     <Compile Include="Source\domain\Pedido.cs" />
+    <Compile Include="Source\DTO\PedidoAtendente.cs" />
     <Compile Include="Source\service\ClienteService.cs" />
     <Compile Include="Source\service\FilialService.cs" />
     <Compile Include="Forms\register\FrmCadastroAtendente.cs">
@@ -220,6 +275,7 @@
     <Compile Include="Source\service\ServicoService.cs" />
     <Compile Include="Source\service\TelefoneService.cs" />
     <Compile Include="Source\util\FabricaConexao.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <EmbeddedResource Include="Forms\edit\FrmEditarAtendente.resx">
       <DependentUpon>FrmEditarAtendente.cs</DependentUpon>
     </EmbeddedResource>
@@ -240,6 +296,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\graphics\FrmGraficoQuantidadeVendasPorAtendente.resx">
+      <DependentUpon>FrmGraficoQuantidadeVendasPorAtendente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\register\FrmCadastroAtendente.resx">
       <DependentUpon>FrmCadastroAtendente.cs</DependentUpon>
@@ -304,6 +363,7 @@
     <None Include="databaseDataSet.xss">
       <DependentUpon>databaseDataSet.xsd</DependentUpon>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\DataSources\V2.Source.domain.ItemProduto.datasource" />
     <None Include="Properties\DataSources\V2.Source.domain.ItemServico.datasource" />
     <None Include="Properties\DataSources\V2.Source.domain.Pedido.datasource" />
@@ -322,10 +382,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Forms\reports\" />
-    <Folder Include="Source\DTO\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\barbershop.jpg" />
   </ItemGroup>
@@ -333,6 +390,19 @@
     <Content Include="database.mdf" />
     <Content Include="database_log.ldf">
       <DependentUpon>database.mdf</DependentUpon>
+    </Content>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>

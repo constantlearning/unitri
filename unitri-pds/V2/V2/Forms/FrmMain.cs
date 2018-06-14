@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using V2.Forms.graphics;
 using V2.Forms.register;
 using V2.Forms.reports;
 using V2.Forms.search;
@@ -131,6 +132,54 @@ namespace V2
             frmConsultaServico.MdiParent = this;
             frmConsultaServico.Show();
             frmConsultaServico.WindowState = FormWindowState.Maximized;
+        }
+
+        private void vendaPorAtendenteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmGraficoQuantidadeVendasPorAtendente frmVendasPorAtendente = new FrmGraficoQuantidadeVendasPorAtendente();
+            frmVendasPorAtendente.MdiParent = this;
+            frmVendasPorAtendente.Show();
+            frmVendasPorAtendente.WindowState = FormWindowState.Maximized;
+        }
+
+        private void vendasPorFilialToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmGraficoFaturamentoDasFiliais frmGraficoFaturamentoDasFiliais = new FrmGraficoFaturamentoDasFiliais();
+            frmGraficoFaturamentoDasFiliais.MdiParent = this;
+            frmGraficoFaturamentoDasFiliais.Show();
+            frmGraficoFaturamentoDasFiliais.WindowState = FormWindowState.Maximized;
+        }
+
+        private void faturamentoBarbeariaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmGraficoFaturamentoDasBarbearias frmGraficoFaturamentoDasBarbearias = new FrmGraficoFaturamentoDasBarbearias();
+            frmGraficoFaturamentoDasBarbearias.MdiParent = this;
+            frmGraficoFaturamentoDasBarbearias.Show();
+            frmGraficoFaturamentoDasBarbearias.WindowState = FormWindowState.Maximized;
+        }
+
+        private void pedidosEmPeríodoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmReportPedidosEntrePeriodos frmReportPedidosEntrePeriodos = new FrmReportPedidosEntrePeriodos();
+            frmReportPedidosEntrePeriodos.MdiParent = this;
+            frmReportPedidosEntrePeriodos.Show();
+            frmReportPedidosEntrePeriodos.WindowState = FormWindowState.Maximized;
+        }
+
+        private void pedidosPorFilialToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmReportPedidosPorFilial frmReportPedidosPorFilial = new FrmReportPedidosPorFilial();
+            frmReportPedidosPorFilial.MdiParent = this;
+            frmReportPedidosPorFilial.Show();
+            frmReportPedidosPorFilial.WindowState = FormWindowState.Maximized;
+        }
+
+        private void pedidosPorAtendenteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmReportPedidosPorAtendente frmReportPedidosPorAtendente = new FrmReportPedidosPorAtendente();
+            frmReportPedidosPorAtendente.MdiParent = this;
+            frmReportPedidosPorAtendente.Show();
+            frmReportPedidosPorAtendente.WindowState = FormWindowState.Maximized;
         }
     }
 }

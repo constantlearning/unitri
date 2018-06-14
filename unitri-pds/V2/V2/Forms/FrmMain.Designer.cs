@@ -48,11 +48,11 @@
             this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pedidosEmPeríodoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pedidosPorFilialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pedidosPorAtendenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gráficosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vendaPorAtendenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vendasPorFilialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.faturamentoBarbeariaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pedidosPorAtendenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -210,12 +210,21 @@
             this.pedidosEmPeríodoToolStripMenuItem.Name = "pedidosEmPeríodoToolStripMenuItem";
             this.pedidosEmPeríodoToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.pedidosEmPeríodoToolStripMenuItem.Text = "Pedidos entre períodos";
+            this.pedidosEmPeríodoToolStripMenuItem.Click += new System.EventHandler(this.pedidosEmPeríodoToolStripMenuItem_Click);
             // 
             // pedidosPorFilialToolStripMenuItem
             // 
             this.pedidosPorFilialToolStripMenuItem.Name = "pedidosPorFilialToolStripMenuItem";
             this.pedidosPorFilialToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.pedidosPorFilialToolStripMenuItem.Text = "Pedidos por Filial";
+            this.pedidosPorFilialToolStripMenuItem.Click += new System.EventHandler(this.pedidosPorFilialToolStripMenuItem_Click);
+            // 
+            // pedidosPorAtendenteToolStripMenuItem
+            // 
+            this.pedidosPorAtendenteToolStripMenuItem.Name = "pedidosPorAtendenteToolStripMenuItem";
+            this.pedidosPorAtendenteToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.pedidosPorAtendenteToolStripMenuItem.Text = "Pedidos por Atendente";
+            this.pedidosPorAtendenteToolStripMenuItem.Click += new System.EventHandler(this.pedidosPorAtendenteToolStripMenuItem_Click);
             // 
             // gráficosToolStripMenuItem
             // 
@@ -232,24 +241,21 @@
             this.vendaPorAtendenteToolStripMenuItem.Name = "vendaPorAtendenteToolStripMenuItem";
             this.vendaPorAtendenteToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
             this.vendaPorAtendenteToolStripMenuItem.Text = "Venda por atendente";
+            this.vendaPorAtendenteToolStripMenuItem.Click += new System.EventHandler(this.vendaPorAtendenteToolStripMenuItem_Click);
             // 
             // vendasPorFilialToolStripMenuItem
             // 
             this.vendasPorFilialToolStripMenuItem.Name = "vendasPorFilialToolStripMenuItem";
             this.vendasPorFilialToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
             this.vendasPorFilialToolStripMenuItem.Text = "Faturamento das filiais";
+            this.vendasPorFilialToolStripMenuItem.Click += new System.EventHandler(this.vendasPorFilialToolStripMenuItem_Click);
             // 
             // faturamentoBarbeariaToolStripMenuItem
             // 
             this.faturamentoBarbeariaToolStripMenuItem.Name = "faturamentoBarbeariaToolStripMenuItem";
             this.faturamentoBarbeariaToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
             this.faturamentoBarbeariaToolStripMenuItem.Text = "Faturamento das barbearias";
-            // 
-            // pedidosPorAtendenteToolStripMenuItem
-            // 
-            this.pedidosPorAtendenteToolStripMenuItem.Name = "pedidosPorAtendenteToolStripMenuItem";
-            this.pedidosPorAtendenteToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
-            this.pedidosPorAtendenteToolStripMenuItem.Text = "Pedidos por Atendente";
+            this.faturamentoBarbeariaToolStripMenuItem.Click += new System.EventHandler(this.faturamentoBarbeariaToolStripMenuItem_Click);
             // 
             // FrmMain
             // 
