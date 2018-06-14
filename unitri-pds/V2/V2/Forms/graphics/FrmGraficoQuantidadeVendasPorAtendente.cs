@@ -23,6 +23,7 @@ namespace V2.Forms.graphics
         {
             PedidoAtendenteBindingSource.DataSource = ReportService.buscarQuantidadeDePedidoPorAtendente();
             this.reportViewer1.RefreshReport();
+            this.reportViewer1.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.PageWidth;
         }
     }
 }

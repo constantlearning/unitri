@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using V2.Source.DTO;
+using V2.Source.DTO.graphic;
 
 namespace V2.Source.DAO
 {
@@ -50,6 +51,73 @@ namespace V2.Source.DAO
             }
 
             return pedidoAtendentes;
+        }
+
+        internal List<FaturamentoBarbearia> buscarFaturamentoDasBarbearias()
+        {
+            List<FaturamentoBarbearia> faturamentoBarbearia = new List<FaturamentoBarbearia>();
+
+            SqlCommand command = new SqlCommand();
+            command.Connection = this.conexao;
+            command.CommandType = CommandType.Text;
+
+            StringBuilder sql = new StringBuilder();
+
+            sql.Append("SELECT barbearia.name AS nome, SUM((pedido_itemproduto.quantidade * produto.valor) + (pedido_itemservico.quantidade * servico.valor)) AS total ");
+            sql.Append("FROM barbearia ");
+            sql.Append("INNER JOIN pedido ON barbearia.Id = pedido.id_barbearia ");
+            sql.Append("INNER JOIN pedido_itemproduto ON pedido_itemproduto.id_pedido = pedido.Id ");
+            sql.Append("INNER JOIN produto ON pedido_itemproduto.id_produto = produto.Id ");
+            sql.Append("INNER JOIN pedido_itemservico ON pedido_itemservico.id_pedido = pedido.Id ");
+            sql.Append("INNER JOIN servico ON pedido_itemservico.id_servico = servico.Id ");
+            sql.Append("GROUP BY barbearia.name ");
+
+            command.CommandText = sql.ToString();
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                FaturamentoBarbearia barbeariaFaturamento = new FaturamentoBarbearia();
+                barbeariaFaturamento.NomeBarbearia = (String)reader["nome"];
+                barbeariaFaturamento.Faturamento = (Double)reader["total"];
+
+                faturamentoBarbearia.Add(barbeariaFaturamento);
+            }
+
+            return faturamentoBarbearia;
+        }
+
+        internal List<FaturamentoFilial> buscarFaturamentoDasFiliais()
+        {
+            List<FaturamentoFilial> faturamentoFilial = new List<FaturamentoFilial>();
+
+            SqlCommand command = new SqlCommand();
+            command.Connection = this.conexao;
+            command.CommandType = CommandType.Text;
+
+            StringBuilder sql = new StringBuilder();
+            sql.Append("SELECT filial.nome AS nome, SUM((pedido_itemproduto.quantidade * produto.valor) + (pedido_itemservico.quantidade * servico.valor)) AS total ");
+            sql.Append("FROM filial ");
+            sql.Append("INNER JOIN pedido ON filial.Id = pedido.id_filial ");
+            sql.Append("INNER JOIN pedido_itemproduto ON pedido_itemproduto.id_pedido = pedido.Id ");
+            sql.Append("INNER JOIN produto ON pedido_itemproduto.id_produto = produto.Id ");
+            sql.Append("INNER JOIN pedido_itemservico ON pedido_itemservico.id_pedido = pedido.Id ");
+            sql.Append("INNER JOIN servico ON pedido_itemservico.id_servico = servico.Id ");
+            sql.Append("GROUP BY filial.nome");
+
+            command.CommandText = sql.ToString();
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                FaturamentoFilial filialFaturamento = new FaturamentoFilial();
+                filialFaturamento.NomeFilial = (String)reader["nome"];
+                filialFaturamento.Faturamento = (Double)reader["total"];
+
+                faturamentoFilial.Add(filialFaturamento);
+            }
+
+            return faturamentoFilial;
         }
     }
 }

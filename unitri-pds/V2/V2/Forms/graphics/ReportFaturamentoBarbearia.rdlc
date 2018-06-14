@@ -2,34 +2,34 @@
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="V2SourceDTO">
+    <DataSource Name="V2SourceDTOgraphic">
       <ConnectionProperties>
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>938a8864-31c4-493d-81a7-efc5171d524e</rd:DataSourceID>
+      <rd:DataSourceID>c0cdafa3-fe33-4f1b-8352-1070b1658b2b</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="dataSetVendaPorAtendente">
+    <DataSet Name="DataSetFaturamentoBarbearia">
       <Query>
-        <DataSourceName>V2SourceDTO</DataSourceName>
+        <DataSourceName>V2SourceDTOgraphic</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="NomeAtendente">
-          <DataField>NomeAtendente</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
+        <Field Name="Faturamento">
+          <DataField>Faturamento</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
         </Field>
-        <Field Name="Quantidade">
-          <DataField>Quantidade</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+        <Field Name="NomeBarbearia">
+          <DataField>NomeBarbearia</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>V2.Source.DTO</rd:DataSetName>
-        <rd:TableName>PedidoAtendente</rd:TableName>
-        <rd:ObjectDataSourceType>V2.Source.DTO.PedidoAtendente, V2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+        <rd:DataSetName>V2.Source.DTO.graphic</rd:DataSetName>
+        <rd:TableName>FaturamentoBarbearia</rd:TableName>
+        <rd:ObjectDataSourceType>V2.Source.DTO.graphic.FaturamentoBarbearia, V2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
@@ -41,12 +41,12 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>3.25in</Width>
+                  <Width>3.59375in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.69792in</Height>
+                  <Height>0.40278in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -57,7 +57,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Quantidade de Pedidos</Value>
+                                  <Value>Faturamento</Value>
                                   <Style>
                                     <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -107,21 +107,20 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.3125in</Height>
+                  <Height>0.40278in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Quantidade">
+                        <Textbox Name="Faturamento">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!Quantidade.Value)</Value>
+                                  <Value>=Sum(Fields!Faturamento.Value)</Value>
                                   <Style>
                                     <FontWeight>Normal</FontWeight>
-                                    <TextDecoration>None</TextDecoration>
                                     <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
@@ -129,7 +128,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Quantidade</rd:DefaultName>
+                          <rd:DefaultName>Faturamento</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -166,7 +165,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.69792in</Height>
+                  <Height>0.40278in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -177,7 +176,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!Quantidade.Value)</Value>
+                                  <Value>=Sum(Fields!Faturamento.Value)</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>#333333</Color>
@@ -234,7 +233,7 @@
               <TablixMembers>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>3.25in</Size>
+                    <Size>3.59375in</Size>
                     <CellContents>
                       <Textbox Name="Textbox3">
                         <CanGrow>true</CanGrow>
@@ -243,7 +242,7 @@
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
-                                <Value>Atendente</Value>
+                                <Value>Barbearia</Value>
                                 <Style>
                                   <FontSize>11pt</FontSize>
                                   <FontWeight>Bold</FontWeight>
@@ -295,30 +294,29 @@
                   </TablixMembers>
                 </TablixMember>
                 <TablixMember>
-                  <Group Name="Atendente">
+                  <Group Name="NomeBarbearia">
                     <GroupExpressions>
-                      <GroupExpression>=Fields!NomeAtendente.Value</GroupExpression>
+                      <GroupExpression>=Fields!NomeBarbearia.Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
                   <SortExpressions>
                     <SortExpression>
-                      <Value>=Fields!NomeAtendente.Value</Value>
+                      <Value>=Fields!NomeBarbearia.Value</Value>
                     </SortExpression>
                   </SortExpressions>
                   <TablixHeader>
-                    <Size>3.25in</Size>
+                    <Size>3.59375in</Size>
                     <CellContents>
-                      <Textbox Name="NomeAtendente">
+                      <Textbox Name="NomeBarbearia">
                         <CanGrow>true</CanGrow>
                         <KeepTogether>true</KeepTogether>
                         <Paragraphs>
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
-                                <Value>=Fields!NomeAtendente.Value</Value>
+                                <Value>=Fields!NomeBarbearia.Value</Value>
                                 <Style>
                                   <FontWeight>Normal</FontWeight>
-                                  <TextDecoration>None</TextDecoration>
                                   <Color>#333333</Color>
                                 </Style>
                               </TextRun>
@@ -326,7 +324,7 @@
                             <Style />
                           </Paragraph>
                         </Paragraphs>
-                        <rd:DefaultName>NomeAtendente</rd:DefaultName>
+                        <rd:DefaultName>NomeBarbearia</rd:DefaultName>
                         <Style>
                           <Border>
                             <Style>Solid</Style>
@@ -366,7 +364,7 @@
                 </TablixMember>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>3.25in</Size>
+                    <Size>3.59375in</Size>
                     <CellContents>
                       <Textbox Name="Textbox5">
                         <CanGrow>true</CanGrow>
@@ -423,58 +421,130 @@
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
-            <DataSetName>dataSetVendaPorAtendente</DataSetName>
-            <Top>0.56597in</Top>
-            <Height>1.70834in</Height>
-            <Width>6.5in</Width>
+            <DataSetName>DataSetFaturamentoBarbearia</DataSetName>
+            <Top>0.60417in</Top>
+            <Height>1.20833in</Height>
+            <Width>7.1875in</Width>
             <Style>
               <Border>
-                <Style>None</Style>
+                <Style>Solid</Style>
               </Border>
+              <TopBorder>
+                <Color>Black</Color>
+                <Style>Solid</Style>
+                <Width>1pt</Width>
+              </TopBorder>
+              <BottomBorder>
+                <Color>Black</Color>
+                <Style>Solid</Style>
+                <Width>1pt</Width>
+              </BottomBorder>
+              <LeftBorder>
+                <Color>Black</Color>
+                <Style>Solid</Style>
+                <Width>1pt</Width>
+              </LeftBorder>
+              <RightBorder>
+                <Color>Black</Color>
+                <Style>Solid</Style>
+                <Width>1pt</Width>
+              </RightBorder>
             </Style>
           </Tablix>
-          <Chart Name="Chart3">
+          <Textbox Name="Textbox7">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Relatório de Faturamento das Barbearias</Value>
+                    <Style>
+                      <FontSize>14pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox7</rd:DefaultName>
+            <Height>0.53472in</Height>
+            <Width>7.1875in</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+              <TopBorder>
+                <Color>Black</Color>
+                <Style>Solid</Style>
+                <Width>1pt</Width>
+              </TopBorder>
+              <BottomBorder>
+                <Color>Black</Color>
+                <Style>Solid</Style>
+                <Width>1pt</Width>
+              </BottomBorder>
+              <LeftBorder>
+                <Color>Black</Color>
+                <Style>Solid</Style>
+                <Width>1pt</Width>
+              </LeftBorder>
+              <RightBorder>
+                <Color>Black</Color>
+                <Style>Solid</Style>
+                <Width>1pt</Width>
+              </RightBorder>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Chart Name="Chart4">
             <ChartCategoryHierarchy>
               <ChartMembers>
                 <ChartMember>
-                  <Group Name="Chart3_CategoryGroup">
+                  <Group Name="Chart4_CategoryGroup">
                     <GroupExpressions>
-                      <GroupExpression>=Fields!NomeAtendente.Value</GroupExpression>
+                      <GroupExpression>=Fields!NomeBarbearia.Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
                   <SortExpressions>
                     <SortExpression>
-                      <Value>=Fields!NomeAtendente.Value</Value>
+                      <Value>=Fields!NomeBarbearia.Value</Value>
                     </SortExpression>
                   </SortExpressions>
-                  <Label>=Fields!NomeAtendente.Value</Label>
+                  <Label>=Fields!NomeBarbearia.Value</Label>
                 </ChartMember>
               </ChartMembers>
             </ChartCategoryHierarchy>
             <ChartSeriesHierarchy>
               <ChartMembers>
                 <ChartMember>
-                  <Group Name="Chart3_SeriesGroup">
+                  <Group Name="Chart4_SeriesGroup">
                     <GroupExpressions>
-                      <GroupExpression>=Fields!NomeAtendente.Value</GroupExpression>
+                      <GroupExpression>=Fields!NomeBarbearia.Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
                   <SortExpressions>
                     <SortExpression>
-                      <Value>=Fields!NomeAtendente.Value</Value>
+                      <Value>=Fields!NomeBarbearia.Value</Value>
                     </SortExpression>
                   </SortExpressions>
-                  <Label>=Fields!NomeAtendente.Value</Label>
+                  <Label>=Fields!NomeBarbearia.Value</Label>
                 </ChartMember>
               </ChartMembers>
             </ChartSeriesHierarchy>
             <ChartData>
               <ChartSeriesCollection>
-                <ChartSeries Name="NomeAtendente">
+                <ChartSeries Name="Faturamento">
                   <ChartDataPoints>
                     <ChartDataPoint>
                       <ChartDataPointValues>
-                        <Y>=Sum(Fields!Quantidade.Value)</Y>
+                        <Y>=Sum(Fields!Faturamento.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
                         <Style />
@@ -488,6 +558,8 @@
                       <DataElementOutput>Output</DataElementOutput>
                     </ChartDataPoint>
                   </ChartDataPoints>
+                  <Type>Shape</Type>
+                  <Subtype>Doughnut</Subtype>
                   <Style />
                   <ChartEmptyPoints>
                     <Style />
@@ -745,7 +817,8 @@
                   <BackgroundGradientType>None</BackgroundGradientType>
                   <FontSize>8pt</FontSize>
                 </Style>
-                <Position>TopLeft</Position>
+                <Position>TopCenter</Position>
+                <DockOutsideChartArea>true</DockOutsideChartArea>
                 <ChartLegendTitle>
                   <Caption />
                   <Style>
@@ -760,7 +833,7 @@
             </ChartLegends>
             <ChartTitles>
               <ChartTitle Name="Default">
-                <Caption>Chart Title</Caption>
+                <Caption />
                 <Style>
                   <BackgroundGradientType>None</BackgroundGradientType>
                   <FontSize>9pt</FontSize>
@@ -789,58 +862,48 @@
                 <VerticalAlign>Top</VerticalAlign>
               </Style>
             </ChartNoDataMessage>
-            <DataSetName>dataSetVendaPorAtendente</DataSetName>
-            <Top>2.34375in</Top>
-            <Height>3.83208in</Height>
-            <Width>6.5in</Width>
-            <ZIndex>1</ZIndex>
+            <DataSetName>DataSetFaturamentoBarbearia</DataSetName>
+            <Top>1.88194in</Top>
+            <Height>3.46056in</Height>
+            <Width>7.1875in</Width>
+            <ZIndex>2</ZIndex>
             <Style>
               <Border>
-                <Color>LightGrey</Color>
-                <Style>None</Style>
+                <Style>Solid</Style>
               </Border>
+              <TopBorder>
+                <Color>Black</Color>
+                <Style>Solid</Style>
+                <Width>1pt</Width>
+              </TopBorder>
+              <BottomBorder>
+                <Color>Black</Color>
+                <Style>Solid</Style>
+                <Width>1pt</Width>
+              </BottomBorder>
+              <LeftBorder>
+                <Color>Black</Color>
+                <Style>Solid</Style>
+                <Width>1pt</Width>
+              </LeftBorder>
+              <RightBorder>
+                <Color>Black</Color>
+                <Style>Solid</Style>
+                <Width>1pt</Width>
+              </RightBorder>
               <BackgroundColor>White</BackgroundColor>
               <BackgroundGradientType>None</BackgroundGradientType>
             </Style>
           </Chart>
-          <Textbox Name="Textbox19">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>Relatório Quantidade de Pedidos Por Atendente</Value>
-                    <Style>
-                      <FontSize>14pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Center</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox19</rd:DefaultName>
-            <Height>0.49653in</Height>
-            <Width>6.5in</Width>
-            <ZIndex>2</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
         </ReportItems>
-        <Height>6.17583in</Height>
-        <Style />
+        <Height>5.38417in</Height>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+        </Style>
       </Body>
-      <Width>6.58333in</Width>
+      <Width>7.29167in</Width>
       <Page>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>
@@ -857,5 +920,5 @@
     </GridLayoutDefinition>
   </ReportParametersLayout>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
-  <rd:ReportID>06f35bee-9afe-4674-85cc-54082608ec87</rd:ReportID>
+  <rd:ReportID>2fb4372f-e33c-45ff-a704-13f8bba8effd</rd:ReportID>
 </Report>

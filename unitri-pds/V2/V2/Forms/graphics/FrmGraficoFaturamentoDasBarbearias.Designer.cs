@@ -29,11 +29,46 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.FaturamentoBarbeariaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.FaturamentoBarbeariaBindingSource)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // reportViewer1
+            // 
+            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource1.Name = "DataSetFaturamentoBarbearia";
+            reportDataSource1.Value = this.FaturamentoBarbeariaBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "V2.Forms.graphics.ReportFaturamentoBarbearia.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.ServerReport.BearerToken = null;
+            this.reportViewer1.Size = new System.Drawing.Size(800, 450);
+            this.reportViewer1.TabIndex = 0;
+            // 
+            // FaturamentoBarbeariaBindingSource
+            // 
+            this.FaturamentoBarbeariaBindingSource.DataSource = typeof(V2.Source.DTO.graphic.FaturamentoBarbearia);
+            // 
+            // FrmGraficoFaturamentoDasBarbearias
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "FrmFaturamentoDasBarbearias";
+            this.Controls.Add(this.reportViewer1);
+            this.Name = "FrmGraficoFaturamentoDasBarbearias";
+            this.Text = "FrmGraficoFaturamentoDasBarbearias";
+            this.Load += new System.EventHandler(this.FrmGraficoFaturamentoDasBarbearias_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.FaturamentoBarbeariaBindingSource)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private System.Windows.Forms.BindingSource FaturamentoBarbeariaBindingSource;
     }
 }

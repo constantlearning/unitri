@@ -79,7 +79,14 @@ namespace V2.Forms.register
 
         private void btnRemoverProduto_Click(object sender, EventArgs e)
         {
-            carrinhoProdutoBindingSource.RemoveCurrent();
+            try
+            {
+                carrinhoProdutoBindingSource.RemoveCurrent();
+            }
+            catch
+            {
+                MessageBox.Show("O carrinho já está vazio.");
+            }
             pedidoAtual.atualizaTotal();
             lblTotal.Text = pedidoAtual.Total.ToString();
         }
@@ -105,7 +112,14 @@ namespace V2.Forms.register
 
         private void btnRemoverServico_Click(object sender, EventArgs e)
         {
-            carrinhoServicoBindingSource.RemoveCurrent();
+            try
+            {
+                carrinhoServicoBindingSource.RemoveCurrent();
+            }
+            catch
+            {
+                MessageBox.Show("O carrinho já está vazio.");
+            }
             pedidoAtual.atualizaTotal();
             lblTotal.Text = pedidoAtual.Total.ToString();
         }

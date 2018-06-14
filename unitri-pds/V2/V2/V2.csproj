@@ -202,7 +202,9 @@
     <Compile Include="Source\domain\ItemProduto.cs" />
     <Compile Include="Source\domain\ItemServico.cs" />
     <Compile Include="Source\domain\Pedido.cs" />
-    <Compile Include="Source\DTO\PedidoAtendente.cs" />
+    <Compile Include="Source\DTO\graphic\FaturamentoBarbearia.cs" />
+    <Compile Include="Source\DTO\graphic\FaturamentoFilial.cs" />
+    <Compile Include="Source\DTO\graphic\PedidoAtendente.cs" />
     <Compile Include="Source\service\ClienteService.cs" />
     <Compile Include="Source\service\FilialService.cs" />
     <Compile Include="Forms\register\FrmCadastroAtendente.cs">
@@ -299,9 +301,17 @@
     <EmbeddedResource Include="Forms\FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\graphics\FrmGraficoFaturamentoDasBarbearias.resx">
+      <DependentUpon>FrmGraficoFaturamentoDasBarbearias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\graphics\FrmGraficoFaturamentoDasFiliais.resx">
+      <DependentUpon>FrmGraficoFaturamentoDasFiliais.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\graphics\FrmGraficoQuantidadeVendasPorAtendente.resx">
       <DependentUpon>FrmGraficoQuantidadeVendasPorAtendente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\graphics\ReportFaturamentoBarbearia.rdlc" />
+    <EmbeddedResource Include="Forms\graphics\ReportFaturamentoFiliais.rdlc" />
     <EmbeddedResource Include="Forms\graphics\ReportVendaPorAtendente.rdlc" />
     <EmbeddedResource Include="Forms\register\FrmCadastroAtendente.resx">
       <DependentUpon>FrmCadastroAtendente.cs</DependentUpon>
@@ -372,6 +382,8 @@
     <None Include="Properties\DataSources\V2.Source.domain.Pedido.datasource" />
     <None Include="Properties\DataSources\V2.Source.domain.Produto.datasource" />
     <None Include="Properties\DataSources\V2.Source.domain.Servico.datasource" />
+    <None Include="Properties\DataSources\V2.Source.DTO.graphic.FaturamentoBarbearia.datasource" />
+    <None Include="Properties\DataSources\V2.Source.DTO.graphic.FaturamentoFilial.datasource" />
     <None Include="Properties\DataSources\V2.Source.DTO.PedidoAtendente.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -386,7 +398,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Source\DTO\report\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\barbershop.jpg" />
   </ItemGroup>
