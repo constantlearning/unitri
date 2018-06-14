@@ -28,17 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.PedidoAtendenteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.PedidoAtendenteBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource2.Name = "dataSetVendaPorAtendente";
+            reportDataSource2.Value = this.PedidoAtendenteBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "V2.Forms.graphics.ReportVendaPorAtendente.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.Size = new System.Drawing.Size(800, 450);
             this.reportViewer1.TabIndex = 0;
+            // 
+            // PedidoAtendenteBindingSource
+            // 
+            this.PedidoAtendenteBindingSource.DataSource = typeof(V2.Source.DTO.PedidoAtendente);
             // 
             // FrmGraficoQuantidadeVendasPorAtendente
             // 
@@ -49,6 +61,7 @@
             this.Name = "FrmGraficoQuantidadeVendasPorAtendente";
             this.Text = "FrmGraficoQuantidadeVendasPorAtendente";
             this.Load += new System.EventHandler(this.FrmGraficoQuantidadeVendasPorAtendente_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.PedidoAtendenteBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -56,5 +69,6 @@
         #endregion
 
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private System.Windows.Forms.BindingSource PedidoAtendenteBindingSource;
     }
 }

@@ -198,6 +198,7 @@
       <DependentUpon>FrmConsultaServico.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\DAO\PedidoDAO.cs" />
+    <Compile Include="Source\DAO\ReportDAO.cs" />
     <Compile Include="Source\domain\ItemProduto.cs" />
     <Compile Include="Source\domain\ItemServico.cs" />
     <Compile Include="Source\domain\Pedido.cs" />
@@ -272,6 +273,7 @@
     <Compile Include="Source\DAO\TelefoneDAO.cs" />
     <Compile Include="Source\service\PedidoService.cs" />
     <Compile Include="Source\service\ProdutoService.cs" />
+    <Compile Include="Source\service\ReportService.cs" />
     <Compile Include="Source\service\ServicoService.cs" />
     <Compile Include="Source\service\TelefoneService.cs" />
     <Compile Include="Source\util\FabricaConexao.cs" />
@@ -300,6 +302,7 @@
     <EmbeddedResource Include="Forms\graphics\FrmGraficoQuantidadeVendasPorAtendente.resx">
       <DependentUpon>FrmGraficoQuantidadeVendasPorAtendente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\graphics\ReportVendaPorAtendente.rdlc" />
     <EmbeddedResource Include="Forms\register\FrmCadastroAtendente.resx">
       <DependentUpon>FrmCadastroAtendente.cs</DependentUpon>
     </EmbeddedResource>
@@ -369,6 +372,7 @@
     <None Include="Properties\DataSources\V2.Source.domain.Pedido.datasource" />
     <None Include="Properties\DataSources\V2.Source.domain.Produto.datasource" />
     <None Include="Properties\DataSources\V2.Source.domain.Servico.datasource" />
+    <None Include="Properties\DataSources\V2.Source.DTO.PedidoAtendente.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

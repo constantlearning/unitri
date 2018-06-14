@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using V2.Source.DTO;
+using V2.Source.service;
 
 namespace V2.Forms.graphics
 {
@@ -19,7 +21,8 @@ namespace V2.Forms.graphics
 
         private void FrmGraficoQuantidadeVendasPorAtendente_Load(object sender, EventArgs e)
         {
-            this.reportViewer1.RefreshReport();            
+            PedidoAtendenteBindingSource.DataSource = ReportService.buscarQuantidadeDePedidoPorAtendente();
+            this.reportViewer1.RefreshReport();
         }
     }
 }
