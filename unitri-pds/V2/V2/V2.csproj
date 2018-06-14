@@ -205,6 +205,7 @@
     <Compile Include="Source\DTO\graphic\FaturamentoBarbearia.cs" />
     <Compile Include="Source\DTO\graphic\FaturamentoFilial.cs" />
     <Compile Include="Source\DTO\graphic\PedidoAtendente.cs" />
+    <Compile Include="Source\DTO\report\PedidoReport.cs" />
     <Compile Include="Source\service\ClienteService.cs" />
     <Compile Include="Source\service\FilialService.cs" />
     <Compile Include="Forms\register\FrmCadastroAtendente.cs">
@@ -334,6 +335,10 @@
     <EmbeddedResource Include="Forms\register\FrmCadastroServico.resx">
       <DependentUpon>FrmCadastroServico.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\reports\FrmReportPedidosPorFilial.resx">
+      <DependentUpon>FrmReportPedidosPorFilial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\reports\ReportPedidosPorFilial.rdlc" />
     <EmbeddedResource Include="Forms\search\FrmConsultaAtendente.resx">
       <DependentUpon>FrmConsultaAtendente.cs</DependentUpon>
     </EmbeddedResource>
@@ -385,6 +390,7 @@
     <None Include="Properties\DataSources\V2.Source.DTO.graphic.FaturamentoBarbearia.datasource" />
     <None Include="Properties\DataSources\V2.Source.DTO.graphic.FaturamentoFilial.datasource" />
     <None Include="Properties\DataSources\V2.Source.DTO.PedidoAtendente.datasource" />
+    <None Include="Properties\DataSources\V2.Source.DTO.report.PedidoReport.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -398,9 +404,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Source\DTO\report\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\barbershop.jpg" />
   </ItemGroup>

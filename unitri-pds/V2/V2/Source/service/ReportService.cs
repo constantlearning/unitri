@@ -5,8 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using V2.Source.DAO;
+using V2.Source.domain;
 using V2.Source.DTO;
 using V2.Source.DTO.graphic;
+using V2.Source.DTO.report;
 using V2.Source.util;
 
 namespace V2.Source.service
@@ -61,6 +63,31 @@ namespace V2.Source.service
             }
 
             return faturamentoBarbearia;
+        }
+
+        internal static List<PedidoReport> BuscarPedidosDaFilial(Filial filialSelecionada)
+        {
+            SqlConnection conexao = null;
+
+            List<PedidoReport> pedidosFilial;
+
+            try
+            {
+                conexao = FabricaConexao.GetConnection();
+
+                ReportDAO reportDAO = new ReportDAO(conexao);
+                pedidosFilial = reportDAO.buscarPedidosDaFilial(filialSelecionada);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                FabricaConexao.CloseConnection(conexao);
+            }
+
+            return pedidosFilial;
         }
 
         internal static List<FaturamentoFilial> BuscarFaturamentoDasFiliais()

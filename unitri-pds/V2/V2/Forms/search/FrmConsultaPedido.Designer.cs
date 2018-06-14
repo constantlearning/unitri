@@ -32,15 +32,15 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnDeletar = new System.Windows.Forms.Button();
             this.dgvCliente = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.barbeariaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.filialDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.atendenteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataPedidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pedidoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.pedidoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.atendenteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.barbeariaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.filialDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataPedidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pedidoBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pedidoBindingSource)).BeginInit();
@@ -77,11 +77,11 @@
             this.dgvCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCliente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
-            this.totalDataGridViewTextBoxColumn,
+            this.clienteDataGridViewTextBoxColumn,
+            this.atendenteDataGridViewTextBoxColumn,
             this.barbeariaDataGridViewTextBoxColumn,
             this.filialDataGridViewTextBoxColumn,
-            this.atendenteDataGridViewTextBoxColumn,
-            this.clienteDataGridViewTextBoxColumn,
+            this.totalDataGridViewTextBoxColumn,
             this.dataPedidoDataGridViewTextBoxColumn});
             this.dgvCliente.DataSource = this.pedidoBindingSource1;
             this.dgvCliente.Location = new System.Drawing.Point(12, 12);
@@ -90,19 +90,36 @@
             this.dgvCliente.Size = new System.Drawing.Size(663, 351);
             this.dgvCliente.TabIndex = 17;
             // 
+            // pedidoBindingSource1
+            // 
+            this.pedidoBindingSource1.DataSource = typeof(V2.Source.domain.Pedido);
+            // 
+            // pedidoBindingSource
+            // 
+            this.pedidoBindingSource.DataSource = typeof(V2.Source.domain.Pedido);
+            // 
             // idDataGridViewTextBoxColumn
             // 
+            this.idDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
             this.idDataGridViewTextBoxColumn.HeaderText = "Id";
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Width = 41;
             // 
-            // totalDataGridViewTextBoxColumn
+            // clienteDataGridViewTextBoxColumn
             // 
-            this.totalDataGridViewTextBoxColumn.DataPropertyName = "Total";
-            this.totalDataGridViewTextBoxColumn.HeaderText = "Total";
-            this.totalDataGridViewTextBoxColumn.Name = "totalDataGridViewTextBoxColumn";
-            this.totalDataGridViewTextBoxColumn.ReadOnly = true;
+            this.clienteDataGridViewTextBoxColumn.DataPropertyName = "Cliente";
+            this.clienteDataGridViewTextBoxColumn.HeaderText = "Cliente";
+            this.clienteDataGridViewTextBoxColumn.Name = "clienteDataGridViewTextBoxColumn";
+            this.clienteDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // atendenteDataGridViewTextBoxColumn
+            // 
+            this.atendenteDataGridViewTextBoxColumn.DataPropertyName = "Atendente";
+            this.atendenteDataGridViewTextBoxColumn.HeaderText = "Atendente";
+            this.atendenteDataGridViewTextBoxColumn.Name = "atendenteDataGridViewTextBoxColumn";
+            this.atendenteDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // barbeariaDataGridViewTextBoxColumn
             // 
@@ -118,19 +135,14 @@
             this.filialDataGridViewTextBoxColumn.Name = "filialDataGridViewTextBoxColumn";
             this.filialDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // atendenteDataGridViewTextBoxColumn
+            // totalDataGridViewTextBoxColumn
             // 
-            this.atendenteDataGridViewTextBoxColumn.DataPropertyName = "Atendente";
-            this.atendenteDataGridViewTextBoxColumn.HeaderText = "Atendente";
-            this.atendenteDataGridViewTextBoxColumn.Name = "atendenteDataGridViewTextBoxColumn";
-            this.atendenteDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // clienteDataGridViewTextBoxColumn
-            // 
-            this.clienteDataGridViewTextBoxColumn.DataPropertyName = "Cliente";
-            this.clienteDataGridViewTextBoxColumn.HeaderText = "Cliente";
-            this.clienteDataGridViewTextBoxColumn.Name = "clienteDataGridViewTextBoxColumn";
-            this.clienteDataGridViewTextBoxColumn.ReadOnly = true;
+            this.totalDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.totalDataGridViewTextBoxColumn.DataPropertyName = "Total";
+            this.totalDataGridViewTextBoxColumn.HeaderText = "Total";
+            this.totalDataGridViewTextBoxColumn.Name = "totalDataGridViewTextBoxColumn";
+            this.totalDataGridViewTextBoxColumn.ReadOnly = true;
+            this.totalDataGridViewTextBoxColumn.Width = 56;
             // 
             // dataPedidoDataGridViewTextBoxColumn
             // 
@@ -138,14 +150,6 @@
             this.dataPedidoDataGridViewTextBoxColumn.HeaderText = "DataPedido";
             this.dataPedidoDataGridViewTextBoxColumn.Name = "dataPedidoDataGridViewTextBoxColumn";
             this.dataPedidoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // pedidoBindingSource1
-            // 
-            this.pedidoBindingSource1.DataSource = typeof(V2.Source.domain.Pedido);
-            // 
-            // pedidoBindingSource
-            // 
-            this.pedidoBindingSource.DataSource = typeof(V2.Source.domain.Pedido);
             // 
             // FrmConsultaPedido
             // 
@@ -172,13 +176,13 @@
         private System.Windows.Forms.Button btnDeletar;
         private System.Windows.Forms.DataGridView dgvCliente;
         private System.Windows.Forms.BindingSource pedidoBindingSource;
+        private System.Windows.Forms.BindingSource pedidoBindingSource1;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn totalDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clienteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn atendenteDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn barbeariaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn filialDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn atendenteDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clienteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataPedidoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource pedidoBindingSource1;
     }
 }

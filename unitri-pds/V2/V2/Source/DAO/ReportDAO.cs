@@ -5,8 +5,10 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using V2.Source.domain;
 using V2.Source.DTO;
 using V2.Source.DTO.graphic;
+using V2.Source.DTO.report;
 
 namespace V2.Source.DAO
 {
@@ -85,6 +87,48 @@ namespace V2.Source.DAO
             }
 
             return faturamentoBarbearia;
+        }
+
+        internal List<PedidoReport> buscarPedidosDaFilial(Filial filialSelecionada)
+        {
+            List<PedidoReport> pedidoReports = new List<PedidoReport>();
+
+            SqlCommand command = new SqlCommand();
+            command.Connection = this.conexao;
+            command.CommandType = CommandType.Text;
+
+            StringBuilder sql = new StringBuilder();
+
+            sql.Append("SELECT pedido.Id, atendente.nome AS atendente, filial.nome AS filial, cliente.nome AS cliente, barbearia.name AS barbearia, filial.nome AS filial, pedido.data_pedido ");
+            sql.Append("FROM pedido ");
+            sql.Append("INNER JOIN pedido_itemproduto ON pedido_itemproduto.id_pedido = pedido.Id ");
+            sql.Append("INNER JOIN produto ON pedido_itemproduto.id_produto = produto.Id ");
+            sql.Append("INNER JOIN pedido_itemservico ON pedido_itemservico.id_pedido = pedido.Id ");
+            sql.Append("INNER JOIN servico ON pedido_itemservico.id_servico = servico.Id ");
+            sql.Append("INNER JOIN cliente ON cliente.Id = pedido.id_cliente ");
+            sql.Append("INNER JOIN barbearia ON barbearia.Id = pedido.id_barbearia ");
+            sql.Append("INNER JOIN filial ON filial.Id = pedido.id_filial ");
+            sql.Append("INNER JOIN atendente ON atendente.Id = pedido.id_atendente ");
+            sql.Append("WHERE filial.Id = @id ");
+
+            command.CommandText = sql.ToString();
+            command.Parameters.AddWithValue("id", filialSelecionada.Id);
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                PedidoReport pedidoReport = new PedidoReport();
+                pedidoReport.Id = (Int32)reader["Id"];
+                pedidoReport.Cliente = (String)reader["cliente"];
+                pedidoReport.Barbearia = (String)reader["barbearia"];
+                pedidoReport.Filial = (String)reader["filial"];
+                pedidoReport.Data = (DateTime)reader["data_pedido"];
+                pedidoReport.Atendente = (String)reader["atendente"];
+
+                pedidoReports.Add(pedidoReport);
+            }
+
+            return pedidoReports;
         }
 
         internal List<FaturamentoFilial> buscarFaturamentoDasFiliais()
