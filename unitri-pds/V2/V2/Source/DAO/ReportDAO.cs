@@ -55,6 +55,48 @@ namespace V2.Source.DAO
             return pedidoAtendentes;
         }
 
+        internal List<PedidoReport> BuscarPedidosEntreDuasDatas(DateTime dataInicial, DateTime dataFinal)
+        {
+            List<PedidoReport> pedidoReports = new List<PedidoReport>();
+
+            SqlCommand command = new SqlCommand();
+            command.Connection = this.conexao;
+            command.CommandType = CommandType.Text;
+
+            StringBuilder sql = new StringBuilder();
+            sql.Append("SELECT pedido.Id, atendente.nome AS atendente, filial.nome AS filial, cliente.nome AS cliente, barbearia.name AS barbearia, pedido.data_pedido ");
+            sql.Append("FROM atendente ");
+            sql.Append("INNER JOIN pedido ON atendente.Id = pedido.id_atendente ");
+            sql.Append("INNER JOIN pedido_itemproduto ON pedido_itemproduto.id_pedido = pedido.Id ");
+            sql.Append("INNER JOIN produto ON pedido_itemproduto.id_produto = produto.Id ");
+            sql.Append("INNER JOIN pedido_itemservico ON pedido_itemservico.id_pedido = pedido.Id ");
+            sql.Append("INNER JOIN servico ON pedido_itemservico.id_servico = servico.Id ");
+            sql.Append("INNER JOIN cliente ON cliente.Id = pedido.id_cliente ");
+            sql.Append("INNER JOIN barbearia ON barbearia.Id = pedido.id_barbearia ");
+            sql.Append("INNER JOIN filial ON filial.Id = pedido.id_filial ");
+            sql.Append("WHERE pedido.data_pedido BETWEEN '" + "@datainicio" + "' AND '" + "@datafinal" + "' ");
+
+            command.CommandText = sql.ToString();
+            command.Parameters.AddWithValue("@datainicio", dataInicial.ToString("yyyy-MM-dd hh:mm:ss"));
+            command.Parameters.AddWithValue("@datafinal", dataFinal.ToString("yyyy-MM-dd hh:mm:ss"));
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                PedidoReport pedidoReport = new PedidoReport();
+                pedidoReport.Id = (Int32)reader["Id"];
+                pedidoReport.Cliente = (String)reader["cliente"];
+                pedidoReport.Barbearia = (String)reader["barbearia"];
+                pedidoReport.Filial = (String)reader["filial"];
+                pedidoReport.Data = (DateTime)reader["data_pedido"];
+                pedidoReport.Atendente = (String)reader["atendente"];
+
+                pedidoReports.Add(pedidoReport);
+            }
+
+            return pedidoReports;
+        }
+
         internal List<PedidoReport> buscarPedidosDoAtendente(Atendente atendenteSelecionado)
         {
             List<PedidoReport> pedidoReports = new List<PedidoReport>();

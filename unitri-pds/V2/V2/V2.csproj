@@ -335,12 +335,16 @@
     <EmbeddedResource Include="Forms\register\FrmCadastroServico.resx">
       <DependentUpon>FrmCadastroServico.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\reports\FrmReportPedidosEntrePeriodos.resx">
+      <DependentUpon>FrmReportPedidosEntrePeriodos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\reports\FrmReportPedidosPorAtendente.resx">
       <DependentUpon>FrmReportPedidosPorAtendente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\reports\FrmReportPedidosPorFilial.resx">
       <DependentUpon>FrmReportPedidosPorFilial.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\reports\ReportPedidosEntreDatas.rdlc" />
     <EmbeddedResource Include="Forms\reports\ReportPedidosPorAtendente.rdlc" />
     <EmbeddedResource Include="Forms\reports\ReportPedidosPorFilial.rdlc" />
     <EmbeddedResource Include="Forms\search\FrmConsultaAtendente.resx">

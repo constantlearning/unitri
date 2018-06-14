@@ -40,6 +40,31 @@ namespace V2.Source.service
             return pedidoAtendente;
         }
 
+        internal static List<PedidoReport> BuscarPedidosEntreDuasDatas(DateTime dataInicial, DateTime dataFinal)
+        {
+            SqlConnection conexao = null;
+
+            List<PedidoReport> pedidosEntreDuasDatas;
+
+            try
+            {
+                conexao = FabricaConexao.GetConnection();
+
+                ReportDAO reportDAO = new ReportDAO(conexao);
+                pedidosEntreDuasDatas = reportDAO.BuscarPedidosEntreDuasDatas(dataInicial, dataFinal);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                FabricaConexao.CloseConnection(conexao);
+            }
+
+            return pedidosEntreDuasDatas;
+        }
+
         internal static List<PedidoReport> BuscarPedidosDoAtendente(Atendente atendenteSelecionado)
         {
             SqlConnection conexao = null;
