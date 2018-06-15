@@ -14,6 +14,8 @@ namespace V2.Source.DAO
 {
     class ReportDAO
     {
+
+
         private SqlConnection conexao;
         private SqlTransaction tx;
 
@@ -58,6 +60,8 @@ namespace V2.Source.DAO
         internal List<PedidoReport> BuscarPedidosEntreDuasDatas(DateTime dataInicial, DateTime dataFinal)
         {
             List<PedidoReport> pedidoReports = new List<PedidoReport>();
+            String inicio = dataInicial.ToString("yyyy-MM-dd");
+            String final = dataFinal.ToString("yyyy-MM-dd");
 
             SqlCommand command = new SqlCommand();
             command.Connection = this.conexao;
@@ -74,11 +78,10 @@ namespace V2.Source.DAO
             sql.Append("INNER JOIN cliente ON cliente.Id = pedido.id_cliente ");
             sql.Append("INNER JOIN barbearia ON barbearia.Id = pedido.id_barbearia ");
             sql.Append("INNER JOIN filial ON filial.Id = pedido.id_filial ");
-            sql.Append("WHERE pedido.data_pedido BETWEEN '" + "@datainicio" + "' AND '" + "@datafinal" + "' ");
+            sql.Append("WHERE pedido.data_pedido BETWEEN '" + inicio + "' AND '" + final + "' ");
 
             command.CommandText = sql.ToString();
-            command.Parameters.AddWithValue("@datainicio", dataInicial.ToString("yyyy-MM-dd hh:mm:ss"));
-            command.Parameters.AddWithValue("@datafinal", dataFinal.ToString("yyyy-MM-dd hh:mm:ss"));
+
             SqlDataReader reader = command.ExecuteReader();
 
             while (reader.Read())
