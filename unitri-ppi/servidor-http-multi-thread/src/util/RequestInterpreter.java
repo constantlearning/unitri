@@ -59,6 +59,10 @@ public class RequestInterpreter {
             fullPath = this.basePath + "html" + path;
         }
 
+        if(path.contains(".css")){
+            fullPath = this.basePath + "css" + path;
+        }
+
         if (path.contains("cgi/")) {
             fullPath = this.basePath + path.replace("/cgi/", "cgi/");
         }
