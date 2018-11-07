@@ -1,0 +1,20 @@
+QUESTAO 1:
+URL : http://localhost:8000/cgi/v1.py?nome=ASDF&sobrenome=QWER
+
+QUESTAO 2:
+01- (V) Mensagens HTTP de retorno da classe 200 significam sucesso na execução da requisição no servidor.
+02- (V) Uma página HTML moderna é composta de elementos HTML que demarcam os dados e layout da mesma.
+03- (V) Alguns elementos HTML podem ser usados como conteiner para outros elementos HTML.
+04- (V) Um URL (Uniform Resource Locator) tem basicamente o seguinte formato: Protocolo://Servidor:Porta/Caminho/Recurso?Consulta
+05- (V) Um atributo HTML deve ser definido, quando necessário, somente na marca (tag) que abre o elemento.
+06- (F) Um arquivo xHTML pode ser mal formado assim como alguns elementos do HTML.
+07- (F) Na especificação do protocolo HTTP (HyperText Transfer Protocol) as mensagens GET podem enviar
+        dados para o servidor no fragmento Consulta (Query_String) da URL ou podem usar o campo corpo da
+        mensagem para o envio dos dados do form.
+08- (V)  Na especificação do protocolo HTTP (HyperText Transfer Protocol), existe sempre uma linha em branco após os campos de cabeçalho da mensagem.
+09- (V) Os parâmetros enviados do cliente, via método HTTP POST, são lidos do lado do servidor no buffer
+        de entrada padrão associado ao script executando do lado servidor;
+10- (V) CGI não é uma linguagem de programação para sistemas Web.
+11- (F) A linguagem de programação padrão usando CGI é o VB.NET.
+12- (F) A variável de ambiente de sessão QUERY_STRING armazena toda a URL da requisição que chega
+        no servidor para um script;
