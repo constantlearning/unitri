@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Cadastro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        #cent {
+            position:absolute;
+            left:50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="cent">
+        <form id="contact" action="" method="post">
+            <fieldset>
+                Matrícula: <input type="text" disabled>
+            </fieldset>
+            <fieldset>
+                Nome: <input placeholder="Seu nome" type="text" required autofocus>
+            </fieldset>
+            <fieldset>
+                Endereço: <input placeholder="Seu endereço" type="text" required>
+            </fieldset>
+            <fieldset>
+                <form name="sexo">
+                    <legend>Sexo:</legend>
+                    <input type="radio" name="genero" value="male"> Masculino<br>
+                    <input type="radio" name="genero" value="female"> Feminino<br>
+                    <input type="radio" name="genero" value="other"> Outro
+                </form>
+            </fieldset>
+            <fieldset>
+                <form name="curso">
+                    <legend>Curso:</legend>
+                    <select>
+                        <option value="computacao">Computação</option>
+                        <option value="direito">Direito</option>
+                        <option value="odontologia">Odontologia</option>
+                    </select>
+                </form>
+            </fieldset>
+            <fieldset>
+                <button onclick="alert('Cadastro realizado com sucesso!')">Cadastrar</button>
+                <a href="menu.html"><button>Sair</button></a><br><br>
+            </fieldset>
+        </form>
+
+
+    </div>
+</body>
+
+</html>

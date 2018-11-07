@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Listagem de Alunos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        #container {
+            position: absolute;
+            left: 50%;
+            border: 1px solid black
+        }
+
+        #tablealunos {
+            border-collapse: collapse;
+            width: 100%;
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #tablealunos th {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            text-align: left;
+            background-color: black;
+            color: white;
+        }
+
+        #tablealunos td,
+        #tablealunos tr {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <br>
+        Nome: <input type="text"> <button>Filtrar</button><br><br>
+
+        <table id="tablealunos" style="width:auto;height:auto;">
+            Alunos:
+            <thead>
+                <tr>
+                    <th>Matrícula</th>
+                    <th>Nome</th>
+                    <th>Curso</th>
+                    <th>Editar</th>
+                    <th>Apagar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>98275345</td>
+                    <td>Lucas Gontijo</td>
+                    <td>Computação</td>
+                    <td><img src="icons/edit.png"></td>
+                    <td><img src="icons/eraser.png"></td>
+                </tr>
+                <tr>
+                    <td>715236512</td>
+                    <td>Fulano de Tal</td>
+                    <td>Odontologia</td>
+                    <td><img src="icons/edit.png"></td>
+                    <td><img src="icons/eraser.png"></td>
+                </tr>
+                <tr>
+                    <td>142341234</td>
+                    <td>Sicrano de tal</td>
+                    <td>Direito</td>
+                    <td><img src="icons/edit.png"></td>
+                    <td><img src="icons/eraser.png"></td>
+                </tr>
+                <tr>
+                    <td>767676776</td>
+                    <td>Beltrano das quanta</td>
+                    <td>Direito</td>
+                    <td><img src="icons/edit.png"></td>
+                    <td><img src="icons/eraser.png"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <a href="cadastro.html"><button>Cadastrar</button></a>
+        <a href="menu.html"><button>Sair</button></a><br><br>
+    </div>
+
+
+</body>
+
+</html>
