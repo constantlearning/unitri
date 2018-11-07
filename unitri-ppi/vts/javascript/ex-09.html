@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Exercício 09</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <form id="myForm" method="POST" action="http://something:8080/" onsubmit="return validateFields()">
+        Nome: <input type="text" name="nome"> <br>
+        Endereço: <input type="text" name="endereco"> <br>
+        Telefone: <input type="text" name="telefone"> <br>
+        E-mail: <input type="text" name="email"> <br>
+        <button type="submit">Enviar</button>
+    </form>
+
+
+    <script>
+        function validateFields() {
+            return validateName() && validateEndereco() && validateTelefone() && validateEmail();
+        }
+
+        function validateName() {
+            var re = /([A-Za-z]+)/;
+            var elementName = document.getElementById("myForm").elements.namedItem("nome");
+            if (!re.test(elementName.value)) {
+                elementName.value = "";
+                focusFieldAndSetPlaceHolder(elementName, "Nome inválido!")
+                return false;
+            }
+            return true;
+        }
+
+        function validateEndereco() {
+            var re = /([\w\W]+)\s(\d+)/;
+            var elementName = document.getElementById("myForm").elements.namedItem("endereco");
+            if (!re.test(elementName.value)) {
+                elementName.value = "";
+                focusFieldAndSetPlaceHolder(elementName, "Exemplo: R 25 de março 200")
+                return false;
+            }
+            return true;
+        }
+
+        function validateTelefone() {
+            var re = /^(?:(?:\+|00)?(55)\s?)?(?:\(?([1-9][0-9])\)?\s?)?(?:((?:9\d|[2-9])\d{3})\-?(\d{4}))$/
+            var elementName = document.getElementById("myForm").elements.namedItem("telefone");
+            if (!re.test(elementName.value)) {
+                elementName.value = "";
+                focusFieldAndSetPlaceHolder(elementName, "+55 (11) 98888-8888 / 9999-9999 / 21 98888-8888 / 5511988888888")
+                return false;
+            }
+            return true;
+        }
+
+        function validateEmail() {
+            var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            var elementName = document.getElementById("myForm").elements.namedItem("email");
+            if (!re.test(elementName.value)) {
+                elementName.value = "";
+                focusFieldAndSetPlaceHolder(elementName, "Email inválido!")
+                return false;
+            }
+            return true;
+        }
+
+        function focusFieldAndSetPlaceHolder(element, message) {
+            element.style.borderColor = "red";
+            element.placeholder = message
+        }
+    </script>
+</body>
+
+</html>

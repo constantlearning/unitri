@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Exercício 01</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+</head>
+
+<body>
+    <div id="output"></div>
+
+    <button onclick="generateTenRandomStrings()">Something</button>
+
+    <script>
+        function generateTenRandomStrings() {
+
+            var element = document.getElementById("output");
+
+            for (let i = 0; i < 10; i ++) {
+
+                var randomString = createRandomString(Math.random() * (i * i));
+
+                var node = document.createElement("p");
+                var textnode = document.createTextNode(randomString);
+                node.appendChild(textnode);
+                document.getElementById("output").appendChild(node);
+            }
+        }
+
+        function createRandomString(length) {
+            var str = "";
+            for (i = 0; str.length < length; str += Math.random().toString(36).substr(2));
+            return str.substr(0, length);
+        }
+    </script>
+</body>
+
+</html>

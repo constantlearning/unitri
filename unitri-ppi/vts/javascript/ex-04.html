@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Exercício 04</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+    <form id="myForm">
+        Input: <input type="number" name="number"> <br>
+        Average: <input type="number" name="average" disabled> <br>
+    </form>
+
+    <button onclick="addNumber()">Add number</button>
+    <button onclick="calculateAverage()">Calculate Average</button>
+
+    <script>
+        var numbers = [];
+
+        function addNumber() {
+            var numberInput = document.getElementById("myForm").elements.number;
+            numbers.push(numberInput.value);
+            numberInput.value = "";
+        }
+
+        function calculateAverage() {
+            var average = numbers
+                .map(Number)
+                .reduce((a, b) => a + b, 0) / numbers.length;
+            document.getElementById("myForm").elements.average.value = average;
+        }
+        
+    </script>
+</body>
+
+</html>

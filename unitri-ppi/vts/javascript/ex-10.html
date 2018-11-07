@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Exercício 10</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        #principal {
+          display: flex;
+        }
+        
+        #visor {
+            background: silver;
+            font-size: 20px;
+            height: 100px;
+            width:100%;
+            border:0;
+            text-align:right;
+            color: white;
+        }
+        #teclado {
+          background: gray;
+          width:100%;
+        }
+        
+        .button {  
+            background: transparent;
+            font-size: 20px;
+            border: 0;
+            color: white;
+            width: 85px;
+            height: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="principal">
+        <div id="calculadora">
+            <input type="text" id="visor" disabled>
+            <div id="teclado">
+                <button class="button" onclick="writeValue('9')">9</button>
+                <button class="button" onclick="writeValue('8')"">8</button>
+                <button class="
+                    button"onclick="writeValue('7')">7</button><br>
+
+                <button class="button" onclick="writeValue('6')">6</button>
+                <button class="button" onclick="writeValue('5')">5</button>
+                <button class="button" onclick="writeValue('4')">4</button><br>
+
+                <button class="button" onclick="writeValue('3')">3</button>
+                <button class="button" onclick="writeValue('2')">2</button>
+                <button class="button" onclick="writeValue('1')">1</button><br>
+
+                <button class="button" onclick="writeValue('+')">+</button>
+                <button class="button" onclick="writeValue('0')">0</button>
+                <button class="button" onclick="writeValue('-')">-</button><br>
+
+                <button class="button" onclick="calcular()">=</button>
+                <button class="button" onclick="writeValue('.')">.</button>
+                <button class="button" onclick="resetDisplay()">C</button><br>
+
+            </div>
+        </div>
+
+        <script>
+
+            var invalid = false;
+
+            function writeValue(valor) {
+
+                if(invalid){
+                    resetDisplay();
+                }
+
+                var visorValue = document.getElementById("visor").value
+                document.getElementById("visor").value = "" + visorValue + valor;
+                invalid = false;
+            }
+
+            function calcular() {
+                var visorValue = document.getElementById("visor").value
+
+                if (visorValue == "") {
+                    invalidExpression();
+                    return;
+                }
+
+                try {
+                    document.getElementById("visor").value = "" + eval(visorValue);
+                } catch (error) {
+                    invalidExpression();
+                }
+            }
+
+            function invalidExpression() {
+                document.getElementById("visor").value = "EXPRESSÃO INVÁLIDA!";
+                document.getElementById("visor").style.backgroundColor = "red";
+                invalid = true;
+            }
+
+            function resetDisplay() {
+                document.getElementById('visor').value  = '';
+                document.getElementById("visor").style.backgroundColor = "";
+            }
+        </script>
+</body>
+
+</html>

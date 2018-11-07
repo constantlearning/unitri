@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Exercício 07</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        table, td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form id="myForm">
+        Input: <input type="number" name="number"> <br>
+    </form>
+
+    <button onclick="calculateFibonacci()">Calculate</button>
+
+    <div id="output"></div>
+
+    <script>
+
+        function calculateFibonacci() {
+            var numberInput = document.getElementById("myForm").elements.number.value;
+            generateTable(numberInput);
+        }
+
+        function generateTable(number) {
+
+            var table = document.createElement("table");
+
+            for (let i = 0; i < number; i++) {
+                var row = table.insertRow(i);
+                var fib = fibonacci(i);
+                var cell = row.insertCell().innerHTML = i;
+                var cell = row.insertCell().innerHTML = fib;
+            }
+
+            var row = table.insertRow(0);
+            row.insertCell().innerHTML = "Number"
+            row.insertCell().innerHTML = "Fibonacci";
+
+            document.getElementById("output").appendChild(table);
+        }
+
+        function fibonacci(n) {
+            if (n < 2)
+                return n;
+            return fibonacci(n - 1) + fibonacci(n - 2);
+        }
+    </script>
+</body>
+
+</html>

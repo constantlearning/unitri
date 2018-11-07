@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Exercício 08</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        table,
+        td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button onclick="generateTable()">Random Number</button>
+
+    <script>
+
+        function generateTable() {
+
+            var table = document.createElement("table");
+
+            for (let i = 0; i < 4; i++) {
+                var row = table.insertRow(i);
+                var cell = row.insertCell().innerHTML = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
+                var cell = row.insertCell().innerHTML = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
+            }
+            document.body.appendChild(table);
+        }
+    </script>
+</body>
+
+</html>
