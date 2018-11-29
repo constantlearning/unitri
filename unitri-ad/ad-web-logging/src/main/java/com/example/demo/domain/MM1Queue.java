@@ -9,7 +9,8 @@ public class MM1Queue implements QueueOperations {
 
     public MM1Queue(Integer chegadas, Integer saidas, int unidadeDeTempo) {
         this.lambda = this.rateOfArrival(Double.valueOf(chegadas), unidadeDeTempo);
-        this.mu = this.serviceRate(Double.valueOf(saidas), unidadeDeTempo);
+        this.mu = 200D;
+//        this.mu = this.serviceRate(Double.valueOf(saidas), unidadeDeTempo);
     }
 
     public Double getLambda() {

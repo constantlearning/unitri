@@ -1,26 +1,16 @@
-package deterministic;
-
-import java.util.HashMap;
 import java.util.Map;
 
-public class DeterministicFiniteAutomata {
+public class DFA {
 
-    private Map<String, String> table = new HashMap<>();
+    private Map<String, String> table;
 
-    {
-        table.put("initial", "q0");
-        table.put("final", "q0");
-        table.put("q0->0", "q0");
-        table.put("q0->1", "q1");
-        table.put("q1->0", "q1");
-        table.put("q1->1", "q0");
+    public DFA(Map<String, String> table) {
+        this.table = table;
     }
 
-
-    public String extension(String simbol) {
-        return extension("initial", simbol);
+    public Boolean extension(String simbol) {
+        return isValid(extension("initial", simbol));
     }
-
 
     public String extension(String initial, String simbol) {
 
@@ -36,6 +26,11 @@ public class DeterministicFiniteAutomata {
     }
 
     public boolean isValid(String state) {
+
+        if (state == null) {
+            return false;
+        }
+
         return table.get("final").contains(state);
     }
 

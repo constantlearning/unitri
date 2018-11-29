@@ -1,22 +1,14 @@
-package nondeterministic;
-
 import com.google.common.collect.ArrayListMultimap;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
-public class NonDeterministicFiniteAutomata {
+public class NFA {
 
-    private ArrayListMultimap<String, String> table = ArrayListMultimap.create();
+    private ArrayListMultimap<String, String> table;
 
-    {
-        table.put("initial", "q0");
-        table.put("final", "q2");
-        table.put("q0->a", "q0");
-        table.put("q0->b", "q0");
-        table.put("q0->a", "q1");
-        table.put("q1->a", "q2");
+    public NFA(ArrayListMultimap<String, String> table) {
+        this.table = table;
     }
 
     public boolean extension(String word) {
@@ -57,7 +49,7 @@ public class NonDeterministicFiniteAutomata {
         return states;
     }
 
-    private List<String> getTransition(String state, String simbol) {
+    public List<String> getTransition(String state, String simbol) {
         return table.get(String.format("%s->%s", state, simbol));
     }
 
