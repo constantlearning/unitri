@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <title>Calculadora</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <th:block th:include="fragments/general.html :: headerfiles"></th:block>
+</head>
+<body>
+<header th:insert="fragments/header.html :: header"></header>
+<form style="padding-top: 5%" th:action="@{/calcs}" th:object="${calcModel}" method="post">
+    <p>Valor1: <input th:field="*{valor1}"/></p>
+    <p>Valor2: <input th:field="*{valor2}"/></p>
+    <p>Resultado: <input th:field="*{resultado}"/></p>
+    <p><input type="submit" name="operacao" value="soma"/>
+        <input type="submit" name="operacao" value="subt"/>
+        <input type="submit" name="operacao" value="mult"/>
+        <input type="submit" name="operacao" value="divi"/></p>
+</form>
+<div th:replace="fragments/general.html :: footer"></div>
+</body>
+</html>
