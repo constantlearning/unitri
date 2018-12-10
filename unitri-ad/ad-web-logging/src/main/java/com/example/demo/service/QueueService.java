@@ -42,7 +42,11 @@ public class QueueService {
                 queue.averageTimeOfPermanenceInTheSystem(),
                 queue.averageTimeOfWaitingInTheSystem(),
                 queue.averageOfClientsInTheSystem(),
-                queue.averageOfClientsInTheQueue()
+                queue.averageOfClientsInTheQueue(),
+//                With Parameters
+                queue.probabilityOfNIsGreatterThenK(1),
+                queue.probabilityRate(1),
+                queue.probabilityToHaveNClientsInQueue(1)
         );
     }
 }

@@ -63,9 +63,7 @@ public class MM1Queue implements QueueOperations {
 
     @Override
     public Double probabilityOfNIsGreatterThenK(Integer quantity) {
-        System.out.println(lambda/mu);
         return Math.pow((lambda / mu), quantity + 1);
-
     }
 
     @Override

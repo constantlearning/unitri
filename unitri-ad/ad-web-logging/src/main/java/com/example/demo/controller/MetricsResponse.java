@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class MetricsResponse {
 
     private Double mu;
@@ -9,6 +11,9 @@ public class MetricsResponse {
     private Double averageTimeOfWaitingInTheSystem;
     private Double averageOfClientsInTheSystem;
     private Double averageOfClientsInTheQueue;
+    private Double probabilityOfNIsGreatterThenK;
+    private Double probabilityRate;
+    private Double probabilityToHaveNClientsInQueue;
 
     public MetricsResponse() {
     }
@@ -24,6 +29,23 @@ public class MetricsResponse {
         this.averageOfClientsInTheSystem = averageOfClientsInTheSystem;
         this.averageOfClientsInTheQueue = averageOfClientsInTheQueue;
     }
+
+    public MetricsResponse(Double mu, Double lambda, Double probabilyOfServerBeingBusy, Double averageTimeOfPermanenceInTheSystem,
+                           Double averageTimeOfWaitingInTheSystem, Double averageOfClientsInTheSystem,
+                           Double averageOfClientsInTheQueue, Double probabilityOfNIsGreatterThenK, Double probabilityRate,
+                           Double probabilityToHaveNClientsInQueue) {
+        this.mu = mu;
+        this.lambda = lambda;
+        this.probabilyOfServerBeingBusy = probabilyOfServerBeingBusy;
+        this.averageTimeOfPermanenceInTheSystem = averageTimeOfPermanenceInTheSystem;
+        this.averageTimeOfWaitingInTheSystem = averageTimeOfWaitingInTheSystem;
+        this.averageOfClientsInTheSystem = averageOfClientsInTheSystem;
+        this.averageOfClientsInTheQueue = averageOfClientsInTheQueue;
+        this.probabilityOfNIsGreatterThenK = probabilityOfNIsGreatterThenK;
+        this.probabilityRate = probabilityRate;
+        this.probabilityToHaveNClientsInQueue = probabilityToHaveNClientsInQueue;
+    }
+
 
     public Double getMu() {
         return mu;
@@ -81,6 +103,31 @@ public class MetricsResponse {
         this.averageOfClientsInTheQueue = averageOfClientsInTheQueue;
     }
 
+    public Double getProbabilityOfNIsGreatterThenK() {
+        return probabilityOfNIsGreatterThenK;
+    }
+
+    public void setProbabilityOfNIsGreatterThenK(Double probabilityOfNIsGreatterThenK) {
+        this.probabilityOfNIsGreatterThenK = probabilityOfNIsGreatterThenK;
+    }
+
+    public Double getProbabilityRate() {
+        return probabilityRate;
+    }
+
+    public void setProbabilityRate(Double probabilityRate) {
+        this.probabilityRate = probabilityRate;
+    }
+
+    public Double getProbabilityToHaveNClientsInQueue() {
+        return probabilityToHaveNClientsInQueue;
+    }
+
+    public void setProbabilityToHaveNClientsInQueue(Double probabilityToHaveNClientsInQueue) {
+        this.probabilityToHaveNClientsInQueue = probabilityToHaveNClientsInQueue;
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -98,7 +145,13 @@ public class MetricsResponse {
             return false;
         if (averageOfClientsInTheSystem != null ? !averageOfClientsInTheSystem.equals(that.averageOfClientsInTheSystem) : that.averageOfClientsInTheSystem != null)
             return false;
-        return averageOfClientsInTheQueue != null ? averageOfClientsInTheQueue.equals(that.averageOfClientsInTheQueue) : that.averageOfClientsInTheQueue == null;
+        if (averageOfClientsInTheQueue != null ? !averageOfClientsInTheQueue.equals(that.averageOfClientsInTheQueue) : that.averageOfClientsInTheQueue != null)
+            return false;
+        if (probabilityOfNIsGreatterThenK != null ? !probabilityOfNIsGreatterThenK.equals(that.probabilityOfNIsGreatterThenK) : that.probabilityOfNIsGreatterThenK != null)
+            return false;
+        if (probabilityRate != null ? !probabilityRate.equals(that.probabilityRate) : that.probabilityRate != null)
+            return false;
+        return probabilityToHaveNClientsInQueue != null ? probabilityToHaveNClientsInQueue.equals(that.probabilityToHaveNClientsInQueue) : that.probabilityToHaveNClientsInQueue == null;
     }
 
     @Override
@@ -110,6 +163,9 @@ public class MetricsResponse {
         result = 31 * result + (averageTimeOfWaitingInTheSystem != null ? averageTimeOfWaitingInTheSystem.hashCode() : 0);
         result = 31 * result + (averageOfClientsInTheSystem != null ? averageOfClientsInTheSystem.hashCode() : 0);
         result = 31 * result + (averageOfClientsInTheQueue != null ? averageOfClientsInTheQueue.hashCode() : 0);
+        result = 31 * result + (probabilityOfNIsGreatterThenK != null ? probabilityOfNIsGreatterThenK.hashCode() : 0);
+        result = 31 * result + (probabilityRate != null ? probabilityRate.hashCode() : 0);
+        result = 31 * result + (probabilityToHaveNClientsInQueue != null ? probabilityToHaveNClientsInQueue.hashCode() : 0);
         return result;
     }
 
@@ -123,6 +179,9 @@ public class MetricsResponse {
                 ", averageTimeOfWaitingInTheSystem=" + averageTimeOfWaitingInTheSystem +
                 ", averageOfClientsInTheSystem=" + averageOfClientsInTheSystem +
                 ", averageOfClientsInTheQueue=" + averageOfClientsInTheQueue +
+                ", probabilityOfNIsGreatterThenK=" + probabilityOfNIsGreatterThenK +
+                ", probabilityRate=" + probabilityRate +
+                ", probabilityToHaveNClientsInQueue=" + probabilityToHaveNClientsInQueue +
                 '}';
     }
 }
