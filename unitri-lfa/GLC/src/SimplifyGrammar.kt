@@ -13,19 +13,19 @@ import simplificar.*
  */
 fun Gramatica.removerProducoesVazias(): Gramatica {
 
-    val geramProducoesVaziasDiretamente = this.geraProducaoVaziaDiretamente()
+    val geramProducoesVaziasDiretamente = geraProducaoVaziaDiretamente(this)
 
     if (geramProducoesVaziasDiretamente.isEmpty()) {
         return this
     }
 
-    val producoesSubstitutas = criarProducoesDeSubstituicao(geramProducoesVaziasDiretamente)
+    val producoesSubstitutas = criarProducoesDeSubstituicao(this, geramProducoesVaziasDiretamente)
 
-    if (!this.startPossuiProducaoVazia()) {
+    if (!startPossuiProducaoVazia(this)) {
         return this.copy(producoes = producoesSubstitutas)
     }
 
-    val producoes = adicionarVazioNasRegrasDeProducaoDoStart(producoesSubstitutas)
+    val producoes = adicionarVazioNasRegrasDeProducaoDoStart(this, producoesSubstitutas)
 
     return this.copy(producoes = producoes)
 }

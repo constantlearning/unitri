@@ -11,7 +11,6 @@ internal class SimplifyGrammarKtTest {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-
     @Test
     internal fun `deve remover as producoes vazias da gramatica`() {
 
@@ -111,7 +110,6 @@ internal class SimplifyGrammarKtTest {
     internal fun `deve remover as producoes unitarias`() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
-
 
     @Test
     internal fun `deve remover os simbolos inuteis`() {

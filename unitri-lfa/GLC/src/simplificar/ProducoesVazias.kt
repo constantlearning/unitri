@@ -2,49 +2,53 @@ package simplificar
 
 import language.*
 
-fun Gramatica.startPossuiProducaoVazia(): Boolean {
-    return geraProducaoVaziaDiretamente()
+fun startPossuiProducaoVazia(gramatica: Gramatica): Boolean {
+    return geraProducaoVaziaDiretamente(gramatica)
         .map { it.nome }.any { it == 'S' }
 }
 
-fun Gramatica.geraProducaoVaziaDiretamente(): List<Producao> {
-    return producoes.filter { producao -> producao.regras.any { it.derivacao.contains("&") } }
+fun geraProducaoVaziaDiretamente(gramatica: Gramatica): List<Producao> {
+    return gramatica.producoes.filter { producao -> producao.regras.any { it.derivacao.contains("&") } }
 }
 
-private fun Gramatica.variavelDerivaCadeiaVazia(simbolo: Char): Boolean {
-    return this.producoes.filter { producao -> producao.nome == simbolo }
+private fun variavelDerivaCadeiaVazia(gramatica: Gramatica, simbolo: Char): Boolean {
+    return gramatica.producoes.filter { producao -> producao.nome == simbolo }
         .map { it.regras }.flatten()
         .any { it.derivacao.contains("&") }
 }
 
-fun Gramatica.obterDerivacoesDeVariavel(c: Char): List<RegrasDeProducao> {
-    return producoes.first { it.nome == c }.regras
+private fun obterDerivacoesDeVariavel(gramatica: Gramatica, c: Char): List<RegrasDeProducao> {
+    return gramatica.producoes.first { it.nome == c }.regras
 }
 
-fun Gramatica.derivacoesDeVariavelSemCadeiaVazia(c: Char): List<RegrasDeProducao> {
-    return producoes.first { it.nome == c }.regras.filter { it.naoDerivaVazio() }
+private fun derivacoesDeVariavelSemCadeiaVazia(gramatica: Gramatica, c: Char): List<RegrasDeProducao> {
+    return gramatica.producoes.first { it.nome == c }.regras.filter { it.naoDerivaVazio() }
 }
 
 
-fun Gramatica.criarProducoesDeSubstituicao(
+fun criarProducoesDeSubstituicao(
+    gramatica: Gramatica,
     geramProducoesVaziasDiretamente: List<Producao>
 ): List<Producao> {
 
-    val producoesSemCadeiaVazia: MutableList<Producao> = this.removerProducoesQueDerivamCadeiaVazia()
+    val producoesSemCadeiaVazia: MutableList<Producao> = removerProducoesQueDerivamCadeiaVazia(gramatica)
 
     val variaveisQueGeramVazioDiretamente: List<Char> =
         geramProducoesVaziasDiretamente.map { it.obterProducoesRemovendoDerivacaoVazia() }.map { it.nome }
 
     val substituirDerivacoesVaziasIndiretamente: List<Producao> =
-        this.substituirProducoesVaziasIndiretas(producoesSemCadeiaVazia, variaveisQueGeramVazioDiretamente)
+        substituirProducoesVaziasIndiretas(gramatica, producoesSemCadeiaVazia, variaveisQueGeramVazioDiretamente)
 
-    return recriarRegrasDeProducao(substituirDerivacoesVaziasIndiretamente)
+    return recriarRegrasDeProducao(gramatica, substituirDerivacoesVaziasIndiretamente)
 }
 
-private fun Gramatica.recriarRegrasDeProducao(derivacoesVaziasIndiretamente: List<Producao>): List<Producao> {
+private fun recriarRegrasDeProducao(
+    gramatica: Gramatica,
+    derivacoesVaziasIndiretamente: List<Producao>
+): List<Producao> {
 
-    val producoesVaziasIndiretamente = this.geraProducaoVaziaIndiretamente()
-    val producoesSubstituidas = criarNovasProducoes(producoesVaziasIndiretamente)
+    val producoesVaziasIndiretamente = geraProducaoVaziaIndiretamente(gramatica)
+    val producoesSubstituidas = criarNovasProducoes(gramatica, producoesVaziasIndiretamente)
 
     val novasProducoes = derivacoesVaziasIndiretamente.toMutableList()
     novasProducoes.removeAll(producoesVaziasIndiretamente)
@@ -53,14 +57,15 @@ private fun Gramatica.recriarRegrasDeProducao(derivacoesVaziasIndiretamente: Lis
     return novasProducoes
 }
 
-private fun Gramatica.criarNovasProducoes(
+private fun criarNovasProducoes(
+    gramatica: Gramatica,
     geramProducoesVaziasIndiretamente: List<Producao>
 ): MutableList<Producao> {
 
     val novasRegrasDeProducao = mutableListOf<Producao>()
     val producoesQueDevemSerSustituidas = mutableListOf<Producao>()
 
-    val produzemVazio = this.simbolosQueDerivamVazio()
+    val produzemVazio = simbolosQueDerivamVazio(gramatica)
 
     geramProducoesVaziasIndiretamente.forEach { producao ->
         producao.regras.forEach { regra ->
@@ -70,7 +75,7 @@ private fun Gramatica.criarNovasProducoes(
 
                     val novaProducao = novasRegrasDeProducao.find { it.nome == producao.nome }
 
-                    val regrasDaDerivacao = this.derivacoesDeVariavelSemCadeiaVazia(symbol)
+                    val regrasDaDerivacao = derivacoesDeVariavelSemCadeiaVazia(gramatica, symbol)
                         .filter { it.obterDerivacaoComoSimbolo().isLowerCase() }
                         .toMutableList()
 
@@ -96,14 +101,14 @@ private fun Gramatica.criarNovasProducoes(
 
 }
 
-private fun Gramatica.simbolosQueDerivamVazio(): List<Char> {
+private fun simbolosQueDerivamVazio(gramatica: Gramatica): List<Char> {
 
     val simbolos = mutableListOf<Char>()
 
     val diretamente =
-        this.geraProducaoVaziaDiretamente().map { it.obterProducoesRemovendoDerivacaoVazia() }.map { it.nome }
+        geraProducaoVaziaDiretamente(gramatica).map { it.obterProducoesRemovendoDerivacaoVazia() }.map { it.nome }
 
-    for (producao in producoes) {
+    for (producao in gramatica.producoes) {
         for (regra in producao.regras) {
 
             if (regra.producaoUnitaria() && !diretamente.contains(regra.obterDerivacaoComoSimbolo())) {
@@ -115,10 +120,10 @@ private fun Gramatica.simbolosQueDerivamVazio(): List<Char> {
     return simbolos.distinct()
 }
 
-fun Gramatica.geraProducaoVaziaIndiretamente(): List<Producao> {
+private fun geraProducaoVaziaIndiretamente(gramatica: Gramatica): List<Producao> {
 
     val derivacoes: List<Producao> =
-        this.producoes.filter { producao ->
+        gramatica.producoes.filter { producao ->
             producao.regras.any {
                 it.derivacao.length > 1
             }
@@ -129,7 +134,7 @@ fun Gramatica.geraProducaoVaziaIndiretamente(): List<Producao> {
     derivacoes.forEach { producao ->
         producao.regras
             .forEach { regra ->
-                if (this.derivaVazioIndiretamente(regra)) {
+                if (derivaVazioIndiretamente(gramatica, regra)) {
                     lista.add(producao)
                 }
             }
@@ -138,14 +143,15 @@ fun Gramatica.geraProducaoVaziaIndiretamente(): List<Producao> {
     return lista
 }
 
-private fun Gramatica.derivaVazioIndiretamente(regra: RegrasDeProducao): Boolean {
+private fun derivaVazioIndiretamente(gramatica: Gramatica, regra: RegrasDeProducao): Boolean {
     for (it in regra.derivacao) {
-        if (this.variavelDerivaCadeiaVazia(it)) return true
+        if (variavelDerivaCadeiaVazia(gramatica, it)) return true
     }
     return false
 }
 
-private fun Gramatica.substituirProducoesVaziasIndiretas(
+private fun substituirProducoesVaziasIndiretas(
+    gramatica: Gramatica,
     producoesSemCadeiaVazia: MutableList<Producao>,
     variaveisQueGeramVazioDiretamente: List<Char>
 ): List<Producao> {
@@ -161,7 +167,7 @@ private fun Gramatica.substituirProducoesVaziasIndiretas(
             if (regra.possuiProducaoUnitariaNaDerivacao() && derivaVazio.second) {
 
                 val regrasDaProducao = producao.regras
-                val regrasCopiadas = this.derivacoesDeVariavelSemCadeiaVazia(derivaVazio.first)
+                val regrasCopiadas = derivacoesDeVariavelSemCadeiaVazia(gramatica, derivaVazio.first)
 
                 novasRegrasDeProducao.add(producao.copy(regras = regrasDaProducao.union(regrasCopiadas).toMutableList()))
 
@@ -176,20 +182,23 @@ private fun Gramatica.substituirProducoesVaziasIndiretas(
     return producoesSemCadeiaVazia
 }
 
-private fun Gramatica.removerProducoesQueDerivamCadeiaVazia(): MutableList<Producao> {
+private fun removerProducoesQueDerivamCadeiaVazia(gramatica: Gramatica): MutableList<Producao> {
 
-    return this.producoes.map { it.obterProducoesRemovendoDerivacaoVazia() }.toMutableList()
-        .let { this.producoesQueNaoDerivamVazio() }
+    return gramatica.producoes.map { it.obterProducoesRemovendoDerivacaoVazia() }.toMutableList()
+        .let { gramatica.producoesQueNaoDerivamVazio() }
 }
 
 private fun Gramatica.producoesQueNaoDerivamVazio(): MutableList<Producao> {
     return this.producoes.map { it.obterProducoesRemovendoDerivacaoVazia() }.toMutableList()
 }
 
-fun Gramatica.adicionarVazioNasRegrasDeProducaoDoStart(producoesSubstitutas: List<Producao>): List<Producao> {
+fun adicionarVazioNasRegrasDeProducaoDoStart(
+    gramatica: Gramatica,
+    producoesSubstitutas: List<Producao>
+): List<Producao> {
 
-    if (!startHasEmptySymbol()) {
-        return this.producoes
+    if (!startHasEmptySymbol(gramatica)) {
+        return gramatica.producoes
     }
 
     val producoes = mutableListOf<Producao>()
@@ -209,12 +218,12 @@ fun Gramatica.adicionarVazioNasRegrasDeProducaoDoStart(producoesSubstitutas: Lis
     return producoes
 }
 
-private fun Gramatica.startHasEmptySymbol(): Boolean {
-    return producoes.filter { producao -> producao.nome == 'S' }
+private fun startHasEmptySymbol(gramatica: Gramatica): Boolean {
+    return gramatica.producoes.filter { producao -> producao.nome == 'S' }
         .map { it.regras }.flatten()
         .any { it.derivacao.contains("&") }
 }
 
-fun Gramatica.obterRegrasPorVariavel(variavel: Char): List<RegrasDeProducao> {
-    return producoes.first { it.nome == variavel }.regras
+private fun obterRegrasPorVariavel(gramatica: Gramatica, variavel: Char): List<RegrasDeProducao> {
+    return gramatica.producoes.first { it.nome == variavel }.regras
 }
